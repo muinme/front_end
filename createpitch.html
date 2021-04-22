@@ -180,17 +180,6 @@
                                             </div>
                                             <!-- /.nav-collapse -->
                                         </nav>
-                                        <div class="search-bar">
-                                            <div id="imaginary_container">
-                                                <div class="input-group stylish-input-group">
-                                                    <input type="text" class="form-control" placeholder="Search">
-                                                    <span class="input-group-addon">
-                                                        <button type="submit"><i class="fa fa-search"
-                                                                aria-hidden="true"></i></button>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +194,7 @@
         </div>
         <div class="inner-information-text">
             <div class="container">
-                <h3>Tạo Form Tìm Đối</h3>
+                <h3>Tạo Sân Bóng</h3>
                 <ul class="breadcrumb">
                     <li><a href="index.html">Home</a></li>
                     <li class="active">Blog</li>
@@ -335,7 +324,7 @@
                                                       <div class="col-md-5">
                                                          <select id="ddlType" ng-model="form.selectedType"
                                                             class="form-control ng-pristine ng-untouched ng-valid ng-not-empty"
-                                                            ng-options="item.name for item in typeList track by item.id" style="">
+                                                            ng-options="item.name for item in typeList track by item.id">
                                                             <option label="Bóng đá" value="1" selected="selected">Bóng đá</option>
                                                             <option label="Tennis" value="2">Tennis</option>
                                                             <option label="Bóng chuyền" value="3">Bóng chuyền</option>
@@ -348,7 +337,7 @@
                                                    </div>
             
                                                    <!-- ngIf: form.selectedType.id==1 -->
-                                                   <div class="form-group row ng-scope" ng-if="form.selectedType.id==1" style="">
+                                                   <div class="form-group row ng-scope" ng-if="form.selectedType.id==1">
                                                       <label class="col-md-3 col-form-label">Mặt sân</label>
                                                       <div class="col-md-5">
                                                          <select id="ddlStadiumType" ng-model="form.selectedStadiumType"

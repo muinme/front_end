@@ -216,26 +216,24 @@
             </div>
         </div>
     </section>
-    <section id="contant" class="contant main-heading team" >
+    <section id="contant" class="contant main-heading team">
         <div class="row">
             <div class="container">
                 <div class="col-md-9">
                     <div class="feature-post small-blog">
                         <div class="feature-cont">
-                                <div class="item-card">
+                            <div class="item-card">
                                 <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
                                     <ul id="myTab" class="nav nav-tabs" role="tablist">
-                                        <li ng-controller="StadiumBookingNotificationCtrl as vmNoti" class="ng-scope">
+                                        <li ng-controller="StadiumBookingNotificationCtrl as vmNoti" class="active">
                                             <a href="requestorderpitch.html" style="font-size: 15px">
                                                 <i class="fa fa-list" aria-hidden="true"></i>
                                                 Yêu cầu đặt sân
-                                                <b class="badge badge-primary ng-binding"
-                                                    style="background-color: red">1</b>
                                             </a>
                                         </li>
 
-                                        <li class="active">
-                                            <a href="managementpitch.html   " style="font-size: 15px">
+                                        <li class="ng-scope">
+                                            <a href="managementpitch.html" style="font-size: 15px">
                                                 <i class="fa fa-list" aria-hidden="true"></i>
                                                 Danh sách sân
                                             </a>
@@ -249,9 +247,7 @@
                                             <div id="listStadium" style="min-height: 250px; position: relative">
                                                 <!-- ngIf: overlayLoading -->
                                                 <div class="pull-right" style="margin-bottom: 30px">
-                                                    <div class="dropdown">
-                                                        <a href="createpitch.html" class="btn btn-primary btn-primary-extra dropdown-toggle"><i class="fa fa-plus-square"></i>Tạo sân mới</a>
-                                                    </div>
+                    
                                                 </div>
                                                 <!-- ngIf: stadiums.length>=1 -->
                                                 <!-- ngIf: stadiums.length==0 -->
@@ -261,52 +257,20 @@
                                                     <thead>
                                                         <tr style="font-size: 15px">
                                                             <th>#</th>
-                                                            <th>Loại</th>
-                                                            <th>Thông tin sân</th>
-                                                            <th>Ảnh đại diện</th>
-                                                            <th align="right" style="text-align:right">Tác vụ</th>
+                                                            <th>Sân</th>
+                                                            <th>Người đặt</th>
+                                                            <th>Thời gian</th>
+                                                            <th>Nội dung</th>
+                                                            <th class="text-right" width="250">Tác vụ</th>
                                                         </tr>
                                                     </thead>
 
                                                     <tbody>
-                                                      <tr ng-repeat="stadium in stadiums" class="ng-scope" style="text-align: left;">
-                                        <td class="ng-binding">1</td>
-                                        <td>
-                                            <!-- ngIf: stadium.TypeId==1 --><span ng-if="stadium.TypeId==1" class="ng-scope">Bóng đá</span><!-- end ngIf: stadium.TypeId==1 -->
-                                            <!-- ngIf: stadium.TypeId==2 -->
-                                            <!-- ngIf: stadium.TypeId==3 -->
-                                            <!-- ngIf: stadium.TypeId==4 -->
-                                            <!-- ngIf: stadium.TypeId==5 -->
-                                            <!-- ngIf: stadium.TypeId==6 -->
-                                        </td>
-                                        <td>
-                                            <a ng-href="#/stadium-info/1362" href="#/stadium-info/1362"><strong class="ng-binding">Sân Vận Động Mỹ Đình</strong></a>
-                                            <div class="ng-binding">
-                                                <i class="fa fa-map-o"></i> số 31 (Quận Ba Đình Hà Nội)
-                                            </div>
-                                            <!-- ngIf: stadium.MobileNumbers!='' && stadium.MobileNumbers!=null --><div ng-if="stadium.MobileNumbers!='' &amp;&amp; stadium.MobileNumbers!=null" class="ng-scope">
-                                                <i class="fa fa-phone-square"></i> <a href="tel:0333157596" class="ng-binding"> 0333157596</a>
-                                            </div><!-- end ngIf: stadium.MobileNumbers!='' && stadium.MobileNumbers!=null -->
-                                            <!-- ngIf: stadium.Facebook!='' && stadium.Facebook!=null -->
-                                            <!-- ngIf: stadium.Website!='' && stadium.Website!=null -->
-                                            <!-- ngIf: stadium.EmailAddress!='' && stadium.EmailAddress!=null --><div ng-if="stadium.EmailAddress!='' &amp;&amp; stadium.EmailAddress!=null" class="ng-scope">
-                                                <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:phamanhtu242@gmail.com" target="_top" class="ng-binding"> phamanhtu242@gmail.com</a>
-                                            </div><!-- end ngIf: stadium.EmailAddress!='' && stadium.EmailAddress!=null -->
-
-                                        </td>
-                                        <td>
-                                            <img height="120" ng-src="">
-                                        </td>
-
-                                        <td align="right" style="text-align:right">
-                                            <div class="form-group">
-                                                <a href="createpitch.html" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="glyphicon glyphicon-pencil"></i> Sửa thông tin</a>
-                                                <br>
-                                                <a class="btn btn-danger btn-sm" confirmation-needed="Bạn có chắc chắn muốn xóa Sân Vận Động Mỹ Đình?" ng-click="changeStatus(stadium.Id,3,$event)" title="Xóa" style="float:none; padding: 5px 20px;"><i class="fa fa-calendar"></i>Cập Nhật</a> <a class="btn btn-danger btn-sm" confirmation-needed="Bạn có chắc chắn muốn xóa Sân Vận Động Mỹ Đình?" ng-click="changeStatus(stadium.Id,3,$event)" title="Xóa" style="float:none; padding: 5px 20px;"><i class="glyphicon glyphicon-remove-circle"></i> Xóa</a>
-                                            </div>
-                                        </td>
-
-                                    </tr>
+                                                        <tr>
+                                                            <td colspan="6">
+                                                                Không có yêu cầu đặt sân nào
+                                                            </td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                                 <!-- end ngIf: stadiums.length==0 -->

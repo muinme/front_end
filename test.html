@@ -1,391 +1,347 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style type="text/css">
-      [uib-typeahead-popup].dropdown-menu {
-        display: block;
-      }
-    </style>
-    <style type="text/css">
-      .uib-time input {
-        width: 50px;
-      }
-    </style>
-    <style type="text/css">
-      [uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,
-      [uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,
-      [uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,
-      [uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,
-      [uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,
-      [uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,
-      [uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,
-      [uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,
-      [uib-tooltip-html-popup].tooltip.top-left > .tooltip-arrow,
-      [uib-tooltip-html-popup].tooltip.top-right > .tooltip-arrow,
-      [uib-tooltip-html-popup].tooltip.bottom-left > .tooltip-arrow,
-      [uib-tooltip-html-popup].tooltip.bottom-right > .tooltip-arrow,
-      [uib-tooltip-html-popup].tooltip.left-top > .tooltip-arrow,
-      [uib-tooltip-html-popup].tooltip.left-bottom > .tooltip-arrow,
-      [uib-tooltip-html-popup].tooltip.right-top > .tooltip-arrow,
-      [uib-tooltip-html-popup].tooltip.right-bottom > .tooltip-arrow,
-      [uib-tooltip-template-popup].tooltip.top-left > .tooltip-arrow,
-      [uib-tooltip-template-popup].tooltip.top-right > .tooltip-arrow,
-      [uib-tooltip-template-popup].tooltip.bottom-left > .tooltip-arrow,
-      [uib-tooltip-template-popup].tooltip.bottom-right > .tooltip-arrow,
-      [uib-tooltip-template-popup].tooltip.left-top > .tooltip-arrow,
-      [uib-tooltip-template-popup].tooltip.left-bottom > .tooltip-arrow,
-      [uib-tooltip-template-popup].tooltip.right-top > .tooltip-arrow,
-      [uib-tooltip-template-popup].tooltip.right-bottom > .tooltip-arrow,
-      [uib-popover-popup].popover.top-left > .arrow,
-      [uib-popover-popup].popover.top-right > .arrow,
-      [uib-popover-popup].popover.bottom-left > .arrow,
-      [uib-popover-popup].popover.bottom-right > .arrow,
-      [uib-popover-popup].popover.left-top > .arrow,
-      [uib-popover-popup].popover.left-bottom > .arrow,
-      [uib-popover-popup].popover.right-top > .arrow,
-      [uib-popover-popup].popover.right-bottom > .arrow,
-      [uib-popover-html-popup].popover.top-left > .arrow,
-      [uib-popover-html-popup].popover.top-right > .arrow,
-      [uib-popover-html-popup].popover.bottom-left > .arrow,
-      [uib-popover-html-popup].popover.bottom-right > .arrow,
-      [uib-popover-html-popup].popover.left-top > .arrow,
-      [uib-popover-html-popup].popover.left-bottom > .arrow,
-      [uib-popover-html-popup].popover.right-top > .arrow,
-      [uib-popover-html-popup].popover.right-bottom > .arrow,
-      [uib-popover-template-popup].popover.top-left > .arrow,
-      [uib-popover-template-popup].popover.top-right > .arrow,
-      [uib-popover-template-popup].popover.bottom-left > .arrow,
-      [uib-popover-template-popup].popover.bottom-right > .arrow,
-      [uib-popover-template-popup].popover.left-top > .arrow,
-      [uib-popover-template-popup].popover.left-bottom > .arrow,
-      [uib-popover-template-popup].popover.right-top > .arrow,
-      [uib-popover-template-popup].popover.right-bottom > .arrow {
-        top: auto;
-        bottom: auto;
-        left: auto;
-        right: auto;
-        margin: 0;
-      }
 
-      [uib-popover-popup].popover,
-      [uib-popover-html-popup].popover,
-      [uib-popover-template-popup].popover {
-        display: block !important;
-      }
-    </style>
-    <style type="text/css">
-      .uib-datepicker-popup.dropdown-menu {
-        display: block;
-        float: none;
-        margin: 0;
-      }
+<head>
+  <style type="text/css">
+    [uib-typeahead-popup].dropdown-menu {
+      display: block;
+    }
+  </style>
+  <style type="text/css">
+    .uib-time input {
+      width: 50px;
+    }
+  </style>
+  <style type="text/css">
+    [uib-tooltip-popup].tooltip.top-left>.tooltip-arrow,
+    [uib-tooltip-popup].tooltip.top-right>.tooltip-arrow,
+    [uib-tooltip-popup].tooltip.bottom-left>.tooltip-arrow,
+    [uib-tooltip-popup].tooltip.bottom-right>.tooltip-arrow,
+    [uib-tooltip-popup].tooltip.left-top>.tooltip-arrow,
+    [uib-tooltip-popup].tooltip.left-bottom>.tooltip-arrow,
+    [uib-tooltip-popup].tooltip.right-top>.tooltip-arrow,
+    [uib-tooltip-popup].tooltip.right-bottom>.tooltip-arrow,
+    [uib-tooltip-html-popup].tooltip.top-left>.tooltip-arrow,
+    [uib-tooltip-html-popup].tooltip.top-right>.tooltip-arrow,
+    [uib-tooltip-html-popup].tooltip.bottom-left>.tooltip-arrow,
+    [uib-tooltip-html-popup].tooltip.bottom-right>.tooltip-arrow,
+    [uib-tooltip-html-popup].tooltip.left-top>.tooltip-arrow,
+    [uib-tooltip-html-popup].tooltip.left-bottom>.tooltip-arrow,
+    [uib-tooltip-html-popup].tooltip.right-top>.tooltip-arrow,
+    [uib-tooltip-html-popup].tooltip.right-bottom>.tooltip-arrow,
+    [uib-tooltip-template-popup].tooltip.top-left>.tooltip-arrow,
+    [uib-tooltip-template-popup].tooltip.top-right>.tooltip-arrow,
+    [uib-tooltip-template-popup].tooltip.bottom-left>.tooltip-arrow,
+    [uib-tooltip-template-popup].tooltip.bottom-right>.tooltip-arrow,
+    [uib-tooltip-template-popup].tooltip.left-top>.tooltip-arrow,
+    [uib-tooltip-template-popup].tooltip.left-bottom>.tooltip-arrow,
+    [uib-tooltip-template-popup].tooltip.right-top>.tooltip-arrow,
+    [uib-tooltip-template-popup].tooltip.right-bottom>.tooltip-arrow,
+    [uib-popover-popup].popover.top-left>.arrow,
+    [uib-popover-popup].popover.top-right>.arrow,
+    [uib-popover-popup].popover.bottom-left>.arrow,
+    [uib-popover-popup].popover.bottom-right>.arrow,
+    [uib-popover-popup].popover.left-top>.arrow,
+    [uib-popover-popup].popover.left-bottom>.arrow,
+    [uib-popover-popup].popover.right-top>.arrow,
+    [uib-popover-popup].popover.right-bottom>.arrow,
+    [uib-popover-html-popup].popover.top-left>.arrow,
+    [uib-popover-html-popup].popover.top-right>.arrow,
+    [uib-popover-html-popup].popover.bottom-left>.arrow,
+    [uib-popover-html-popup].popover.bottom-right>.arrow,
+    [uib-popover-html-popup].popover.left-top>.arrow,
+    [uib-popover-html-popup].popover.left-bottom>.arrow,
+    [uib-popover-html-popup].popover.right-top>.arrow,
+    [uib-popover-html-popup].popover.right-bottom>.arrow,
+    [uib-popover-template-popup].popover.top-left>.arrow,
+    [uib-popover-template-popup].popover.top-right>.arrow,
+    [uib-popover-template-popup].popover.bottom-left>.arrow,
+    [uib-popover-template-popup].popover.bottom-right>.arrow,
+    [uib-popover-template-popup].popover.left-top>.arrow,
+    [uib-popover-template-popup].popover.left-bottom>.arrow,
+    [uib-popover-template-popup].popover.right-top>.arrow,
+    [uib-popover-template-popup].popover.right-bottom>.arrow {
+      top: auto;
+      bottom: auto;
+      left: auto;
+      right: auto;
+      margin: 0;
+    }
 
-      .uib-button-bar {
-        padding: 10px 9px 2px;
-      }
-    </style>
-    <style type="text/css">
-      .uib-position-measure {
-        display: block !important;
-        visibility: hidden !important;
-        position: absolute !important;
-        top: -9999px !important;
-        left: -9999px !important;
-      }
+    [uib-popover-popup].popover,
+    [uib-popover-html-popup].popover,
+    [uib-popover-template-popup].popover {
+      display: block !important;
+    }
+  </style>
+  <style type="text/css">
+    .uib-datepicker-popup.dropdown-menu {
+      display: block;
+      float: none;
+      margin: 0;
+    }
 
-      .uib-position-scrollbar-measure {
-        position: absolute !important;
-        top: -9999px !important;
-        width: 50px !important;
-        height: 50px !important;
-        overflow: scroll !important;
-      }
+    .uib-button-bar {
+      padding: 10px 9px 2px;
+    }
+  </style>
+  <style type="text/css">
+    .uib-position-measure {
+      display: block !important;
+      visibility: hidden !important;
+      position: absolute !important;
+      top: -9999px !important;
+      left: -9999px !important;
+    }
 
-      .uib-position-body-scrollbar-measure {
-        overflow: scroll !important;
-      }
-    </style>
-    <style type="text/css">
-      .uib-datepicker .uib-title {
-        width: 100%;
-      }
+    .uib-position-scrollbar-measure {
+      position: absolute !important;
+      top: -9999px !important;
+      width: 50px !important;
+      height: 50px !important;
+      overflow: scroll !important;
+    }
 
-      .uib-day button,
-      .uib-month button,
-      .uib-year button {
-        min-width: 100%;
-      }
+    .uib-position-body-scrollbar-measure {
+      overflow: scroll !important;
+    }
+  </style>
+  <style type="text/css">
+    .uib-datepicker .uib-title {
+      width: 100%;
+    }
 
-      .uib-left,
-      .uib-right {
-        width: 100%;
-      }
-    </style>
-    <style type="text/css">
-      .ng-animate.item:not(.left):not(.right) {
-        -webkit-transition: 0s ease-in-out left;
-        transition: 0s ease-in-out left;
-      }
-    </style>
-    <script
-      src="https://connect.facebook.net/vi_VN/sdk.js?hash=c65e2c4b9d12c3c9b9e33329141dc532&amp;ua=modern_es6"
-      async=""
-      crossorigin="anonymous"
-    ></script>
-    <script
-      id="facebook-jssdk"
-      src="//connect.facebook.net/vi_VN/sdk.js#xfbml=1&amp;version=v2.8&amp;appId=930986897045312"
-    ></script>
-    <script
-      async=""
-      src="https://connect.facebook.net/en_US/fbevents.js"
-    ></script>
-    <script
-      async=""
-      src="https://www.google-analytics.com/analytics.js"
-    ></script>
-    <style type="text/css">
-      @charset "UTF-8";
+    .uib-day button,
+    .uib-month button,
+    .uib-year button {
+      min-width: 100%;
+    }
 
-      [ng\:cloak],
-      [ng-cloak],
-      [data-ng-cloak],
-      [x-ng-cloak],
-      .ng-cloak,
-      .x-ng-cloak,
-      .ng-hide:not(.ng-hide-animate) {
-        display: none !important;
-      }
+    .uib-left,
+    .uib-right {
+      width: 100%;
+    }
+  </style>
+  <style type="text/css">
+    .ng-animate.item:not(.left):not(.right) {
+      -webkit-transition: 0s ease-in-out left;
+      transition: 0s ease-in-out left;
+    }
+  </style>
+  <script src="https://connect.facebook.net/vi_VN/sdk.js?hash=c65e2c4b9d12c3c9b9e33329141dc532&amp;ua=modern_es6"
+    async="" crossorigin="anonymous"></script>
+  <script id="facebook-jssdk"
+    src="//connect.facebook.net/vi_VN/sdk.js#xfbml=1&amp;version=v2.8&amp;appId=930986897045312"></script>
+  <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
+  <script async="" src="https://www.google-analytics.com/analytics.js"></script>
+  <style type="text/css">
+    @charset "UTF-8";
 
-      ng\:form {
-        display: block;
-      }
+    [ng\:cloak],
+    [ng-cloak],
+    [data-ng-cloak],
+    [x-ng-cloak],
+    .ng-cloak,
+    .x-ng-cloak,
+    .ng-hide:not(.ng-hide-animate) {
+      display: none !important;
+    }
 
-      .ng-animate-shim {
-        visibility: hidden;
-      }
+    ng\:form {
+      display: block;
+    }
 
-      .ng-anchor {
-        position: absolute;
-      }
-    </style>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="https://www.timdoinhanh.com/Assets/img/favicons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://www.timdoinhanh.com/Assets/img/favicons/favicon-32x32.png"
-      sizes="32x32"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://www.timdoinhanh.com/Assets/img/favicons/favicon-16x16.png"
-      sizes="16x16"
-    />
-    <link
-      rel="manifest"
-      href="https://www.timdoinhanh.com/Assets/img/favicons/manifest.json"
-    />
-    <link
-      rel="mask-icon"
-      href="https://www.timdoinhanh.com/Assets/img/favicons/safari-pinned-tab.svg"
-      color="#5bbad5"
-    />
-    <meta name="theme-color" content="#ffffff" />
+    .ng-animate-shim {
+      visibility: hidden;
+    }
 
-    <!--Booking verify-->
-    <meta name="B-verify" content="04bdaaddca34266cf70ff8a7946fb9c26505fe05" />
+    .ng-anchor {
+      position: absolute;
+    }
+  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="https://www.timdoinhanh.com/Assets/img/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="https://www.timdoinhanh.com/Assets/img/favicons/favicon-32x32.png"
+    sizes="32x32" />
+  <link rel="icon" type="image/png" href="https://www.timdoinhanh.com/Assets/img/favicons/favicon-16x16.png"
+    sizes="16x16" />
+  <link rel="manifest" href="https://www.timdoinhanh.com/Assets/img/favicons/manifest.json" />
+  <link rel="mask-icon" href="https://www.timdoinhanh.com/Assets/img/favicons/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="theme-color" content="#ffffff" />
 
-    <meta property="og:title" content="Quản lý sân" />
-    <meta property="og:description" content="" />
-    <meta
-      property="og:image"
-      itemprop="image primaryImageOfPage"
-      content="https://www.timdoinhanh.com/assets/img/timdoinhanh-min.png"
-    />
-    <title>Yêu cầu đặt sân (0)</title>
-    <link
-      rel="shortcut icon"
-      href="https://www.timdoinhanh.com/Assets/img/favicons/favicon.ico"
-    />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+  <!--Booking verify-->
+  <meta name="B-verify" content="04bdaaddca34266cf70ff8a7946fb9c26505fe05" />
 
-    <!-- Google Font -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link href="/Assets/css/font-awesome.min.css" rel="stylesheet" />
+  <meta property="og:title" content="Quản lý sân" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" itemprop="image primaryImageOfPage"
+    content="https://www.timdoinhanh.com/assets/img/timdoinhanh-min.png" />
+  <title>Yêu cầu đặt sân (0)</title>
+  <link rel="shortcut icon" href="https://www.timdoinhanh.com/Assets/img/favicons/favicon.ico" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
 
-    <!--Stylesheets-->
-    <link href="plugin.css" rel="stylesheet" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800" rel="stylesheet" type="text/css" />
+  <link href="/Assets/css/font-awesome.min.css" rel="stylesheet" />
 
-    <link href="main.css" rel="stylesheet" />
+  <!--Stylesheets-->
+  <link href="plugin.css" rel="stylesheet" />
 
-    <!--Libraries-->
-    <script src="libs.js"></script>
+  <link href="main.css" rel="stylesheet" />
 
-    <script src="/scripts/firebase.js?v=ViiODJOSSLf5H-KOUXkWltIlSN07oOrFe9X_7VsjhHc1"></script>
+  <!--Libraries-->
+  <script src="libs.js"></script>
 
-    <!--angularjs ui-select-->
-    <link
-      href="/angular-libs/ui-select.css?v=RJBwKvQnmD4rGTsXquzpUKTBdS5YnyDb5u0OMMZ_kas1"
-      rel="stylesheet"
-    />
+  <script src="/scripts/firebase.js?v=ViiODJOSSLf5H-KOUXkWltIlSN07oOrFe9X_7VsjhHc1"></script>
 
-    <script src="/angular-libs/ui-select.js?v=h21yt8VtoSJpabZBt9rFDD4s6zb4dtfqu8HCfgS736M1"></script>
+  <!--angularjs ui-select-->
+  <link href="/angular-libs/ui-select.css?v=RJBwKvQnmD4rGTsXquzpUKTBdS5YnyDb5u0OMMZ_kas1" rel="stylesheet" />
 
-    <!--angularjs moment-picker-->
-    <link
-      href="/angular-libs/moment-picker.css?v=hpNcxpWioY99YYUxBpNgkzo56BZ4qMwXBi1z4b_d-rE1"
-      rel="stylesheet"
-    />
+  <script src="/angular-libs/ui-select.js?v=h21yt8VtoSJpabZBt9rFDD4s6zb4dtfqu8HCfgS736M1"></script>
 
-    <script src="/angular-libs/moment-picker.js?v=_ReXy9HqZRhxWwUWVHv1m5G-j94GKr_PbV_5vPxqPwI1"></script>
+  <!--angularjs moment-picker-->
+  <link href="/angular-libs/moment-picker.css?v=hpNcxpWioY99YYUxBpNgkzo56BZ4qMwXBi1z4b_d-rE1" rel="stylesheet" />
 
-    <script>
-      var sportApp = angular.module("sportApp", [
-        "ui.bootstrap",
-        "autocomplete",
-        "ngRoute",
-        "ngAnimate",
-        "firebase",
-        "ui.select",
-        "ngSanitize",
-        //'mwl.calendar',
-        "moment-picker",
-        "ui.utils.masks",
-      ]);
+  <script src="/angular-libs/moment-picker.js?v=_ReXy9HqZRhxWwUWVHv1m5G-j94GKr_PbV_5vPxqPwI1"></script>
 
-      sportApp.factory("httpRequestInterceptor", function ($q, $location) {
-        return {
-          responseError: function (rejection) {
-            // do something on error
-            if (rejection.status === 404) {
-              $location.path("/404/");
-            } else if (rejection.status === 401) {
-              alert(
-                "Có lỗi xảy ra trong quá trình tải dữ liệu, vui lòng đăng nhập lại"
-              );
-              location.href = "/dang-nhap.html";
-            }
-            return $q.reject(rejection);
-          },
-        };
-      });
-    </script>
-    <script type="text/javascript" src="/Angular/js/angularHelper.js"></script>
-    <script src="common.js"></script>
+  <script>
+    var sportApp = angular.module("sportApp", [
+      "ui.bootstrap",
+      "autocomplete",
+      "ngRoute",
+      "ngAnimate",
+      "firebase",
+      "ui.select",
+      "ngSanitize",
+      //'mwl.calendar',
+      "moment-picker",
+      "ui.utils.masks",
+    ]);
 
-    <script src="/scripts/directives.js?v=vQjDwNwWXUquAIdOCVljsqy7Ns3z5LMxlLNyV1NkwYo1"></script>
-
-    <script src="/scripts/services.js?v=8DjghAj1ulrQTWW_Ww2vzSb5cjN0IB7sJNMwCO8xt1c1"></script>
-
-    <script src="/scripts/controllers.js?v=QyqbKohrfgnhJB73xCdAuC5BvTVrUWpKEo54pUoWRus1"></script>
-
-    <script src="/scripts/custom.js?v=nsfP8xeAl-zbPLJ2j0b-MbX6zn_Juva5dPU7UDtEx_o1"></script>
-
-    <script src="/scripts/filters.js?v=rsuGccAHLos-WExA0-S1-OPHqTevdtON86sHMl3lgk41"></script>
-
-    <!--Common-->
-
-    <script>
-      common.config.userId = "usr-7054";
-      common.config.avatar =
-        "https://www.timdoinhanh.com//Images/user/default-user.png";
-      common.config.name = "Phạm Anh T&#250;";
-      common.config.xAuthToken =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjcwNTQiLCJzdWIiOiI3MDU0IiwiYXVkIjpbIjA2OTE1M2ExNjU1MTQ3YmM4dmNiM2U4NWUwM3IxMDI4IiwiMDY5MTUzYTE2NTUxNDdiYzh2Y2IzZTg1ZTAzcjEwMjgiXSwibmJmIjoxNjE4ODQ3NjY0LCJleHAiOjE2MjE0Mzk2NjQsImlhdCI6MTYxODg0NzY2NCwiaXNzIjoiVGltZG9pbmhhbmguY29tIn0.-ee9nNKnjNebP83m40qYW4N0tWbH6X_jWl-q3OEGaHE";
-      common.config.serviceDomain = "https://www.timdoinhanh.com/";
-      common.config.webDomain = "https://www.timdoinhanh.com/";
-      var jsonMyTeams =
-        '[{"id":22316,"name":"dsss","logo":"/images/team/sport.png","level":null,"provinceId":3}]';
-      if (jsonMyTeams !== "") {
-        common.config.myTeams = jQuery.parseJSON(jsonMyTeams);
-      } else {
-        common.config.myTeams = [];
-      }
-    </script>
-
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAF-FW6r0uAuQ6kUdPTRT_RrpQUZn8lFFE",
-        authDomain: "timdoinhanh-4538b.firebaseapp.com",
-        databaseURL: "https://timdoinhanh-4538b.firebaseio.com",
-        projectId: "timdoinhanh-4538b",
-        storageBucket: "timdoinhanh-4538b.appspot.com",
-        messagingSenderId: "986749593380",
+    sportApp.factory("httpRequestInterceptor", function ($q, $location) {
+      return {
+        responseError: function (rejection) {
+          // do something on error
+          if (rejection.status === 404) {
+            $location.path("/404/");
+          } else if (rejection.status === 401) {
+            alert(
+              "Có lỗi xảy ra trong quá trình tải dữ liệu, vui lòng đăng nhập lại"
+            );
+            location.href = "/dang-nhap.html";
+          }
+          return $q.reject(rejection);
+        },
       };
-      firebase.initializeApp(config);
+    });
+  </script>
+  <script type="text/javascript" src="/Angular/js/angularHelper.js"></script>
+  <script src="common.js"></script>
 
-      // Initialize Firebase messaging object
-      const firebaseMessaging = firebase.messaging();
+  <script src="/scripts/directives.js?v=vQjDwNwWXUquAIdOCVljsqy7Ns3z5LMxlLNyV1NkwYo1"></script>
 
-      // [START refresh_token]
-      // Callback fired if Instance ID token is updated.
-      firebaseMessaging.onTokenRefresh(function () {
-        firebaseMessaging
-          .getToken()
-          .then(function (refreshedToken) {
-            onFirebabseMessagingTokenRefresh();
-          })
-          .catch(function (err) {
-            console.log("Unable to retrieve refreshed token ", err);
-          });
-      });
-      // [END refresh_token]
+  <script src="/scripts/services.js?v=8DjghAj1ulrQTWW_Ww2vzSb5cjN0IB7sJNMwCO8xt1c1"></script>
 
-      // [START receive_message]
-      // Handle incoming messages. Called when:
-      // - a message is received while the app has focus
-      // - the user clicks on an app notification created by a sevice worker
-      //   `messaging.setBackgroundMessageHandler` handler.
-      firebaseMessaging.onMessage(function (payload) {
-        onFirebaseMessagingMessage();
-      });
-      // [END receive_message]
+  <script src="/scripts/controllers.js?v=QyqbKohrfgnhJB73xCdAuC5BvTVrUWpKEo54pUoWRus1"></script>
 
-      initializeFirebaseMessaging();
-    </script>
+  <script src="/scripts/custom.js?v=nsfP8xeAl-zbPLJ2j0b-MbX6zn_Juva5dPU7UDtEx_o1"></script>
 
-    <script>
-      (function (i, s, o, g, r, a, m) {
-        i["GoogleAnalyticsObject"] = r;
-        (i[r] =
-          i[r] ||
-          function () {
-            (i[r].q = i[r].q || []).push(arguments);
-          }),
-          (i[r].l = 1 * new Date());
-        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m);
-      })(
-        window,
-        document,
-        "script",
-        "https://www.google-analytics.com/analytics.js",
-        "ga"
-      );
+  <script src="/scripts/filters.js?v=rsuGccAHLos-WExA0-S1-OPHqTevdtON86sHMl3lgk41"></script>
 
-      ga("create", "UA-92981242-1", "auto");
-      ga("send", "pageview");
-    </script>
+  <!--Common-->
 
-    <script>
-      document.querySelector("#myTab > li.active.ng-scope > a");
-    </script>
-    <script type="text/ng-template" id="stadiumList.html">
+  <script>
+    common.config.userId = "usr-7054";
+    common.config.avatar =
+      "https://www.timdoinhanh.com//Images/user/default-user.png";
+    common.config.name = "Phạm Anh T&#250;";
+    common.config.xAuthToken =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjcwNTQiLCJzdWIiOiI3MDU0IiwiYXVkIjpbIjA2OTE1M2ExNjU1MTQ3YmM4dmNiM2U4NWUwM3IxMDI4IiwiMDY5MTUzYTE2NTUxNDdiYzh2Y2IzZTg1ZTAzcjEwMjgiXSwibmJmIjoxNjE4ODQ3NjY0LCJleHAiOjE2MjE0Mzk2NjQsImlhdCI6MTYxODg0NzY2NCwiaXNzIjoiVGltZG9pbmhhbmguY29tIn0.-ee9nNKnjNebP83m40qYW4N0tWbH6X_jWl-q3OEGaHE";
+    common.config.serviceDomain = "https://www.timdoinhanh.com/";
+    common.config.webDomain = "https://www.timdoinhanh.com/";
+    var jsonMyTeams =
+      '[{"id":22316,"name":"dsss","logo":"/images/team/sport.png","level":null,"provinceId":3}]';
+    if (jsonMyTeams !== "") {
+      common.config.myTeams = jQuery.parseJSON(jsonMyTeams);
+    } else {
+      common.config.myTeams = [];
+    }
+  </script>
+
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAF-FW6r0uAuQ6kUdPTRT_RrpQUZn8lFFE",
+      authDomain: "timdoinhanh-4538b.firebaseapp.com",
+      databaseURL: "https://timdoinhanh-4538b.firebaseio.com",
+      projectId: "timdoinhanh-4538b",
+      storageBucket: "timdoinhanh-4538b.appspot.com",
+      messagingSenderId: "986749593380",
+    };
+    firebase.initializeApp(config);
+
+    // Initialize Firebase messaging object
+    const firebaseMessaging = firebase.messaging();
+
+    // [START refresh_token]
+    // Callback fired if Instance ID token is updated.
+    firebaseMessaging.onTokenRefresh(function () {
+      firebaseMessaging
+        .getToken()
+        .then(function (refreshedToken) {
+          onFirebabseMessagingTokenRefresh();
+        })
+        .catch(function (err) {
+          console.log("Unable to retrieve refreshed token ", err);
+        });
+    });
+    // [END refresh_token]
+
+    // [START receive_message]
+    // Handle incoming messages. Called when:
+    // - a message is received while the app has focus
+    // - the user clicks on an app notification created by a sevice worker
+    //   `messaging.setBackgroundMessageHandler` handler.
+    firebaseMessaging.onMessage(function (payload) {
+      onFirebaseMessagingMessage();
+    });
+    // [END receive_message]
+
+    initializeFirebaseMessaging();
+  </script>
+
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i["GoogleAnalyticsObject"] = r;
+      (i[r] =
+        i[r] ||
+        function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        }),
+        (i[r].l = 1 * new Date());
+      (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m);
+    })(
+      window,
+      document,
+      "script",
+      "https://www.google-analytics.com/analytics.js",
+      "ga"
+    );
+
+    ga("create", "UA-92981242-1", "auto");
+    ga("send", "pageview");
+  </script>
+
+  <script>
+    document.querySelector("#myTab > li.active.ng-scope > a");
+  </script>
+  <script type="text/ng-template" id="stadiumList.html">
       <div class="breadcrum">
           <div class="container">
               <div class="breadcrum-line"><a href="/">Trang chủ</a><a href="/stadium/management">Danh sách sân</a></div>
@@ -558,7 +514,7 @@
       </div>
       
       </script>
-      <script type="text/ng-template" id="bookingManager.html">
+  <script type="text/ng-template" id="bookingManager.html">
         <div class="breadcrum">
             <div class="container">
                 <div class="breadcrum-line">
@@ -928,7 +884,7 @@
             </div>
         </div>
         </script>
-        <script type="text/ng-template" id="bookingRequests.html">
+  <script type="text/ng-template" id="bookingRequests.html">
 
           <div class="top-banner-box">
               <div class="container">
@@ -1039,850 +995,816 @@
               </div>
           </div>
           </script>
-          <script>
-            common.config.currentDefaultPage = '/stadium';
+  <script>
+    common.config.currentDefaultPage = '/stadium';
             //common.config.pageUrl = common.config.webDomain + '/stadium-management.html';
-        </script>
-    <script src="/Javascripts/summernote/v0.8.2/summernote.min.js"></script>
-    <link
-      href="/Javascripts/summernote/v0.8.2/summernote.css"
-      rel="stylesheet"
-    />
-    <link href="/assets/css/stadium.management.css" rel="stylesheet" />
+  </script>
+  <script src="/Javascripts/summernote/v0.8.2/summernote.min.js"></script>
+  <link href="/Javascripts/summernote/v0.8.2/summernote.css" rel="stylesheet" />
+  <link href="/assets/css/stadium.management.css" rel="stylesheet" />
 
-    <!-- Facebook Pixel Code -->
-    <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
-      );
-      fbq("init", "408592833860560");
-      fbq("track", "PageView");
-    </script>
-    <noscript>
-      <img
-        height="1"
-        width="1"
-        style="display: none"
-        src="https://www.facebook.com/tr?id=408592833860560&ev=PageView&noscript=1"
-      />
-    </noscript>
-    <!-- End Facebook Pixel Code -->
+  <!-- Facebook Pixel Code -->
+  <script>
+    !(function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod
+          ? n.callMethod.apply(n, arguments)
+          : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = "2.0";
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(
+      window,
+      document,
+      "script",
+      "https://connect.facebook.net/en_US/fbevents.js"
+    );
+    fbq("init", "408592833860560");
+    fbq("track", "PageView");
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display: none"
+      src="https://www.facebook.com/tr?id=408592833860560&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- End Facebook Pixel Code -->
 
-    <style
-      type="text/css"
-      data-fbcssmodules="css:fb.css.basecss:fb.css.dialog css:fb.css.iframewidget css:fb.css.customer_chat_plugin_iframe"
-    >
-      .fb_hidden {
-        position: absolute;
-        top: -10000px;
-        z-index: 10001;
+  <style type="text/css"
+    data-fbcssmodules="css:fb.css.basecss:fb.css.dialog css:fb.css.iframewidget css:fb.css.customer_chat_plugin_iframe">
+    .fb_hidden {
+      position: absolute;
+      top: -10000px;
+      z-index: 10001;
+    }
+
+    .fb_reposition {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .fb_invisible {
+      display: none;
+    }
+
+    .fb_reset {
+      background: none;
+      border: 0;
+      border-spacing: 0;
+      color: #000;
+      cursor: auto;
+      direction: ltr;
+      font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+      font-size: 11px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: normal;
+      letter-spacing: normal;
+      line-height: 1;
+      margin: 0;
+      overflow: visible;
+      padding: 0;
+      text-align: left;
+      text-decoration: none;
+      text-indent: 0;
+      text-shadow: none;
+      text-transform: none;
+      visibility: visible;
+      white-space: normal;
+      word-spacing: normal;
+    }
+
+    .fb_reset>div {
+      overflow: hidden;
+    }
+
+    @keyframes fb_transform {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
       }
 
-      .fb_reposition {
-        overflow: hidden;
-        position: relative;
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .fb_animate {
+      animation: fb_transform 0.3s forwards;
+    }
+
+    .fb_dialog {
+      background: rgba(82, 82, 82, 0.7);
+      position: absolute;
+      top: -10000px;
+      z-index: 10001;
+    }
+
+    .fb_dialog_advanced {
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .fb_dialog_content {
+      background: #fff;
+      color: #373737;
+    }
+
+    .fb_dialog_close_icon {
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;
+      cursor: pointer;
+      display: block;
+      height: 15px;
+      position: absolute;
+      right: 18px;
+      top: 17px;
+      width: 15px;
+    }
+
+    .fb_dialog_mobile .fb_dialog_close_icon {
+      left: 5px;
+      right: auto;
+      top: 5px;
+    }
+
+    .fb_dialog_padding {
+      background-color: transparent;
+      position: absolute;
+      width: 1px;
+      z-index: -1;
+    }
+
+    .fb_dialog_close_icon:hover {
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;
+    }
+
+    .fb_dialog_close_icon:active {
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;
+    }
+
+    .fb_dialog_iframe {
+      line-height: 0;
+    }
+
+    .fb_dialog_content .dialog_title {
+      background: #6d84b4;
+      border: 1px solid #365899;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .fb_dialog_content .dialog_title>span {
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;
+      float: left;
+      padding: 5px 0 7px 26px;
+    }
+
+    body.fb_hidden {
+      height: 100%;
+      left: 0;
+      margin: 0;
+      overflow: visible;
+      position: absolute;
+      top: -10000px;
+      transform: none;
+      width: 100%;
+    }
+
+    .fb_dialog.fb_dialog_mobile.loading {
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;
+      min-height: 100%;
+      min-width: 100%;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      z-index: 10001;
+    }
+
+    .fb_dialog.fb_dialog_mobile.loading.centered {
+      background: none;
+      height: auto;
+      min-height: initial;
+      min-width: initial;
+      width: auto;
+    }
+
+    .fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner {
+      width: 100%;
+    }
+
+    .fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content {
+      background: none;
+    }
+
+    .loading.centered #fb_dialog_loader_close {
+      clear: both;
+      color: #fff;
+      display: block;
+      font-size: 18px;
+      padding-top: 20px;
+    }
+
+    #fb-root #fb_dialog_ipad_overlay {
+      background: rgba(0, 0, 0, 0.4);
+      bottom: 0;
+      left: 0;
+      min-height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      z-index: 10000;
+    }
+
+    #fb-root #fb_dialog_ipad_overlay.hidden {
+      display: none;
+    }
+
+    .fb_dialog.fb_dialog_mobile.loading iframe {
+      visibility: hidden;
+    }
+
+    .fb_dialog_mobile .fb_dialog_iframe {
+      position: sticky;
+      top: 0;
+    }
+
+    .fb_dialog_content .dialog_header {
+      background: linear-gradient(from(#738aba), to(#2c4987));
+      border-bottom: 1px solid;
+      border-color: #043b87;
+      box-shadow: white 0 1px 1px -1px inset;
+      color: #fff;
+      font: bold 14px Helvetica, sans-serif;
+      text-overflow: ellipsis;
+      text-shadow: rgba(0, 30, 84, 0.296875) 0 -1px 0;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .fb_dialog_content .dialog_header table {
+      height: 43px;
+      width: 100%;
+    }
+
+    .fb_dialog_content .dialog_header td.header_left {
+      font-size: 12px;
+      padding-left: 5px;
+      vertical-align: middle;
+      width: 60px;
+    }
+
+    .fb_dialog_content .dialog_header td.header_right {
+      font-size: 12px;
+      padding-right: 5px;
+      vertical-align: middle;
+      width: 60px;
+    }
+
+    .fb_dialog_content .touchable_button {
+      background: linear-gradient(from(#4267b2), to(#2a4887));
+      background-clip: padding-box;
+      border: 1px solid #29487d;
+      border-radius: 3px;
+      display: inline-block;
+      line-height: 18px;
+      margin-top: 3px;
+      max-width: 85px;
+      padding: 4px 12px;
+      position: relative;
+    }
+
+    .fb_dialog_content .dialog_header .touchable_button input {
+      background: none;
+      border: none;
+      color: #fff;
+      font: bold 12px Helvetica, sans-serif;
+      margin: 2px -12px;
+      padding: 2px 6px 3px 6px;
+      text-shadow: rgba(0, 30, 84, 0.296875) 0 -1px 0;
+    }
+
+    .fb_dialog_content .dialog_header .header_center {
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 18px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .fb_dialog_content .dialog_content {
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;
+      border: 1px solid #4a4a4a;
+      border-bottom: 0;
+      border-top: 0;
+      height: 150px;
+    }
+
+    .fb_dialog_content .dialog_footer {
+      background: #f5f6f7;
+      border: 1px solid #4a4a4a;
+      border-top-color: #ccc;
+      height: 40px;
+    }
+
+    #fb_dialog_loader_close {
+      float: left;
+    }
+
+    .fb_dialog.fb_dialog_mobile .fb_dialog_close_icon {
+      visibility: hidden;
+    }
+
+    #fb_dialog_loader_spinner {
+      animation: rotateSpinner 1.2s linear infinite;
+      background-color: transparent;
+      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      height: 24px;
+      width: 24px;
+    }
+
+    @keyframes rotateSpinner {
+      0% {
+        transform: rotate(0deg);
       }
 
-      .fb_invisible {
-        display: none;
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .fb_iframe_widget {
+      display: inline-block;
+      position: relative;
+    }
+
+    .fb_iframe_widget span {
+      display: inline-block;
+      position: relative;
+      text-align: justify;
+    }
+
+    .fb_iframe_widget iframe {
+      position: absolute;
+    }
+
+    .fb_iframe_widget_fluid_desktop,
+    .fb_iframe_widget_fluid_desktop span,
+    .fb_iframe_widget_fluid_desktop iframe {
+      max-width: 100%;
+    }
+
+    .fb_iframe_widget_fluid_desktop iframe {
+      min-width: 220px;
+      position: relative;
+    }
+
+    .fb_iframe_widget_lift {
+      z-index: 1;
+    }
+
+    .fb_iframe_widget_fluid {
+      display: inline;
+    }
+
+    .fb_iframe_widget_fluid span {
+      width: 100%;
+    }
+
+    .fb_mpn_mobile_landing_page_slide_out {
+      animation-duration: 200ms;
+      animation-name: fb_mpn_landing_page_slide_out;
+      transition-timing-function: ease-in;
+    }
+
+    .fb_mpn_mobile_landing_page_slide_out_from_left {
+      animation-duration: 200ms;
+      animation-name: fb_mpn_landing_page_slide_out_from_left;
+      transition-timing-function: ease-in;
+    }
+
+    .fb_mpn_mobile_landing_page_slide_up {
+      animation-duration: 500ms;
+      animation-name: fb_mpn_landing_page_slide_up;
+      transition-timing-function: ease-in;
+    }
+
+    .fb_mpn_mobile_bounce_in {
+      animation-duration: 300ms;
+      animation-name: fb_mpn_bounce_in;
+      transition-timing-function: ease-in;
+    }
+
+    .fb_mpn_mobile_bounce_out {
+      animation-duration: 300ms;
+      animation-name: fb_mpn_bounce_out;
+      transition-timing-function: ease-in;
+    }
+
+    .fb_mpn_mobile_bounce_out_v2 {
+      animation-duration: 300ms;
+      animation-name: fb_mpn_fade_out;
+      transition-timing-function: ease-in;
+    }
+
+    .fb_customer_chat_bounce_in_v2 {
+      animation-duration: 300ms;
+      animation-name: fb_bounce_in_v2;
+      transition-timing-function: ease-in;
+    }
+
+    .fb_customer_chat_bounce_in_from_left {
+      animation-duration: 300ms;
+      animation-name: fb_bounce_in_from_left;
+      transition-timing-function: ease-in;
+    }
+
+    .fb_customer_chat_bounce_out_v2 {
+      animation-duration: 300ms;
+      animation-name: fb_bounce_out_v2;
+      transition-timing-function: ease-in;
+    }
+
+    .fb_customer_chat_bounce_out_from_left {
+      animation-duration: 300ms;
+      animation-name: fb_bounce_out_from_left;
+      transition-timing-function: ease-in;
+    }
+
+    .fb_customer_chat_bubble_animated_no_badge {
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+      transition: box-shadow 150ms linear;
+    }
+
+    .fb_customer_chat_bubble_animated_no_badge:hover {
+      box-shadow: 0 5px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .fb_customer_chat_bubble_animated_with_badge {
+      box-shadow: -5px 4px 14px rgba(0, 0, 0, 0.15);
+      transition: box-shadow 150ms linear;
+    }
+
+    .fb_customer_chat_bubble_animated_with_badge:hover {
+      box-shadow: -5px 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .fb_invisible_flow {
+      display: inherit;
+      height: 0;
+      overflow-x: hidden;
+      width: 0;
+    }
+
+    .fb_new_ui_mobile_overlay_active {
+      overflow: hidden;
+    }
+
+    @keyframes fb_mpn_landing_page_slide_in {
+      0% {
+        border-radius: 50%;
+        margin: 0 24px;
+        width: 60px;
       }
 
-      .fb_reset {
-        background: none;
-        border: 0;
-        border-spacing: 0;
-        color: #000;
-        cursor: auto;
-        direction: ltr;
-        font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
-        font-size: 11px;
-        font-style: normal;
-        font-variant: normal;
-        font-weight: normal;
-        letter-spacing: normal;
-        line-height: 1;
-        margin: 0;
-        overflow: visible;
-        padding: 0;
-        text-align: left;
-        text-decoration: none;
-        text-indent: 0;
-        text-shadow: none;
-        text-transform: none;
-        visibility: visible;
-        white-space: normal;
-        word-spacing: normal;
+      40% {
+        border-radius: 18px;
       }
 
-      .fb_reset > div {
-        overflow: hidden;
+      100% {
+        margin: 0 12px;
+        width: 100% - 24px;
+      }
+    }
+
+    @keyframes fb_mpn_landing_page_slide_in_from_left {
+      0% {
+        border-radius: 50%;
+        left: 12px;
+        margin: 0 24px;
+        width: 60px;
       }
 
-      @keyframes fb_transform {
-        from {
-          opacity: 0;
-          transform: scale(0.95);
-        }
-
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
+      40% {
+        border-radius: 18px;
       }
 
-      .fb_animate {
-        animation: fb_transform 0.3s forwards;
+      100% {
+        left: 12px;
+        margin: 0 12px;
+        width: 100% - 24px;
+      }
+    }
+
+    @keyframes fb_mpn_landing_page_slide_out {
+      0% {
+        margin: 0 12px;
+        width: 100% - 24px;
       }
 
-      .fb_dialog {
-        background: rgba(82, 82, 82, 0.7);
-        position: absolute;
-        top: -10000px;
-        z-index: 10001;
+      60% {
+        border-radius: 18px;
       }
 
-      .fb_dialog_advanced {
-        border-radius: 8px;
-        padding: 10px;
+      100% {
+        border-radius: 50%;
+        margin: 0 24px;
+        width: 60px;
+      }
+    }
+
+    @keyframes fb_mpn_landing_page_slide_out_from_left {
+      0% {
+        left: 12px;
+        width: 100% - 24px;
       }
 
-      .fb_dialog_content {
-        background: #fff;
-        color: #373737;
+      60% {
+        border-radius: 18px;
       }
 
-      .fb_dialog_close_icon {
-        background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png)
-          no-repeat scroll 0 0 transparent;
-        cursor: pointer;
-        display: block;
-        height: 15px;
-        position: absolute;
-        right: 18px;
-        top: 17px;
-        width: 15px;
+      100% {
+        border-radius: 50%;
+        left: 12px;
+        width: 60px;
       }
+    }
 
-      .fb_dialog_mobile .fb_dialog_close_icon {
-        left: 5px;
-        right: auto;
-        top: 5px;
-      }
-
-      .fb_dialog_padding {
-        background-color: transparent;
-        position: absolute;
-        width: 1px;
-        z-index: -1;
-      }
-
-      .fb_dialog_close_icon:hover {
-        background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png)
-          no-repeat scroll 0 -15px transparent;
-      }
-
-      .fb_dialog_close_icon:active {
-        background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png)
-          no-repeat scroll 0 -30px transparent;
-      }
-
-      .fb_dialog_iframe {
-        line-height: 0;
-      }
-
-      .fb_dialog_content .dialog_title {
-        background: #6d84b4;
-        border: 1px solid #365899;
-        color: #fff;
-        font-size: 14px;
-        font-weight: bold;
-        margin: 0;
-      }
-
-      .fb_dialog_content .dialog_title > span {
-        background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif)
-          no-repeat 5px 50%;
-        float: left;
-        padding: 5px 0 7px 26px;
-      }
-
-      body.fb_hidden {
-        height: 100%;
-        left: 0;
-        margin: 0;
-        overflow: visible;
-        position: absolute;
-        top: -10000px;
-        transform: none;
-        width: 100%;
-      }
-
-      .fb_dialog.fb_dialog_mobile.loading {
-        background: url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif)
-          white no-repeat 50% 50%;
-        min-height: 100%;
-        min-width: 100%;
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        z-index: 10001;
-      }
-
-      .fb_dialog.fb_dialog_mobile.loading.centered {
-        background: none;
-        height: auto;
-        min-height: initial;
-        min-width: initial;
-        width: auto;
-      }
-
-      .fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner {
-        width: 100%;
-      }
-
-      .fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content {
-        background: none;
-      }
-
-      .loading.centered #fb_dialog_loader_close {
-        clear: both;
-        color: #fff;
-        display: block;
-        font-size: 18px;
-        padding-top: 20px;
-      }
-
-      #fb-root #fb_dialog_ipad_overlay {
-        background: rgba(0, 0, 0, 0.4);
+    @keyframes fb_mpn_landing_page_slide_up {
+      0% {
         bottom: 0;
-        left: 0;
-        min-height: 100%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100%;
-        z-index: 10000;
+        opacity: 0;
       }
 
-      #fb-root #fb_dialog_ipad_overlay.hidden {
-        display: none;
+      100% {
+        bottom: 24px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fb_mpn_bounce_in {
+      0% {
+        opacity: 0.5;
+        top: 100%;
       }
 
-      .fb_dialog.fb_dialog_mobile.loading iframe {
-        visibility: hidden;
-      }
-
-      .fb_dialog_mobile .fb_dialog_iframe {
-        position: sticky;
+      100% {
+        opacity: 1;
         top: 0;
       }
+    }
 
-      .fb_dialog_content .dialog_header {
-        background: linear-gradient(from(#738aba), to(#2c4987));
-        border-bottom: 1px solid;
-        border-color: #043b87;
-        box-shadow: white 0 1px 1px -1px inset;
-        color: #fff;
-        font: bold 14px Helvetica, sans-serif;
-        text-overflow: ellipsis;
-        text-shadow: rgba(0, 30, 84, 0.296875) 0 -1px 0;
-        vertical-align: middle;
-        white-space: nowrap;
+    @keyframes fb_mpn_fade_out {
+      0% {
+        bottom: 30px;
+        opacity: 1;
       }
 
-      .fb_dialog_content .dialog_header table {
-        height: 43px;
-        width: 100%;
+      100% {
+        bottom: 0;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fb_mpn_bounce_out {
+      0% {
+        opacity: 1;
+        top: 0;
       }
 
-      .fb_dialog_content .dialog_header td.header_left {
-        font-size: 12px;
-        padding-left: 5px;
-        vertical-align: middle;
-        width: 60px;
+      100% {
+        opacity: 0.5;
+        top: 100%;
+      }
+    }
+
+    @keyframes fb_bounce_in_v2 {
+      0% {
+        opacity: 0;
+        transform: scale(0, 0);
+        transform-origin: bottom right;
       }
 
-      .fb_dialog_content .dialog_header td.header_right {
-        font-size: 12px;
-        padding-right: 5px;
-        vertical-align: middle;
-        width: 60px;
+      50% {
+        transform: scale(1.03, 1.03);
+        transform-origin: bottom right;
       }
 
-      .fb_dialog_content .touchable_button {
-        background: linear-gradient(from(#4267b2), to(#2a4887));
-        background-clip: padding-box;
-        border: 1px solid #29487d;
-        border-radius: 3px;
-        display: inline-block;
-        line-height: 18px;
-        margin-top: 3px;
-        max-width: 85px;
-        padding: 4px 12px;
-        position: relative;
+      100% {
+        opacity: 1;
+        transform: scale(1, 1);
+        transform-origin: bottom right;
+      }
+    }
+
+    @keyframes fb_bounce_in_from_left {
+      0% {
+        opacity: 0;
+        transform: scale(0, 0);
+        transform-origin: bottom left;
       }
 
-      .fb_dialog_content .dialog_header .touchable_button input {
-        background: none;
-        border: none;
-        color: #fff;
-        font: bold 12px Helvetica, sans-serif;
-        margin: 2px -12px;
-        padding: 2px 6px 3px 6px;
-        text-shadow: rgba(0, 30, 84, 0.296875) 0 -1px 0;
+      50% {
+        transform: scale(1.03, 1.03);
+        transform-origin: bottom left;
       }
 
-      .fb_dialog_content .dialog_header .header_center {
-        color: #fff;
-        font-size: 16px;
-        font-weight: bold;
-        line-height: 18px;
-        text-align: center;
-        vertical-align: middle;
+      100% {
+        opacity: 1;
+        transform: scale(1, 1);
+        transform-origin: bottom left;
+      }
+    }
+
+    @keyframes fb_bounce_out_v2 {
+      0% {
+        opacity: 1;
+        transform: scale(1, 1);
+        transform-origin: bottom right;
       }
 
-      .fb_dialog_content .dialog_content {
-        background: url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif)
-          no-repeat 50% 50%;
-        border: 1px solid #4a4a4a;
-        border-bottom: 0;
-        border-top: 0;
-        height: 150px;
+      100% {
+        opacity: 0;
+        transform: scale(0, 0);
+        transform-origin: bottom right;
+      }
+    }
+
+    @keyframes fb_bounce_out_from_left {
+      0% {
+        opacity: 1;
+        transform: scale(1, 1);
+        transform-origin: bottom left;
       }
 
-      .fb_dialog_content .dialog_footer {
-        background: #f5f6f7;
-        border: 1px solid #4a4a4a;
-        border-top-color: #ccc;
-        height: 40px;
+      100% {
+        opacity: 0;
+        transform: scale(0, 0);
+        transform-origin: bottom left;
+      }
+    }
+
+    @keyframes fb_bounce_out_v2_mobile_chat_started {
+      0% {
+        opacity: 1;
+        top: 0;
       }
 
-      #fb_dialog_loader_close {
-        float: left;
+      100% {
+        opacity: 0;
+        top: 20px;
+      }
+    }
+
+    @keyframes fb_customer_chat_bubble_bounce_in_animation {
+      0% {
+        bottom: 6pt;
+        opacity: 0;
+        transform: scale(0, 0);
+        transform-origin: center;
       }
 
-      .fb_dialog.fb_dialog_mobile .fb_dialog_close_icon {
-        visibility: hidden;
+      70% {
+        bottom: 18pt;
+        opacity: 1;
+        transform: scale(1.2, 1.2);
       }
 
-      #fb_dialog_loader_spinner {
-        animation: rotateSpinner 1.2s linear infinite;
-        background-color: transparent;
-        background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        height: 24px;
-        width: 24px;
+      100% {
+        transform: scale(1, 1);
+      }
+    }
+
+    @keyframes slideInFromBottom {
+      0% {
+        opacity: 0.1;
+        transform: translateY(100%);
       }
 
-      @keyframes rotateSpinner {
-        0% {
-          transform: rotate(0deg);
-        }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        100% {
-          transform: rotate(360deg);
-        }
+    @keyframes slideInFromBottomDelay {
+      0% {
+        opacity: 0;
+        transform: translateY(100%);
       }
 
-      .fb_iframe_widget {
-        display: inline-block;
-        position: relative;
+      97% {
+        opacity: 0;
+        transform: translateY(100%);
       }
 
-      .fb_iframe_widget span {
-        display: inline-block;
-        position: relative;
-        text-align: justify;
+      100% {
+        opacity: 1;
+        transform: translateY(0);
       }
-
-      .fb_iframe_widget iframe {
-        position: absolute;
-      }
-
-      .fb_iframe_widget_fluid_desktop,
-      .fb_iframe_widget_fluid_desktop span,
-      .fb_iframe_widget_fluid_desktop iframe {
-        max-width: 100%;
-      }
-
-      .fb_iframe_widget_fluid_desktop iframe {
-        min-width: 220px;
-        position: relative;
-      }
-
-      .fb_iframe_widget_lift {
-        z-index: 1;
-      }
-
-      .fb_iframe_widget_fluid {
-        display: inline;
-      }
-
-      .fb_iframe_widget_fluid span {
-        width: 100%;
-      }
-
-      .fb_mpn_mobile_landing_page_slide_out {
-        animation-duration: 200ms;
-        animation-name: fb_mpn_landing_page_slide_out;
-        transition-timing-function: ease-in;
-      }
-
-      .fb_mpn_mobile_landing_page_slide_out_from_left {
-        animation-duration: 200ms;
-        animation-name: fb_mpn_landing_page_slide_out_from_left;
-        transition-timing-function: ease-in;
-      }
-
-      .fb_mpn_mobile_landing_page_slide_up {
-        animation-duration: 500ms;
-        animation-name: fb_mpn_landing_page_slide_up;
-        transition-timing-function: ease-in;
-      }
-
-      .fb_mpn_mobile_bounce_in {
-        animation-duration: 300ms;
-        animation-name: fb_mpn_bounce_in;
-        transition-timing-function: ease-in;
-      }
-
-      .fb_mpn_mobile_bounce_out {
-        animation-duration: 300ms;
-        animation-name: fb_mpn_bounce_out;
-        transition-timing-function: ease-in;
-      }
-
-      .fb_mpn_mobile_bounce_out_v2 {
-        animation-duration: 300ms;
-        animation-name: fb_mpn_fade_out;
-        transition-timing-function: ease-in;
-      }
-
-      .fb_customer_chat_bounce_in_v2 {
-        animation-duration: 300ms;
-        animation-name: fb_bounce_in_v2;
-        transition-timing-function: ease-in;
-      }
-
-      .fb_customer_chat_bounce_in_from_left {
-        animation-duration: 300ms;
-        animation-name: fb_bounce_in_from_left;
-        transition-timing-function: ease-in;
-      }
-
-      .fb_customer_chat_bounce_out_v2 {
-        animation-duration: 300ms;
-        animation-name: fb_bounce_out_v2;
-        transition-timing-function: ease-in;
-      }
-
-      .fb_customer_chat_bounce_out_from_left {
-        animation-duration: 300ms;
-        animation-name: fb_bounce_out_from_left;
-        transition-timing-function: ease-in;
-      }
-
-      .fb_customer_chat_bubble_animated_no_badge {
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-        transition: box-shadow 150ms linear;
-      }
-
-      .fb_customer_chat_bubble_animated_no_badge:hover {
-        box-shadow: 0 5px 24px rgba(0, 0, 0, 0.3);
-      }
-
-      .fb_customer_chat_bubble_animated_with_badge {
-        box-shadow: -5px 4px 14px rgba(0, 0, 0, 0.15);
-        transition: box-shadow 150ms linear;
-      }
-
-      .fb_customer_chat_bubble_animated_with_badge:hover {
-        box-shadow: -5px 8px 24px rgba(0, 0, 0, 0.2);
-      }
-
-      .fb_invisible_flow {
-        display: inherit;
-        height: 0;
-        overflow-x: hidden;
-        width: 0;
-      }
-
-      .fb_new_ui_mobile_overlay_active {
-        overflow: hidden;
-      }
-
-      @keyframes fb_mpn_landing_page_slide_in {
-        0% {
-          border-radius: 50%;
-          margin: 0 24px;
-          width: 60px;
-        }
-
-        40% {
-          border-radius: 18px;
-        }
-
-        100% {
-          margin: 0 12px;
-          width: 100% - 24px;
-        }
-      }
-
-      @keyframes fb_mpn_landing_page_slide_in_from_left {
-        0% {
-          border-radius: 50%;
-          left: 12px;
-          margin: 0 24px;
-          width: 60px;
-        }
-
-        40% {
-          border-radius: 18px;
-        }
-
-        100% {
-          left: 12px;
-          margin: 0 12px;
-          width: 100% - 24px;
-        }
-      }
-
-      @keyframes fb_mpn_landing_page_slide_out {
-        0% {
-          margin: 0 12px;
-          width: 100% - 24px;
-        }
-
-        60% {
-          border-radius: 18px;
-        }
-
-        100% {
-          border-radius: 50%;
-          margin: 0 24px;
-          width: 60px;
-        }
-      }
-
-      @keyframes fb_mpn_landing_page_slide_out_from_left {
-        0% {
-          left: 12px;
-          width: 100% - 24px;
-        }
-
-        60% {
-          border-radius: 18px;
-        }
-
-        100% {
-          border-radius: 50%;
-          left: 12px;
-          width: 60px;
-        }
-      }
-
-      @keyframes fb_mpn_landing_page_slide_up {
-        0% {
-          bottom: 0;
-          opacity: 0;
-        }
-
-        100% {
-          bottom: 24px;
-          opacity: 1;
-        }
-      }
-
-      @keyframes fb_mpn_bounce_in {
-        0% {
-          opacity: 0.5;
-          top: 100%;
-        }
-
-        100% {
-          opacity: 1;
-          top: 0;
-        }
-      }
-
-      @keyframes fb_mpn_fade_out {
-        0% {
-          bottom: 30px;
-          opacity: 1;
-        }
-
-        100% {
-          bottom: 0;
-          opacity: 0;
-        }
-      }
-
-      @keyframes fb_mpn_bounce_out {
-        0% {
-          opacity: 1;
-          top: 0;
-        }
-
-        100% {
-          opacity: 0.5;
-          top: 100%;
-        }
-      }
-
-      @keyframes fb_bounce_in_v2 {
-        0% {
-          opacity: 0;
-          transform: scale(0, 0);
-          transform-origin: bottom right;
-        }
-
-        50% {
-          transform: scale(1.03, 1.03);
-          transform-origin: bottom right;
-        }
-
-        100% {
-          opacity: 1;
-          transform: scale(1, 1);
-          transform-origin: bottom right;
-        }
-      }
-
-      @keyframes fb_bounce_in_from_left {
-        0% {
-          opacity: 0;
-          transform: scale(0, 0);
-          transform-origin: bottom left;
-        }
-
-        50% {
-          transform: scale(1.03, 1.03);
-          transform-origin: bottom left;
-        }
-
-        100% {
-          opacity: 1;
-          transform: scale(1, 1);
-          transform-origin: bottom left;
-        }
-      }
-
-      @keyframes fb_bounce_out_v2 {
-        0% {
-          opacity: 1;
-          transform: scale(1, 1);
-          transform-origin: bottom right;
-        }
-
-        100% {
-          opacity: 0;
-          transform: scale(0, 0);
-          transform-origin: bottom right;
-        }
-      }
-
-      @keyframes fb_bounce_out_from_left {
-        0% {
-          opacity: 1;
-          transform: scale(1, 1);
-          transform-origin: bottom left;
-        }
-
-        100% {
-          opacity: 0;
-          transform: scale(0, 0);
-          transform-origin: bottom left;
-        }
-      }
-
-      @keyframes fb_bounce_out_v2_mobile_chat_started {
-        0% {
-          opacity: 1;
-          top: 0;
-        }
-
-        100% {
-          opacity: 0;
-          top: 20px;
-        }
-      }
-
-      @keyframes fb_customer_chat_bubble_bounce_in_animation {
-        0% {
-          bottom: 6pt;
-          opacity: 0;
-          transform: scale(0, 0);
-          transform-origin: center;
-        }
-
-        70% {
-          bottom: 18pt;
-          opacity: 1;
-          transform: scale(1.2, 1.2);
-        }
-
-        100% {
-          transform: scale(1, 1);
-        }
-      }
-
-      @keyframes slideInFromBottom {
-        0% {
-          opacity: 0.1;
-          transform: translateY(100%);
-        }
-
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes slideInFromBottomDelay {
-        0% {
-          opacity: 0;
-          transform: translateY(100%);
-        }
-
-        97% {
-          opacity: 0;
-          transform: translateY(100%);
-        }
-
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    </style>
-    <script
-      type="text/javascript"
-      charset="UTF-8"
-      src="https://maps.googleapis.com/maps-api-v3/api/js/44/10/common.js"
-    ></script>
-    <script
-      type="text/javascript"
-      charset="UTF-8"
-      src="https://maps.googleapis.com/maps-api-v3/api/js/44/10/util.js"
-    ></script>
-  </head>
-
-  <body>
-    <div class="item-card">
-      <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
-        <ul id="myTab" class="nav nav-tabs" role="tablist">
-          <li
-            ng-controller="StadiumBookingNotificationCtrl as vmNoti"
-            class="ng-scope"
-          >
-            <a href="#/booking">
-              <i class="fa fa-list" aria-hidden="true"></i>
-              Yêu cầu đặt sân
-              <b
-                class="badge badge-primary ng-binding"
-                style="background-color: red"
-                >0</b
-              >
-            </a>
-          </li>
-
-          <li class="active">
-            <a href="#/stadium">
-              <i class="fa fa-list" aria-hidden="true"></i>
-              Danh sách sân
-            </a>
-          </li>
-        </ul>
-        <div id="stadiumListTabContent" class="tab-content">
-          <div class="tab-pane fade" id="booking"></div>
-          <!-- /.tab-pane -->
-
-          <div class="tab-pane fade active in" id="#/stadium">
-            <div id="listStadium" style="min-height: 250px; position: relative">
-              <!-- ngIf: overlayLoading -->
-              <div class="pull-right" style="margin-bottom: 30px">
-                <div class="dropdown">
-                  <button
-                    class="btn btn-primary btn-primary-extra dropdown-toggle"
-                    type="button"
-                    data-toggle="dropdown"
-                  >
-                    <i class="fa fa-plus-square" aria-hidden="true"></i>
-                    &nbsp;&nbsp;Tạo sân mới &nbsp;
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a href="#/addNew/1">Bóng đá</a>
-                    </li>
-                    <li>
-                      <a href="#/addNew/2">Tennis</a>
-                    </li>
-                    <li>
-                      <a href="#/addNew/3">Bóng chuyền</a>
-                    </li>
-                    <li>
-                      <a href="#/addNew/4">Bóng bàn</a>
-                    </li>
-                    <li>
-                      <a href="#/addNew/5">Cầu Lông</a>
-                    </li>
-                    <li>
-                      <a href="#/addNew/6">Bơi lội</a>
-                    </li>
-                  </ul>
-                </div>
+    }
+  </style>
+  <script type="text/javascript" charset="UTF-8"
+    src="https://maps.googleapis.com/maps-api-v3/api/js/44/10/common.js"></script>
+  <script type="text/javascript" charset="UTF-8"
+    src="https://maps.googleapis.com/maps-api-v3/api/js/44/10/util.js"></script>
+</head>
+
+<body>
+  <div class="item-card">
+    <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
+      <ul id="myTab" class="nav nav-tabs" role="tablist">
+        <li ng-controller="StadiumBookingNotificationCtrl as vmNoti" class="ng-scope">
+          <a href="#/booking">
+            <i class="fa fa-list" aria-hidden="true"></i>
+            Yêu cầu đặt sân
+            <b class="badge badge-primary ng-binding" style="background-color: red">0</b>
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="#/stadium">
+            <i class="fa fa-list" aria-hidden="true"></i>
+            Danh sách sân
+          </a>
+        </li>
+      </ul>
+      <div id="stadiumListTabContent" class="tab-content">
+        <div class="tab-pane fade" id="booking"></div>
+        <!-- /.tab-pane -->
+
+        <div class="tab-pane fade active in" id="#/stadium">
+          <div id="listStadium" style="min-height: 250px; position: relative">
+            <!-- ngIf: overlayLoading -->
+            <div class="pull-right" style="margin-bottom: 30px">
+              <div class="dropdown">
+                <button class="btn btn-primary btn-primary-extra dropdown-toggle" type="button" data-toggle="dropdown">
+                  <i class="fa fa-plus-square" aria-hidden="true"></i>
+                  &nbsp;&nbsp;Tạo sân mới &nbsp;
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#/addNew/1">Bóng đá</a>
+                  </li>
+                  <li>
+                    <a href="#/addNew/2">Tennis</a>
+                  </li>
+                  <li>
+                    <a href="#/addNew/3">Bóng chuyền</a>
+                  </li>
+                  <li>
+                    <a href="#/addNew/4">Bóng bàn</a>
+                  </li>
+                  <li>
+                    <a href="#/addNew/5">Cầu Lông</a>
+                  </li>
+                  <li>
+                    <a href="#/addNew/6">Bơi lội</a>
+                  </li>
+                </ul>
               </div>
-              <!-- ngIf: stadiums.length>=1 -->
-              <!-- ngIf: stadiums.length==0 -->
-              <table
-                class="table table-striped table-responsive table-stadium-list ng-scope"
-                ng-if="stadiums.length==0"
-                style=""
-              >
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Loại</th>
-                    <th>Thông tin sân</th>
-                    <th>Ảnh đại diện</th>
-                    <th>Tác vụ</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td colspan="5">Không có dữ liệu</td>
-                  </tr>
-                </tbody>
-              </table>
-              <!-- end ngIf: stadiums.length==0 -->
             </div>
+            <!-- ngIf: stadiums.length>=1 -->
+            <!-- ngIf: stadiums.length==0 -->
+            <table class="table table-striped table-responsive table-stadium-list ng-scope" ng-if="stadiums.length==0"
+              style="">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Loại</th>
+                  <th>Thông tin sân</th>
+                  <th>Ảnh đại diện</th>
+                  <th>Tác vụ</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td colspan="5">Không có dữ liệu</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- end ngIf: stadiums.length==0 -->
           </div>
-          <!-- /.tab-pane -->
         </div>
+        <!-- /.tab-pane -->
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
