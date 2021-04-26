@@ -1,0 +1,14 @@
+.dialog-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: aquamarine;
+}
+.dialog {
+  width: 600px;
+  height: 400px;
+  border: 1px solid #ccc;
+  background-color: #ffd800;
+}

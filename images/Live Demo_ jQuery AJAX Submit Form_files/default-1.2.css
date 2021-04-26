@@ -1,0 +1,438 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+/*
+---------------------
+Gutter Background
+------------------
+*/
+.CodeMirror-scroll{
+	background: url("../../images/gutter-bg.gif") repeat-y scroll -26px top transparent;
+}
+/*
+-------------------
+Layout Styles
+----------------
+*/
+body{
+    color: #4d4d4d;
+    font-size: 14px;
+	line-height: 21px;
+    text-align: center;
+	min-width: 1260px;
+	background: #fff;
+	font-family: arial,sans-serif;
+}
+.clearfix::after{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden
+}
+.header-wrapper{
+    color: #464F5C;
+    height: 95px;
+	overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    background: url("../../images/codelab-header-bg.png") repeat-x scroll 0 5px #f3f3f3;
+}
+.header {
+    height: 90px;
+	text-align:left;
+	border-top: 5px solid #2d3e50;
+}
+.logo{
+    float: left;
+	padding-top: 24px;
+	margin: 0 40px 0 10px;
+}
+.logo img{
+	height: 46px;
+}
+.footer {
+    width: 100%; height: 12px;
+    line-height: 0;
+    bottom: 1px;
+    position: relative;
+    background: url("../../images/footer-bg.png") repeat-x scroll left bottom transparent;  
+}
+/* Frame Styles */
+html, body{
+	width: 100%;
+	height:100%;   
+}
+.frame-box.vr .pane-wrapper .pane{
+    width: 50%;
+    float: left;
+}
+.frame-box.hr .pane-wrapper .pane{
+	width: 100%;
+}
+.frame-box, .frame-box .pane-wrapper, .frame-box .pane, .frame-box .pane textarea{
+	border: none;
+	resize: none;
+    overflow: hidden;
+    text-align: left;
+}
+.frame-box .pane iframe{
+    width: 100%;
+    display: block;
+}
+.hide{
+	display: none !important;
+}
+.frame-box.hr .outer-wrapper{
+	padding: 6px 6px 0 6px;
+}
+.frame-box.hr .inner-area.bordered{
+	border-bottom: 1px solid #cccccc;
+}
+.frame-box.hr .show-preview-pane, .frame-box.hr .hide-preview-pane{
+	width: 23px;
+    height: 7px;
+	top: 6px;
+	left: auto;
+	right: 45px;
+	background: url("../../images/toggle-button-hr.png") no-repeat;
+}
+.frame-box.hr .show-preview-pane{
+	background-position: -23px 0;
+    bottom: 0;
+    top: auto;
+}
+.hidden-form{
+    visibility: hidden;
+    height: 0 !important;
+}
+.full-screen{
+    width: 100% !important;
+}
+.control-bar{
+    float: left;
+    padding-top: 28px;
+}
+.control-bar .buttons{
+    float: left;
+}
+.control-bar label{
+  float: left;
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 19px;
+  font-family: "Myriad Pro",Verdana,sans-serif;
+}
+.control-bar label input{
+  float: left;
+  outline: none;
+  margin-right: 5px;
+  vertical-align: baseline;
+}
+.control-bar a, .control-bar input {
+    color: #fbfbfb;
+    line-height: 33px;
+    cursor: pointer;
+    outline: none;
+    float: left;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 0 2px rgba(0,0,0,0.1);
+    font-family: Arial,sans-serif;
+    margin-bottom: 6px;
+	background: #546d88;
+	border: 1px solid #475c74;
+	position: relative;
+	z-index: 9;
+    height: 34px;
+    box-sizing: border-box;
+    border-radius: 2px;
+	padding: 0 8px;
+	text-align: center;
+}
+.control-bar a:hover, .control-bar input:hover{
+	background: #1ebba3;
+	border-color: #06a587;
+	z-index: 6;
+}
+.control-bar a span{
+	font-size: 21px;
+	position: relative;
+	top: 5px;
+}
+.control-bar a.inactive, .control-bar a.inactive:hover,
+.control-bar input.inactive, .control-bar input.inactive:hover{
+	cursor: default;
+	background: #9abbcd;
+	border-color: #8aa8b9;
+	box-shadow: inset 0 0 12px #98b3c0;
+}
+#preview{
+	height:100%;
+	background:#fff;
+	outline:none;
+	overflow:auto;
+       border: none;
+}
+.outer-area{
+	padding:6px 6px 0;    
+	background:#f3f3f3;
+    position: relative;
+}
+.inner-area{
+	background:#fff;
+	border:1px solid #cccccc;
+	border-bottom: none;
+}
+.outer-wrapper{
+    position:relative;
+    background:#f3f3f3;
+    padding:6px 6px 0 0;
+}
+.output-area{
+    border:1px solid #cccccc;
+	border-bottom: none;
+}
+.show-preview-pane, .hide-preview-pane, .hide-db-pane, .show-db-pane{
+    width: 7px;
+    height: 23px;
+    position: absolute;
+    z-index: 999;
+    top: 45px;
+    display: block;
+    cursor: pointer;
+    outline: 0;
+    text-decoration: none;
+    background: url("../../images/toggle-button.png") no-repeat;
+}
+.show-preview-pane, .show-db-pane{
+    right: 6px;
+    display: none;
+    background-position: 0 0;
+}
+.hide-preview-pane, .hide-db-pane{
+    left: 0;
+    background-position: 0 -23px;
+}
+/* New Styles for Codelab */
+.control-bar .show-output{
+	padding: 0 15px;
+	border-radius: 2px 0 0 2px;
+}
+.control-bar .new-window{
+	border-radius: 0 2px 2px 0;
+	margin-left: -1px;
+	margin-right: 10px;
+}
+.control-bar .download-code{
+	margin-right: 1px;
+}
+.control-bar .toggle-view{
+    margin-left: 9px;
+}
+.new-window i, .download-code i, .toggle-view i{
+	width: 36px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.ad-wrapper{
+	height: 90px;
+	overflow: hidden;
+	padding: 6px;
+	border-top: 1px solid #CCCCCC;
+	position: relative;
+	background: #F3F3F3;
+}
+.ad-wrapper .ad-box{
+	width: 768px;
+	margin: 0 auto;
+	padding: 0;
+}
+.ad-wrapper .ad-box:first-child{
+	padding-left: 0;
+}
+.editor-hint{
+	width: 133px;
+	height: 72px;
+	position: absolute;
+	left: 16px;
+	top: 16px;
+	z-index: 999;
+	background: url("../../images/editor-hint.png") no-repeat;
+}
+.social-link{
+    float: left;
+    font-family: arial,sans-serif;
+    color: rgb(85, 116, 142);
+    font-size: 13px;
+    padding-top: 1px;
+    margin: 0;
+}
+.social-link a{
+    color: #3C6880;
+    outline: none;
+}
+.social-link a:hover{
+    color: #000000;
+}
+.social-widget{
+    float: left;
+    margin: 0 0 0 -5px;
+}
+.social-widget .widget-column{
+    float: left;
+    padding-right: 5px;
+}
+
+/* Custom Style */
+.codelab{
+	position:relative;
+}
+.pattern{
+	display:none;
+}
+.social-widget-wrapper{
+	float: left;
+}
+.codelab-footer{
+	padding: 6px;
+	height: 24px;
+    border-top: 1px solid #CCCCCC;
+	position: relative;
+	background: #F3F3F3;
+    overflow: hidden;
+}
+.switch-mode{
+	float: right;
+	text-decoration: none;
+	font-family: arial,sans-serif;
+	display: inline-block;
+	color: #9542c4;
+    padding: 1px 14px;
+    border: 1px solid #9542c4;
+    border-radius: 2px;
+    font-size: 12px;
+	font-weight: bold;
+	margin-left: 6px;
+}
+.switch-mode:hover{
+	color: #fff;
+	background: #9542c4;
+}
+.switch-mode.alt{
+	color: #1abc9c;
+	border-color: #1abc9c;
+}
+.switch-mode.alt:hover{
+	color: #fff;
+	background: #1abc9c;
+}
+.top-ad-box{
+    width: 728px;
+    height: 90px;
+    float: right;
+    overflow: hidden;
+}
+label.auto-update{
+	float: right;
+	margin-top: 3px;
+	font-size: 13px;
+	line-height: 19px;
+	margin-right: 20px;
+}
+label.auto-update input{
+	float: left;
+	outline: none;
+	margin-right: 5px;
+	vertical-align: baseline;
+}
+
+@media screen and (max-width: 800px){
+	html, body{
+        width: 100%;
+		max-width: 100%;
+		min-width: 100%;
+    }
+    .header-wrapper{
+        background: #f1f1f1;
+    }
+    .header-wrapper, .header{
+        height: auto;
+    }
+    .show-preview-pane, .hide-preview-pane, .toggle-view{
+        display: none !important;
+    }
+	.header{
+		margin-top: 10px;
+		border: none;
+	}
+    .logo{
+        float: left;
+        padding: 0;
+        margin: 14px 0 0 10px;
+    }
+    .logo img {
+        height: 36px;
+    }
+    .control-bar .buttons, .control-bar a, .control-bar input{
+        float: none;
+    }
+    .control-bar a, .control-bar input{
+        display: inline-block;
+        margin: 0 0 0 20px !important;
+    }
+    .top-ad-box{
+        float: none;
+        width: 100%;        
+        text-align: center;
+		padding: 0 10px;
+		box-sizing: border-box;
+    }
+    .control-bar{
+        float: right;
+        padding: 15px 10px;
+    }
+    .control-bar .new-window {
+        border-radius: 2px;
+        margin: 0 10px;
+    }
+    .control-bar .show-output{
+        border-radius: 2px;
+    }
+    .frame-box, .pane, .db-status{ 
+        float: none !important;
+        width: 100% !important;
+    }
+    .codelab-footer{
+        height: auto;
+        text-align: center;
+        overflow: visible;
+        padding: 15px;
+    }
+    .social-link{
+        padding: 15px 0 5px;
+        line-height: 28px;
+    }
+	.social-link a{
+		margin: 0 5px;
+	}
+    .social-widget-wrapper, .social-link, .switch-mode{
+        float: none;
+    }
+    .CodeMirror, .output-area, #preview{
+        min-height: 400px;
+        max-height: 450px;
+    }
+	.new-window, .download-code{
+		display: none !important;
+	}
+	.switch-mode{
+		margin: 0 15px;
+	}
+	.outer-area, .outer-wrapper{
+    	padding: 10px 10px 0 !important;
+	}
+}

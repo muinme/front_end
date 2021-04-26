@@ -198,40 +198,35 @@
                              </span>
                           </div>
                           <div class="post-heading">
-                             <form name="form1" action="welcome1.php" onsubmit="return matchpass()">
                                 <div>
                                    <label for="full name">Full Name</label>
-                                   <input placeholder="Eg: Phạm Anh Tú" type="text" required="" class="form-control"
-                                      name="fullname" value="">
+                                   <input id="inpFullname" placeholder="Eg: Phạm Anh Tú" type="text" class="form-control" name="fullname">
                                 </div>
                                 <div>
                                    <label for="username">Username</label>
-                                   <input placeholder="Eg: username" type="text" required="" class="form-control"
-                                      name="username" value="">
+                                   <input id="inpUsername" placeholder="Eg: username" type="text" class="form-control"
+                                      name="username">
                                 </div>
                                 <div>
                                    <label for="password">Password</label>
-                                   <input type="password" class="form-control" name="password">
+                                   <input id="inpPassword" type="password" class="form-control" name="password">
                                 </div>
                                 <div>
-                                   <label for="password">Re-enter Password</label>
-                                   <input type="password" class="form-control" name="password2">
-                                </div>
-                                <div>
-                                      <input type="file" id="myFile" name="filename">
+                                   <label for="reenter_password">Re-enter Password</label>
+                                   <input id="inpReenter_password" type="password" class="form-control" name="password2">
                                 </div>
                                 <div>
                                    <label for="email">Email</label>
-                                   <input placeholder="Eg: phamanhtu242@gmail.com" type="email" class="form-control"
-                                      name="email" value="">
+                                   <input id="inpEmail" placeholder="Eg: phamanhtu242@gmail.com" type="email" class="form-control"
+                                      name="email">
                                 </div>
                                 <div>
                                    <label for="phone">Phone</label>
-                                   <input required="" type="phone" class="form-control" name="phone" value="">
+                                   <input id="inpPhone" type="phone" class="form-control" name="phone" value="">
                                 </div>
   
                                 <div class="full">
-                                   <input id="login_submit" type="submit" value="Create Account"
+                                   <input id="register_submit" type="submit" value="Create Account"
                                       class="btn btn-success btn-lg btn-block">
                                 </div>
                                 <div>
@@ -240,7 +235,6 @@
                                       <a href="login.html">Login here →</a>
                                    </p>
                                 </div>
-                             </form>
                           </div>
                        </div>
                     </div>
@@ -461,6 +455,6 @@
       <script src="js/all.js"></script>
       <!-- ALL PLUGINS -->
       <script src="js/custom.js"></script>
-      <script src="js/login.js"></script>
+      <script src="js/register.js"></script>
    </body>
 </html>

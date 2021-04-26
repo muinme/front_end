@@ -207,7 +207,7 @@ header {
   font-size: 13px;
   background: #31708f;
   border-radius: 50px;
-  float: left;
+  float: none;
 }
 .dropbtn {
   background-color: #4caf50;
@@ -222,25 +222,25 @@ header {
 }
 .img-fluid,
 .img-thumbnail {
-max-width: 100%;
-height: auto;
+  max-width: 100%;
+  height: auto;
 }
 .img-thumbnail {
-padding: 0.25rem;
-background-color: #f7f7fc;
-border: 1px solid #dee2e6;
-border-radius: 0.2rem;
+  padding: 0.25rem;
+  background-color: #f7f7fc;
+  border: 1px solid #dee2e6;
+  border-radius: 0.2rem;
 }
 .figure {
-display: inline-block;
+  display: inline-block;
 }
 .figure-img {
-margin-bottom: 0.5rem;
-line-height: 1;
+  margin-bottom: 0.5rem;
+  line-height: 1;
 }
 .figure-caption {
-font-size: 80%;
-color: #6c757d;
+  font-size: 80%;
+  color: #6c757d;
 }
 .container,
 .container-fluid,
@@ -248,14 +248,14 @@ color: #6c757d;
 .container-md,
 .container-sm,
 .container-xl {
-width: 100%;
-padding-right: 0.75rem;
-padding-left: 0.75rem;
-margin-right: auto;
-margin-left: auto;
+  width: 100%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  margin-right: auto;
+  margin-left: auto;
 }
 .rounded-circle {
-border-radius: 50% !important;
+  border-radius: 50% !important;
 }
 
 .login-modal {
@@ -292,7 +292,7 @@ border-radius: 50% !important;
 }
 
 .login-modal:hover .dropbtn {
-  background-color: #3e8e41;
+  background-color: #fff;
 }
 .login li a:hover,
 .login li a:focus {
@@ -1022,7 +1022,7 @@ section.main-heading h2 {
 section.main-heading h2::after {
   width: 50px;
   height: 4px;
-  background: #d8302f;
+  background: #f9f9f9;
   margin: 15px auto 0;
   display: block;
   position: relative;

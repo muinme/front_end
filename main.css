@@ -25,7 +25,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #f5f5f5;
   color: #333;
-  font-size: 12px;
+  font-size: 15px;
 }
 a,
 a:hover,
@@ -3363,7 +3363,7 @@ dropdown-menu .navbar-right > li > ul li a:before {
   float: left;
   padding: 0;
   margin: 0 15px;
-  font-size: 13px;
+  font-size: 18px;
 }
 .list-link-doi li a {
   color: #666;

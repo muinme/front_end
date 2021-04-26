@@ -4,8 +4,8 @@ const HOST = "http://localhost:8080";
 $("#login_submit").click(function () {
   console.log("login button is pressed");
   var formData = {
-    username: $("input[name='username']").val(),
-    password: $("#ipnPassword").val(),
+    username: $("#inpUsername").val(),
+    password: $("#inpPassword").val(),
   };
   console.log(formData);
   $.ajax({
