@@ -11,11 +11,13 @@ $("#login_submit").click(function () {
   $.ajax({
     type: "POST",
     url: HOST + "/football/login",
-    dataType: "JSON",
     data: JSON.stringify(formData),
     crossDomain: true,
     headers: {
       "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
     },
     success: function (result) {
       console.log("thanh cong");

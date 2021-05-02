@@ -5,10 +5,12 @@ $("#logout").click(function () {
   $.ajax({
     type: "POST",
     url: HOST + "/football/logout",
-    dataType: "JSON",
     crossDomain: true,
     headers: {
       "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
     },
     success: function (result) {
       console.log("thanh cong");

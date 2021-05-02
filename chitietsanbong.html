@@ -69,19 +69,30 @@
                                 <ul class="login">
                                     <li>
                                         <div class="cart-option">
-                                           <button><i class="fa fa-bell"></i></button>
+                                            <button><i class="fa fa-bell"></i></button>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="cart-option">
-                                           <button><i class="fa fa-comment"></i></button>
-                                           
+                                            <button><i class="fa fa-comment"></i></button>
+
                                         </div>
                                     </li>
-                                      <li class="login-modal" id="liUser">
-                                       
-                                      </li>
-                                   </ul>
+                                    <li class="login-modal">
+                                        <button class="dropbtn"><img src="images/profile-img.png"
+                                                class="avatar img-fluid rounded-circle">Pham Anh Tu</button>
+                                        <div class="dropdown-content">
+                                            <a href="#"><i class="fa fa-user"></i>Profile</a>
+                                            <a href="#"><i class="fa fa-futbol-o"></i>My Team FootBall</a>
+                                            <a href="#"><i class="fa fa-th-large"></i>My Pitch</a>
+                                            <a href="#"><i class="fa fa-history"></i>History Pitch</a>
+                                            <a href="#"><i class="fa fa-history"></i>History Match</a>
+                                            <button id="logout"
+                                                style="text-align:left ;border-radius: 0px; width: 190px;"><i
+                                                    class="fa fa-sign-out"></i>Logout →</button>
+                                        </div>
+                                    </li>
+                                </ul>
                                 <!-- end button section -->
                             </div>
                         </div>
@@ -204,7 +215,7 @@
         </div>
         <div class="inner-information-text">
             <div class="container">
-                <h3>Lịch Sử Đặt Sân Của Bạn</h3>
+                <h3>Chi Tiết Sân Bóng</h3>
                 <ul class="breadcrumb">
                     <li><a href="index.html">Home</a></li>
                     <li class="active">Blog</li>
@@ -218,34 +229,169 @@
                 <div class="col-md-9">
                     <div class="feature-post small-blog">
                         <div class="feature-cont">
-                            <div class="post-info">
-                                <img src="images/profile-img.png" alt="#" />
-                                <span>
-                                    <h4>by Phạm Anh Tú</h4>
-                                    <h5>on March 27, 2021</h5>
-                                </span>
-                            </div>
-                            <div>
-                                <table class="table table-striped table-responsive table-stadium-list ng-scope"
-                                    ng-if="stadiums.length==0">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Sân</th>
-                                            <th>Chi Tiết Sân Số</th>
-                                            <th>Thời Gian</th>
-                                            <th>Giá</th>
-                                        </tr>
-                                    </thead>
+                            <div class="content-cts">
+                                <div class="item-card">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h1 class="title-sans">Sân bóng Minh Đức</h1>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="des-san">
+                                                        <div class="san-address-line">
+                                                            <i class="fa fa-map-o" aria-hidden="true"></i> 112 CT (Quận
+                                                            Hà Đông, Hà Nội)
+                                                        </div>
+                                                        <div>
+                                                            <strong>Giá thuê sân 5 người</strong>
+                                                        </div>
+                                                        <div class="san-price-line calendar-row" style="
+                                                            text-align: left;
+                                                        ">
+                                                            05:30 - 17:05 Từ thứ 2-6
+                                                            <div>
+                                                                <span class="price-san">300.000<sup>vnđ</sup></span>
+                                                                <button class="check-san">
+                                                                    <i class="fa fa-calendar-check-o"
+                                                                        aria-hidden="true"></i> Đặt sân
+                                                                </button>
+                                                            </div>
 
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="5">Không có dữ liệu</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
 
+                                                            <div class="stadium-calendar">
+                                                                <div class="stadium-container">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="san-price-line calendar-row" style="
+                                                            text-align: left;
+                                                        ">
+                                                            05:30 - 17:30 Thứ 7, Chủ nhật
+                                                            <div>
+                                                                <span class="price-san">400.000<sup>vnđ</sup></span>
+                                                                <button class="check-san">
+                                                                    <i class="fa fa-calendar-check-o"
+                                                                        aria-hidden="true"></i> Đặt sân
+                                                                </button>
+                                                            </div>
+                                                            <div class="stadium-calendar">
+                                                                <div class="stadium-container">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="stadium-calendar">
+                                                                <div class="item-other-detail">
+                                                                    <div id="ticket-select-date-time"
+                                                                        class="ticket-select-date-time item-other-detail-section">
+                                                                        <div id="DatSan5" class="item-other-detail-section-header"  onclick="klikaj('rad1')">
+                                                                            <strong>ĐẶT SÂN</strong>
+                                                                        </div>
+                                                                    <!-- lich bieu -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <strong>Giá thuê sân 7 người</strong>
+                                                        </div>
+                                                        <div class="san-price-line calendar-row" style="
+                                                        text-align: left;
+                                                    ">
+                                                            17:25 - 23:55
+                                                            <div>
+                                                                <span class="price-san">20.000<sup>vnđ</sup></span>
+                                                                <button class="check-san">
+                                                                    <i class="fa fa-calendar-check-o"
+                                                                        aria-hidden="true"></i> Đặt sân
+                                                                </button>
+                                                            </div>
+
+
+                                                            <div class="stadium-calendar">
+                                                                <div class="stadium-container">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        <div class="san-price-line calendar-row active" style="
+                                                        text-align: left;
+                                                    ">
+                                                            21:45 - 23:55
+                                                            <div>
+                                                                <span class="price-san">300.000<sup>vnđ</sup></span>
+                                                                <button class="check-san">
+                                                                    <i class="fa fa-calendar-check-o"
+                                                                        aria-hidden="true"></i> Đặt sân
+                                                                </button>
+                                                            </div>
+
+
+                                                            <div class="stadium-calendar">
+                                                                <div class="item-other-detail">
+                                                                    <div id="ticket-select-date-time"
+                                                                        class="ticket-select-date-time item-other-detail-section">
+                                                                        <div class="item-other-detail-section-header">
+                                                                            <strong>ĐẶT SÂN</strong>
+                                                                        </div>
+                                                                    <!-- lich bieu -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="title-img">Liên hệ đặt sân</div>
+                                                    <div class="des-san contact-info">
+                                                        <div class="phone-numb">
+                                                            <i class="fa fa-phone-square" aria-hidden="true"></i> <a
+                                                                href="/user/profile/6792" class="text-highlight"
+                                                                target="_blank">Minh Đức Trần Minh Đức Đức -
+                                                                0978123124</a>
+                                                        </div>
+                                                        <div class="des-email">
+                                                            <a href="mailto:sanminhduc@gmail.com"><i
+                                                                    class="fa fa-envelope" aria-hidden="true"></i>
+                                                                sanminhduc@gmail.com</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="title-img">Giới thiệu về sân</div>
+                                                    <div class="content-sans">
+                                                        <p><br></p>
+                                                    </div>
+                                                    <div class="slider-home-banner slider-chi-san owl-carousel owl-theme"
+                                                        style="opacity: 1; display: block;">
+                                                        <div class="owl-wrapper-outer">
+                                                            <div class="owl-wrapper"
+                                                                style="width: 1492px; left: 0px; display: block; transition: all 1000ms ease 0s; transform: translate3d(0px, 0px, 0px);">
+                                                                <div class="owl-item" style="width: 746px;">
+                                                                    <div>
+                                                                        <img class="img-responsivex" src=""
+                                                                            align="thumbnail">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="owl-controls clickable" style="display: none;">
+                                                            <div class="owl-pagination">
+                                                                <div class="owl-page active"><span class=""></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -468,8 +614,7 @@
     <script src="js/all.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
-    <script src="js/logout.js"></script>
-    <script src="js/index_userr.js"></script>
+    <script src="js/city.js"></script>
 </body>
 
 </html>

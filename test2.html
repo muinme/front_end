@@ -1,0 +1,134 @@
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<table id="mytable">
+  <tr style="background-color: #43a047; color: rgb(255, 255, 255)">
+    <th align="center">Status</th>
+    <th width="100">Thứ 2</th>
+    <th width="100">Thứ 3</th>
+    <th width="100">Thứ 4</th>
+    <th width="100">Thứ 5</th>
+    <th width="100">Thứ 6</th>
+    <th width="100">Thứ 7</th>
+    <th width="100">Chủ Nhật</th>
+  </tr>
+  <tr id="ok">
+    <td align="center">8h30-10h</td>
+    <td>
+      <select name="cars" id="status">
+        <option value="1">Đã Thuê</option>
+        <option value="0">Chưa Thuê</option>
+      </select>
+    </td>
+    <td>
+      <select name="cars" id="status1">
+        <option value="1" selected="selected">Đã Thuê</option>
+        <option value="0">Chưa Thuê</option>
+      </select>
+    </td>
+    <td>
+      <select name="cars" id="status2">
+        <option value="1" selected="selected">Đã Thuê</option>
+        <option value="0">Chưa Thuê</option>
+      </select>
+    </td>
+    <td>
+      <select name="cars" id="status3">
+        <option value="1" selected="selected">Đã Thuê</option>
+        <option value="0">Chưa Thuê</option>
+      </select>
+    </td>
+    <td>
+      <select name="cars" id="status4">
+        <option value="1" selected="selected">Đã Thuê</option>
+        <option value="0">Chưa Thuê</option>
+      </select>
+    </td>
+    <td>
+      <select name="cars" id="status5">
+        <option value="1" selected="selected">Đã Thuê</option>
+        <option value="0">Chưa Thuê</option>
+      </select>
+    </td>
+    <td>
+      <select name="cars" id="status6">
+        <option value="1">Đã Thuê</option>
+        <option value="0" selected="selected">Chưa Thuê</option>
+      </select>
+    </td>
+  </tr>
+
+  <tr id="ok">
+    <td align="center">8h30-10h</td>
+    <td>
+      <select name="cars" id="status" class="lll">
+        <option value="1">Đã Thuê</option>
+        <option value="0">Chưa Thuê</option>
+      </select>
+    </td>
+    <td>
+      <select name="cars" id="status1">
+        <option value="1" selected="selected">Đã Thuê</option>
+        <option value="0">Chưa Thuê</option>
+      </select>
+    </td>
+    <td>
+      <select name="cars" id="status2">
+        <option value="1" selected="selected">Đã Thuê</option>
+        <option value="0">Chưa Thuê</option>
+      </select>
+    </td>
+    <td>
+      <select name="cars" id="status3">
+        <option value="1" selected="selected">Đã Thuê</option>
+        <option value="0">Chưa Thuê</option>
+      </select>
+    </td>
+    <td>
+      <select name="cars" id="status4">
+        <option value="1" selected="selected">Đã Thuê</option>
+        <option value="0">Chưa Thuê</option>
+      </select>
+    </td>
+    <td>
+      <select name="cars" id="status5">
+        <option value="1" selected="selected">Đã Thuê</option>
+        <option value="0">Chưa Thuê</option>
+      </select>
+    </td>
+    <td>
+      <select name="cars" id="status6">
+        <option value="1">Đã Thuê</option>
+        <option value="0" selected="selected">Chưa Thuê</option>
+      </select>
+    </td>
+  </tr>
+</table>
+<div class="form-group">
+  <a
+    href="#"
+    id="LuuStatus"
+    class="btn btn-primary btn-primary-extra dropdown-toggle"
+    style="float: none; padding: 5px 20px"
+    ><i class="fa fa-spinner fa-spin"></i>Lưu Cập Nhật</a
+  >
+  <!-- fa fa-save -->
+</div>
+<script>
+  $("#LuuStatus").click(function () {
+    $("#mytable #ok").each(function () {
+      var selectedOptionVal = $(".lll").val(); //selected option value
+      var selectedOptionVal1 = $("#status1").val(); //selected option value
+      var selectedOptionVal2 = $("#status2").val(); //selected option value
+      var selectedOptionVal3 = $("#status3").val(); //selected option value
+      var selectedOptionVal4 = $("#status4").val(); //selected option value
+      var selectedOptionVal5 = $("#status5").val(); //selected option value
+      var selectedOptionVal6 = $("#status6").val(); //selected option value
+      console.log(selectedOptionVal);
+      console.log(selectedOptionVal1);
+      console.log(selectedOptionVal2);
+      console.log(selectedOptionVal3);
+      console.log(selectedOptionVal4);
+      console.log(selectedOptionVal5);
+      console.log(selectedOptionVal6);
+    });
+  });
+</script>

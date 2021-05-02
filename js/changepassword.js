@@ -27,6 +27,9 @@ $("#btnChangePass").click(function () {
     headers: {
       "Content-Type": "application/json",
     },
+    xhrFields: {
+      withCredentials: true,
+    },
     success: function (result) {
       console.log("thanh cong");
     },
@@ -35,3 +38,12 @@ $("#btnChangePass").click(function () {
     },
   });
 });
+function checkPassword() {
+  var password = $("#NewUserPassword").val();
+  var confirmPassword = $("#ConfirmNewUserPassword").val();
+  if (password != confirmPassword) {
+    alert("Mật khẩu mới và Xác nhận lại mật khẩu mới không trùng khớp");
+    return false;
+  }
+  return true;
+}

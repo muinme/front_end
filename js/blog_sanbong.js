@@ -36,6 +36,9 @@ function createSanBong(name, image, id) {
     headers: {
       "Content-Type": "application/json",
     },
+    xhrFields: {
+      withCredentials: true,
+    },
     success: function (result2) {
       console.log("sss" + result2);
       var obj1 = result2;

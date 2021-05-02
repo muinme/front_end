@@ -23,6 +23,9 @@ $("#btnCreateMatch").click(function () {
     headers: {
       "Content-Type": "application/json",
     },
+    xhrFields: {
+      withCredentials: true,
+    },
     success: function (result) {
       console.log("thanh cong");
       // window.location.replace("http://localhost:5500/login.html");

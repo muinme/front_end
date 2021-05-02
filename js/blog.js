@@ -15,7 +15,8 @@ $(document).ready(function () {
       for (var key in result) {
         var obj = result[key];
         //create li post
-        createPost(
+        readPost(
+          obj.id,
           obj.home_guest,
           obj.playtime,
           obj.playdate,
@@ -35,7 +36,8 @@ $(document).ready(function () {
   });
 });
 
-function createPost(
+function readPost(
+  id,
   home_guest,
   playtime,
   playdate,
@@ -59,8 +61,10 @@ function createPost(
       var obj1 = result1;
       // console.log(
       //   "object= " + JSON.stringify(obj1) + "\nid = " + obj1.fullname
+
       // );
-      createPost2(
+      readPost2(
+        id,
         home_guest,
         playtime,
         playdate,
@@ -73,9 +77,6 @@ function createPost(
         obj1.fullname,
         obj1.id
       );
-      //create div san bong
-      //create div san bong
-      //   window.location.replace("http://localhost:5500/index_user.html");
     },
     error: function () {
       console.log("da co loi");
@@ -83,7 +84,8 @@ function createPost(
   });
 }
 
-function createPost2(
+function readPost2(
+  id,
   home_guest,
   playtime,
   playdate,
@@ -105,10 +107,10 @@ function createPost2(
       "Content-Type": "application/json",
     },
     success: function (result2) {
-      // console.log("sss" + result2);
       var obj2 = result2;
-      // console.log("object= " + JSON.stringify(obj2) + "\nid = " + obj2.name);
-      createPost3(
+
+      readPost3(
+        id,
         home_guest,
         playtime,
         playdate,
@@ -117,13 +119,11 @@ function createPost2(
         levelwant,
         category,
         note,
+        football_id,
         fullname,
         user_id,
         obj2.name
       );
-      //create div san bong
-      //create div san bong
-      //   window.location.replace("http://localhost:5500/index_user.html");
     },
     error: function () {
       console.log("da co loi");
@@ -131,7 +131,8 @@ function createPost2(
   });
 }
 
-function createPost3(
+function readPost3(
+  id,
   home_guest,
   playtime,
   playdate,
@@ -140,6 +141,7 @@ function createPost3(
   levelwant,
   category,
   note,
+  football_id,
   fullname,
   user_id,
   nameFc
@@ -159,7 +161,11 @@ function createPost3(
     '                   <div class="header-item-doi header-tim-doi ">' +
     '                      <div class="match-header-texts">' +
     "                         <h2>" +
-    '                            <a href="/fc-vien-dong.html?matchId=98988" title="FC Viễn Đông">' +
+    '                            <a href="thongtindoibong.html?football_id=' +
+    football_id +
+    "&user_id=" +
+    user_id +
+    '" title="Tên Đội Bóng">' +
     "                               " +
     nameFc +
     "</a>" +
@@ -185,7 +191,9 @@ function createPost3(
     "                      </div>" +
     '                      <div class="btn-doi-top pull-right">' +
     '                         <button id="btnBatDoi"' +
-    '                            class="btn btn-sm btn-primary pull-right btn-batdoi modal-link-angularjs"' +
+    '                           onclick="myFunction(' +
+    id +
+    ')" class="btn btn-sm btn-primary pull-right btn-batdoi modal-link-angularjs"' +
     '                            data-modal-tpl="match.recipientMaker" login-required="true"' +
     '                            data-modal-qs="toTeamId=23325&amp;toUserId=8082&amp;toMatchId=98988&amp;matchId=98988&amp;teamId=23325&amp;toTeamName=FC Viễn Đông">' +
     '                            <i class="fa fa-send" aria-hidden="true"></i> Bắt đối' +
@@ -237,4 +245,25 @@ function createPost3(
     "          </div>" +
     "       </div>" +
     "    </div>";
+}
+function myFunction(id) {
+  console.log("sdss" + id);
+  $.ajax({
+    type: "POST",
+    url: HOST + "/football/requestMatch/create/" + id,
+
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      console.log("thanh cong");
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
 }

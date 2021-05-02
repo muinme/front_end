@@ -182,7 +182,7 @@
                                                             <li class="col-sm-4">
                                                                 <ul class="menu-inner">
                                                                     <li class="dropdown-header">Danh mục</li>
-                                                                    <li><a href="blog.html">Đối Đang Chờ</a></li>
+                                                                    <li><a href="post.html">Đối Đang Chờ</a></li>
                                                                     <li><a href="createpitch.html">Mời Đối Giao Lưu</a>
                                                                     </li>
                                                                 </ul>
@@ -218,7 +218,7 @@
                 </ul>
             </div>
         </div>
-        <div class="tabs-chi-tiet-doi">
+        <div class="tabs-chi-tiet-doi" id="tTeam">
             <div class="container">
 
                 <div class="title-doi">
@@ -251,63 +251,10 @@
                                                     onchange="return sport.account.readURL(this);" name="profileUpload"
                                                     type="file">
                                             </span>
-
                                         </div>
-                                        <div class="col-md-9 right-item-san profile-view" style="display: none;">
-                                            <div class="form-group col-md-11">
-                                                <p><strong>Họ và Tên:</strong> Phạm Anh Tú</p>
-                                                <p><strong>Email:</strong> phamanhtu242@gmail.com</p>
-                                                <p><strong>Điện thoại:</strong> Chưa có</p>
-                                            </div>
-                                            <div class="form-group col-md-11">
-                                                <a href="javascript:void(0)" id="btnProfileEdit"
-                                                    class="btn mb20 btn-small btn-primary">Chỉnh sửa</a>
-                                            </div>
-                                        </div>
-                                        <div class="profile-edit col-md-9 right-item-san">
-                                            <form id="frmEditProfile" method="post">
-                                                <div class="row">
-                                                </div>
-                                                <div class="row form-group">
-                                                    <div class="col-sm-3 col-xs-6">
-                                                        <label class="control-label" style="font-size: 18px;">Họ Và Tên</label>
-                                                    </div>
-                                                    <div class="col-sm-6 col-xs-6">
-                                                        <input data-val="true"
-                                                            data-val-number="The field Id must be a number."
-                                                            data-val-required="The Id field is required." id="Id"
-                                                            name="Id" type="hidden" value="7054">
-                                                        <input id="UserAvatarPath" name="UserAvatarPath" type="hidden"
-                                                            value="/images/default-user.png">
-                                                        <input id="UserAvatarName" name="UserAvatarName" type="hidden"
-                                                            value="">
-                                                        <span class="field-validation-valid"
-                                                            data-valmsg-for="UserFirstName"
-                                                            data-valmsg-replace="true"></span>
-                                                        <input class="form-control" data-val="true"
-                                                            data-val-required="Họ không được để trống"
-                                                            id="UserFullname" name="fullname" type="text"
-                                                            value="Phạm Anh Tú">
-                                                    </div>
-                                                </div>
-                                                <div class="row form-group">
-                                                    <div class="col-sm-3 col-xs-6">
-                                                        <label class="control-label "style="font-size: 18px;">Email</label>
-                                                    </div>
-                                                    <div class="col-sm-6 col-xs-6">
-                                                        <input class="form-control" id="UserEmail" name="UserEmail"
-                                                            type="text" value="phamanhtu242@gmail.com">
-                                                    </div>
-                                                </div>
-                                                <div class="row form-group">
-                                                    <div class="col-sm-3 col-xs-6">
-                                                        <label class="control-label"style="font-size: 18px;">Điện thoại</label>
-                                                    </div>
-                                                    <div class="col-sm-6 col-xs-6">
-                                                        <input class="form-control" id="UserMobile" name="UserMobile"
-                                                            type="text" value="032">
-                                                    </div>
-                                                </div>
+                                        <div class="profile-edit col-md-9 right-item-san"  id="frmEditProfile">
+                                            <form>
+                                              
                                             </form>
                                         </div>
                                     </div>

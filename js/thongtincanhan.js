@@ -1,6 +1,27 @@
 // Get the modal
 const HOST = "http://localhost:8080";
-
+$(document).ready(function () {
+  $.ajax({
+    type: "GET",
+    url: HOST + "/football/userByUsername",
+    dataType: "JSON",
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      var obj = result;
+      console.log("object= " + JSON.stringify(obj) + "\nid = " + obj.image);
+      readUser(obj.fullname, obj.image, obj.id);
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
+});
 $("#btnProfileSave").click(function () {
   console.log("ok chuaaaa");
   var username = "a";

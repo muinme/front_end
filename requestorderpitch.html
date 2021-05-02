@@ -182,7 +182,7 @@
                                                             <li class="col-sm-4">
                                                                 <ul class="menu-inner">
                                                                     <li class="dropdown-header">Danh mục</li>
-                                                                    <li><a href="blog.html">Đối Đang Chờ</a></li>
+                                                                    <li><a href="post.html">Đối Đang Chờ</a></li>
                                                                     <li><a href="createpitch.html">Mời Đối Giao Lưu</a>
                                                                     </li>
                                                                 </ul>
@@ -197,17 +197,6 @@
                                             </div>
                                             <!-- /.nav-collapse -->
                                         </nav>
-                                        <div class="search-bar">
-                                            <div id="imaginary_container">
-                                                <div class="input-group stylish-input-group">
-                                                    <input type="text" class="form-control" placeholder="Search">
-                                                    <span class="input-group-addon">
-                                                        <button type="submit"><i class="fa fa-search"
-                                                                aria-hidden="true"></i></button>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -274,16 +263,41 @@
                                                             <th>Sân</th>
                                                             <th>Người đặt</th>
                                                             <th>Thời gian</th>
-                                                            <th>Nội dung</th>
+                                                            <th>Ngày</th>
                                                             <th class="text-right" width="250">Tác vụ</th>
                                                         </tr>
                                                     </thead>
 
                                                     <tbody>
-                                                        <tr>
-                                                            <td colspan="6">
-                                                                Không có yêu cầu đặt sân nào
+                                                        <tr ng-repeat="stadium in stadiums" class="ng-scope" style="text-align: left;">
+                                                            <td class="ng-binding">1</td>
+                                                            <td>
+                                                            <span ng-if="stadium.TypeId==1" class="ng-scope">Bóng đá</span><!-- end ngIf: stadium.TypeId==1 -->
                                                             </td>
+                                                            <td>
+                                                                <a ng-href="#/stadium-info/1362" href="#/stadium-info/1362"><strong class="ng-binding">Phạm Anh Tú</strong></a>
+                                                            <div ng-if="stadium.MobileNumbers!='' &amp;&amp; stadium.MobileNumbers!=null" class="ng-scope">
+                                                                    <i class="fa fa-phone-square"></i> <a href="tel:0333157596" class="ng-binding"> 0333157596</a>
+                                                                </div>
+                                                                <div ng-if="stadium.EmailAddress!='' &amp;&amp; stadium.EmailAddress!=null" class="ng-scope">
+                                                                    <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:phamanhtu242@gmail.com" target="_top" class="ng-binding"> phamanhtu242@gmail.com</a>
+                                                                </div><!-- end ngIf: stadium.EmailAddress!='' && stadium.EmailAddress!=null -->
+                                                            </td>
+                                                            <td>
+                                                                <span ng-if="stadium.TypeId==1" class="ng-scope">17:30</span><!-- end ngIf: stadium.TypeId==1 -->
+                                                                </td>
+                                                                <td>
+                                                                    <span ng-if="stadium.TypeId==1" class="ng-scope">Thứ 2</span><!-- end ngIf: stadium.TypeId==1 -->
+                                                                </td>
+                                                            <td align="right" style="text-align:right">
+                                                                <div class="form-group">
+                                                                    <a href="#" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-calendar-check-o"></i>Chấp Nhận</a>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <a href="#" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-calendar-times-o"></i>Từ Chối</a>
+                                                                </div>
+                                                            </td>
+                    
                                                         </tr>
                                                     </tbody>
                                                 </table>
