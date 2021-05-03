@@ -21,7 +21,7 @@ $("#login_submit").click(function () {
     },
     success: function (result) {
       console.log("thanh cong");
-      window.location.replace("http://localhost:5500/index_user.html");
+      window.location.replace("http://localhost:5501/index_user.html");
     },
     error: function () {
       console.log("da co loi");

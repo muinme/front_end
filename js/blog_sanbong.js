@@ -45,7 +45,7 @@ function createSanBong(name, image, id) {
       console.log(
         "object= " + JSON.stringify(obj1) + "\nid = " + obj1.fullname
       );
-      createSanBong2(name, image, obj1.fullname, obj1.phone);
+      createSanBong2(name, image, id, obj1.fullname, obj1.phone);
       //create div san bong
       //create div san bong
       //   window.location.replace("http://localhost:5500/index_user.html");
@@ -56,7 +56,7 @@ function createSanBong(name, image, id) {
   });
 }
 
-function createSanBong2(name, image, fullname, phone) {
+function createSanBong2(name, image, id, fullname, phone) {
   document.getElementById("list_sanbong").innerHTML +=
     '<div class="feature-img">' +
     '    <img src="images/img-03_002.jpg" class="img-responsive" alt="#" />' +
@@ -97,7 +97,9 @@ function createSanBong2(name, image, fullname, phone) {
     "          </div>" +
     "       </li>" +
     '       <div class= "full ">' +
-    '          <a class= "btn " href= "# ">Xem Chi Tiết</a>' +
+    '          <a class= "btn " href= "chitietsanbong.html?pitch_id=' +
+    id +
+    ' ">Xem Chi Tiết</a>' +
     "       </div>" +
     "    </div>" +
     " </div>";

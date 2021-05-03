@@ -23,22 +23,65 @@ $("#LuuStatus").click(function () {
 function readStatus() {
   var timeslot_id = 1;
   var day_id = 1;
+  var number_pitch_id = 1;
   $("#mytable .trOK").each(function () {
     console.log(timeslot_id);
     var selectedOptionVal = $(this).find(".cellStatus").find("#status").val(); //selected option value
-    updateStatusOfTime(1, timeslot_id, day_id, selectedOptionVal);
+    updateStatusOfTime(
+      1,
+      timeslot_id,
+      day_id,
+      number_pitch_id,
+      selectedOptionVal
+    );
     var selectedOptionVal1 = $(this).find(".cellStatus").find("#status1").val(); //selected option value
-    updateStatusOfTime(1, timeslot_id, day_id + 1, selectedOptionVal1);
+    updateStatusOfTime(
+      1,
+      timeslot_id,
+      day_id + 1,
+      number_pitch_id,
+      selectedOptionVal1
+    );
     var selectedOptionVal2 = $(this).find(".cellStatus").find("#status2").val(); //selected option value
-    updateStatusOfTime(1, timeslot_id, day_id + 2, selectedOptionVal2);
+    updateStatusOfTime(
+      1,
+      timeslot_id,
+      day_id + 2,
+      number_pitch_id,
+      selectedOptionVal2
+    );
     var selectedOptionVal3 = $(this).find(".cellStatus").find("#status3").val(); //selected option value
-    updateStatusOfTime(1, timeslot_id, day_id + 3, selectedOptionVal3);
+    updateStatusOfTime(
+      1,
+      timeslot_id,
+      day_id + 3,
+      number_pitch_id,
+      selectedOptionVal3
+    );
     var selectedOptionVal4 = $(this).find(".cellStatus").find("#status4").val(); //selected option value
-    updateStatusOfTime(1, timeslot_id, day_id + 4, selectedOptionVal4);
+    updateStatusOfTime(
+      1,
+      timeslot_id,
+      day_id + 4,
+      number_pitch_id,
+      selectedOptionVal4
+    );
     var selectedOptionVal5 = $(this).find(".cellStatus").find("#status5").val(); //selected option value
-    updateStatusOfTime(1, timeslot_id, day_id + 5, selectedOptionVal5);
+    updateStatusOfTime(
+      1,
+      timeslot_id,
+      day_id + 5,
+      number_pitch_id,
+      selectedOptionVal5
+    );
     var selectedOptionVal6 = $(this).find(".cellStatus").find("#status6").val(); //selected option value
-    updateStatusOfTime(1, timeslot_id, day_id + 6, selectedOptionVal6);
+    updateStatusOfTime(
+      1,
+      timeslot_id,
+      day_id + 6,
+      number_pitch_id,
+      selectedOptionVal6
+    );
     console.log(selectedOptionVal);
     console.log(selectedOptionVal1);
     console.log(selectedOptionVal2);
@@ -50,7 +93,13 @@ function readStatus() {
   });
 }
 
-function updateStatusOfTime(pitch_id, timeslot_id, day_id, status_hire) {
+function updateStatusOfTime(
+  pitch_id,
+  timeslot_id,
+  day_id,
+  number_pitch_id,
+  status_hire
+) {
   $.ajax({
     type: "POST",
     url:
@@ -59,6 +108,8 @@ function updateStatusOfTime(pitch_id, timeslot_id, day_id, status_hire) {
       timeslot_id +
       "/" +
       day_id +
+      "/" +
+      number_pitch_id +
       "/" +
       status_hire,
     crossDomain: true,
