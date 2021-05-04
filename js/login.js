@@ -1,4 +1,4 @@
-const HOST = "http://traibonglan.com";
+const HOST = "http://traibonglan.com:8080";
 $("#login_submit").click(function () {
   console.log("login button is pressed");
   var formData = {

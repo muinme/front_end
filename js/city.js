@@ -1,4 +1,4 @@
-// const HOST = "http://localhost:8080";
+// const HOST = "http://traibonglan.com:8080";
 // $(document).ready(function () {
 //   console.log("login button is pressed");
 //   $.ajax({
