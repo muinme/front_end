@@ -12,16 +12,18 @@ $(document).ready(function () {
       withCredentials: true,
     },
     success: function (result) {
-      var obj = result;
-      console.log(obj.user_id);
-      console.log("id request" + obj.id);
-      readUser2(
-        obj.user_id,
-        obj.id,
-        obj.pitch_id,
-        obj.created,
-        obj.pitch_detail_id
-      );
+      console.log(result);
+      for (var key in result) {
+        var obj = result[key];
+        console.log("object= " + JSON.stringify(obj) + "\nid = " + obj.id);
+        readUser2(
+          obj.user_id,
+          obj.id,
+          obj.pitch_id,
+          obj.created,
+          obj.pitch_detail_id
+        );
+      }
     },
     error: function () {
       console.log("da co loi");
@@ -40,7 +42,7 @@ $(document).ready(function () {
     },
     success: function (result) {
       var obj = result;
-      readUser(obj.fullname, obj.image, obj.id);
+      readUserProfile(obj.fullname, obj.image, obj.id);
     },
     error: function () {
       console.log("da co loi");
@@ -49,9 +51,9 @@ $(document).ready(function () {
 });
 
 function readUser2(user_id, id, pitch_id, created, pitch_detail_id) {
-  console.log(user_id);
-  console.log(created);
-  console.log(pitch_detail_id);
+  console.log("íidj" + user_id);
+  console.log("sss" + created);
+  console.log("sds" + pitch_detail_id);
   $.ajax({
     type: "GET",
     url: HOST + "/football/userById/" + user_id,
@@ -82,6 +84,7 @@ function readUser2(user_id, id, pitch_id, created, pitch_detail_id) {
     },
   });
 }
+
 function readPost(
   fullname,
   phone,
@@ -106,7 +109,7 @@ function readPost(
     success: function (result) {
       var obj = result;
       console.log(obj);
-      readYeuCau(
+      readTime(
         fullname,
         phone,
         email,
@@ -125,27 +128,26 @@ function readPost(
   });
 }
 
-function readYeuCau(
+function readYeuCauFinal(
   fullname,
   phone,
   email,
   id,
-  pitch_id,
+  namePitch,
   created,
   pitch_detail_id,
-  timeslot_id,
-  day_id,
+  time,
+  day,
   number_pitch_id
 ) {
-  console.log(fullname);
   document.getElementById("tbYeuCau").innerHTML +=
     '<tr class="ng-scope" style="text-align: left;">' +
-    '    <td class="ng-binding">' +
+    '    <td class="ng-binding"> Sân số ' +
     number_pitch_id +
     "</td>" +
     "    <td>" +
     '    <span class="ng-scope">' +
-    pitch_id +
+    namePitch +
     "</span><!-- end ngIf: stadium.TypeId==1 -->" +
     "    </td>" +
     "    <td>" +
@@ -158,71 +160,90 @@ function readYeuCau(
     "</a>" +
     "        </div>" +
     '        <div class="ng-scope">' +
-    '            <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:phamanhtu242@gmail.com" target="_top" class="ng-binding"> phamanhtu242@gmail.com</a>' +
+    '            <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:phamanhtu242@gmail.com" target="_top" class="ng-binding">' +
+    email +
+    "</a>" +
     "        </div>" +
     "    </td>" +
     "    <td>" +
     '        <span class="ng-scope">' +
-    timeslot_id +
+    time +
     "</span>" +
     "        </td>" +
     "        <td>" +
     '            <span class="ng-scope">' +
-    day_id +
+    day +
     "</span><!-- end ngIf: stadium.TypeId==1 -->" +
     "        </td>" +
     '    <td align="right" style="text-align:right">' +
     '        <div class="form-group">' +
-    '            <a id ="ChapNhan" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-calendar-check-o"></i>Chấp Nhận</a>' +
+    '            <a id ="ChapNhan" onclick="myFunction1(' +
+    id +
+    ')" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-calendar-check-o"></i>Chấp Nhận</a>' +
     "        </div>" +
     '        <div class="form-group">' +
-    '            <a id ="TuChoi" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-calendar-times-o"></i>Từ Chối</a>' +
+    '            <a id ="TuChoi" onclick="myFunction2(' +
+    id +
+    ')" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-calendar-times-o"></i>Từ Chối</a>' +
     "        </div>" +
     "    </td>" +
     "</tr>";
-
-  $("#ChapNhan").click(function () {
-    console.log("vcl");
-    // $.ajax({
-    //   type: "POST",
-    //   url: HOST + "/football/historyMatch1/create/" + id,
-    //   crossDomain: true,
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   xhrFields: {
-    //     withCredentials: true,
-    //   },
-    //   success: function (result) {
-    //     console.log("thanh cong");
-    //   },
-    //   error: function () {
-    //     console.log("da co loi");
-    //   },
-    // });
-  });
-  $("#TuChoi").click(function () {
-    console.log("vcl2");
-    // $.ajax({
-    //   type: "POST",
-    //   url: HOST + "/football/historyMatch2/create/" + id,
-    //   crossDomain: true,
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   xhrFields: {
-    //     withCredentials: true,
-    //   },
-    //   success: function (result) {
-    //     console.log("thanh cong");
-    //   },
-    //   error: function () {
-    //     console.log("da co loi");
-    //   },
-    // });
+}
+function myFunction1(id) {
+  console.log("sdss" + id);
+  $.ajax({
+    type: "POST",
+    url: HOST + "/football/historyRental1/create/" + id,
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      console.log("thanh cong");
+    },
+    error: function () {
+      console.log("da co loi");
+    },
   });
 }
-function readTime(timeslot_id) {
+function myFunction2(id) {
+  console.log("sdss" + id);
+  $.ajax({
+    type: "POST",
+    url: HOST + "/football/historyRental2/create/" + id,
+
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      console.log("thanh cong");
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
+}
+
+function readTime(
+  fullname,
+  phone,
+  email,
+  id,
+  pitch_id,
+  created,
+  pitch_detail_id,
+  timeslot_id,
+  day_id,
+  number_pitch_id
+) {
+  console.log("dmmmmmmmm callllllllll" + timeslot_id);
   $.ajax({
     type: "GET",
     url: HOST + "/football/timeSlotPitch/" + timeslot_id,
@@ -236,17 +257,39 @@ function readTime(timeslot_id) {
     },
     success: function (result) {
       var obj = result;
-      readUser2(obj.fullname, obj.image, obj.id);
+      readDay(
+        fullname,
+        phone,
+        email,
+        id,
+        pitch_id,
+        created,
+        pitch_detail_id,
+        obj.timeslot_detail,
+        day_id,
+        number_pitch_id
+      );
     },
     error: function () {
       console.log("da co loi");
     },
   });
 }
-$(document).ready(function () {
+function readDay(
+  fullname,
+  phone,
+  email,
+  id,
+  pitch_id,
+  created,
+  pitch_detail_id,
+  time,
+  day_id,
+  number_pitch_id
+) {
   $.ajax({
     type: "GET",
-    url: HOST + "/football/userByUsername",
+    url: HOST + "/football/dayOfWeek/" + day_id,
     dataType: "JSON",
     crossDomain: true,
     headers: {
@@ -257,14 +300,69 @@ $(document).ready(function () {
     },
     success: function (result) {
       var obj = result;
-      readUser2(obj.fullname, obj.image, obj.id);
+      readPitch(
+        fullname,
+        phone,
+        email,
+        id,
+        pitch_id,
+        created,
+        pitch_detail_id,
+        time,
+        obj.name,
+        number_pitch_id
+      );
     },
     error: function () {
       console.log("da co loi");
     },
   });
-});
-function readUser(fullname, image, id) {
+}
+function readPitch(
+  fullname,
+  phone,
+  email,
+  id,
+  pitch_id,
+  created,
+  pitch_detail_id,
+  time,
+  day,
+  number_pitch_id
+) {
+  $.ajax({
+    type: "GET",
+    url: HOST + "/football/pitch/" + pitch_id,
+    dataType: "JSON",
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      var obj = result;
+      readYeuCauFinal(
+        fullname,
+        phone,
+        email,
+        id,
+        obj.name,
+        created,
+        pitch_detail_id,
+        time,
+        day,
+        number_pitch_id
+      );
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
+}
+
+function readUserProfile(fullname, image, id) {
   console.log("jdjsjidooooooooooooooo");
   document.getElementById("liUser").innerHTML +=
     '<button class="dropbtn"><img src="' +

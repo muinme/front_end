@@ -72,7 +72,7 @@ function createSanBong2(name, image, id, fullname, phone) {
     "                <h4>" +
     fullname +
     "</h4>" +
-    "                <h5>on March27, 2021</h5>" +
+    "                <h5></h5>" +
     "             </span>" +
     "          </div>" +
     '          <span class= "share "></span>' +
@@ -87,11 +87,11 @@ function createSanBong2(name, image, id, fullname, phone) {
     name +
     "</a></h2>" +
     "                <p>" +
-    '                   <i class= "fa fa-map-o " aria-hidden= "true "></i> 56 Tố Hữu (Quận Nam Từ Liêm, Hà Nội)' +
+    '                   <i class= "fa fa-map-o " aria-hidden= "true "></i> số 31 (Quận Ba Đình Hà Nội)' +
     "                </p>" +
-    '                <p class= "phone-numb "><i class= "fa fa-phone-square " aria-hidden= "true "></i> Liên Hệ -' +
+    '                <p class= "phone-numb "><i class= "fa fa-phone-square " aria-hidden= "true "></i> Liên Hệ - 0123456777' +
     "                   " +
-    phone +
+    // phone +
     "</p>" +
     "             </div>" +
     "          </div>" +

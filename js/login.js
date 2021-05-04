@@ -1,6 +1,4 @@
-// Get the modal
 const HOST = "http://localhost:8080";
-
 $("#login_submit").click(function () {
   console.log("login button is pressed");
   var formData = {
