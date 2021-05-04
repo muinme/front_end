@@ -1,4 +1,4 @@
-const HOST = "http://localhost:8080";
+const HOST = "http://traibonglan.com";
 $("#login_submit").click(function () {
   console.log("login button is pressed");
   var formData = {
@@ -19,7 +19,7 @@ $("#login_submit").click(function () {
     },
     success: function (result) {
       console.log("thanh cong");
-      window.location.replace("http://localhost:5501/index_user.html");
+      window.location.replace("http://traibonglan.com/index_user.html");
     },
     error: function () {
       console.log("da co loi");

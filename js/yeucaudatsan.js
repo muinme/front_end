@@ -1,4 +1,4 @@
-const HOST = "http://localhost:8080";
+const HOST = "http://traibonglan.com";
 $(document).ready(function () {
   $.ajax({
     type: "GET",
@@ -392,7 +392,7 @@ function readUserProfile(fullname, image, id) {
       },
       success: function (result) {
         console.log("thanh cong");
-        window.location.replace("http://localhost:5500/index.html");
+        window.location.replace("http://traibonglan.com/index.html");
       },
       error: function () {
         console.log("da co loi");

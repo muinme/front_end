@@ -1,5 +1,5 @@
 // Get the modal
-const HOST = "http://localhost:8080";
+const HOST = "http://traibonglan.com";
 $(document).ready(function () {
   $.ajax({
     type: "GET",

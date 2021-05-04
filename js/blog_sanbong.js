@@ -1,5 +1,5 @@
 // Get the modal
-const HOST = "http://localhost:8080";
+const HOST = "http://traibonglan.com";
 $(document).ready(function () {
   console.log("login button is pressed");
   $.ajax({
@@ -19,7 +19,7 @@ $(document).ready(function () {
         //create div san bong
         createSanBong(obj.name, obj.image, obj.id);
       }
-      //   window.location.replace("http://localhost:5500/index_user.html");
+      
     },
     error: function () {
       console.log("da co loi");

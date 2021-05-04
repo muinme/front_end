@@ -1,4 +1,4 @@
-const HOST = "http://localhost:8080";
+const HOST = "http://traibonglan.com";
 $(document).ready(function () {
   var id = GetURLParameter("user_id");
 

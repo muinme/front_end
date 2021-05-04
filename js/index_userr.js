@@ -49,7 +49,7 @@ function readUser(fullname, image) {
       },
       success: function (result) {
         console.log("thanh cong");
-        window.location.replace("http://localhost:5500/index.html");
+        window.location.replace("http://traibonglan.com/index.html");
       },
       error: function () {
         console.log("da co loi");
