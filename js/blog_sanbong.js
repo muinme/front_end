@@ -19,7 +19,6 @@ $(document).ready(function () {
         //create div san bong
         createSanBong(obj.name, obj.image, obj.id);
       }
-      
     },
     error: function () {
       console.log("da co loi");

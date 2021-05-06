@@ -1,5 +1,5 @@
 // Get the modal
-const HOST = "http://traibonglan.com:8080";
+const HOST = "http://traibonglan.com";
 
 $("#register_submit").click(function () {
   console.log("ok chuaaaa");

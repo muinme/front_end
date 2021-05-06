@@ -1,4 +1,4 @@
-const HOST = "http://traibonglan.com:8080";
+const HOST = "http://traibonglan.com";
 
 $("#logout").click(function () {
   console.log("logout button is pressed");
