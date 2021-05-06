@@ -1,4 +1,4 @@
-const HOST = "http://traibonglan.com";
+const HOST = "http://traibonglan.com:8080";
 $(document).ready(function () {
   var id = GetURLParameter("pitch_id");
 

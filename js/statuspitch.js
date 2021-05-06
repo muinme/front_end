@@ -1,4 +1,4 @@
-const HOST = "http://traibonglan.com";
+const HOST = "http://traibonglan.com:8080";
 $("#LuuStatus").click(function () {
   readStatus();
   // $.ajax({
