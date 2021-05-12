@@ -147,6 +147,7 @@ function readPost3(
   nameFc
 ) {
   document.getElementById("listPost").innerHTML +=
+    '<div class="row">' +
     '    <div class="col-md-5">' +
     '       <div class="feature-img">' +
     '          <img src="images/post2.png" class="img-responsive" alt="#" />' +
@@ -244,6 +245,7 @@ function readPost3(
     "             </div>" +
     "          </div>" +
     "       </div>" +
+    "    </div>" +
     "    </div>";
 }
 function myFunction(id) {
