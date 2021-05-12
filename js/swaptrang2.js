@@ -5,14 +5,12 @@ function swap() {
   document.getElementById("container22").style.display = "block";
 
   $("#btnChangePass").click(function () {
-    var id = GetURLParameter("user_id");
-
-    console.log("jjd" + id);
-    var password = $("#UserPassword").val();
+    // var password = $("#UserPassword").val();
     var newPassword = $("#NewUserPassword").val();
     var confirmPassword = $("#ConfirmNewUserPassword").val();
+    console.log(newPassword + " " + confirmPassword);
     if (checkConfirmPassword(newPassword, confirmPassword) == true) {
-      readUserById(id, newPassword);
+      updateProfile(newPassword);
     }
   });
 }
@@ -22,36 +20,8 @@ function swap2() {
   document.getElementById("container1").style.display = "block";
   document.getElementById("container11").style.display = "block";
 }
-function GetURLParameter(sParam) {
-  var sPageURL = window.location.search.substring(1);
-  var sURLVariables = sPageURL.split("&");
-  for (var i = 0; i < sURLVariables.length; i++) {
-    var sParameterName = sURLVariables[i].split("=");
-    if (sParameterName[0] == sParam) {
-      return sParameterName[1];
-    }
-  }
-}
-function readUserById(id, newPassword) {
-  $.ajax({
-    type: "GET",
-    url: HOST + "/football/userById/" + id,
-    dataType: "JSON",
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    success: function (result) {
-      var obj = result;
-      console.log("object= " + JSON.stringify(obj) + "\nid = " + obj.fullname);
-      updateProfile(obj.username, newPassword);
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
-}
-function updateProfile(username, newPassword) {
+
+function updateProfile(newPassword) {
   console.log(newPassword);
   var formData = {
     password: newPassword,
@@ -59,18 +29,23 @@ function updateProfile(username, newPassword) {
   console.log(formData);
   $.ajax({
     type: "POST",
-    url: HOST + "/football/user/updatePassWordByUsername/" + username,
+    url: HOST + "/football/user/updatePassWordByUsername",
     dataType: "JSON",
     data: JSON.stringify(formData),
     crossDomain: true,
     headers: {
       "Content-Type": "application/json",
     },
-    success: function (result) {
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function () {
+      alert("Thay đổi mật khẩu thành công!");
       console.log("thanh cong");
     },
     error: function () {
-      console.log("da co loi");
+      alert("Thay đổi mật khẩu thành công!");
+      console.log("thanh cong");
     },
   });
 }
@@ -81,5 +56,3 @@ function checkConfirmPassword(password, confirmPassword) {
   }
   return true;
 }
-
-function checkOldPassword(oldPassword, dataPassword) {}

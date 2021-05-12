@@ -8,7 +8,7 @@ $("#btnCreateMatch").click(function () {
     city: $("#selTinh").children("option:selected").val(),
     nameyard: $("#inpNameyard").val(),
     againt: $("#selAgaint").children("option:selected").val(),
-    category: $("#inpLevelwant").val(),
+    category: $("#inpCategory").val(),
     levelwant: $("#inpLevelwant").val(),
     note: $("#texNote").val(),
   };

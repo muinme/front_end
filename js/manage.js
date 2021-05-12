@@ -1,4 +1,4 @@
-const HOST = "http://traibonglan.com:8080";
+document.write('<script type="text/javascript" src="/js/host.js" ></script>');
 
 $(document).ready(function () {
   $.ajax({
@@ -97,7 +97,7 @@ function readUser(fullname, image) {
     fullname +
     "</button>" +
     '                                <div class="dropdown-content">' +
-    '                                    <a href="thongtincanhan.html"><i class="fa fa-user"></i>Profile</a>' +
+    '                                    <a href="myprofile.html"><i class="fa fa-user"></i>Profile</a>' +
     '                                    <a href="myteam.html"><i class="fa fa-futbol-o"></i>My Team FootBall</a>' +
     '                                    <a href="managementpitch.html"><i class="fa fa-th-large"></i>My Pitch</a>' +
     '                                    <a href="historyorderpitch.html"><i class="fa fa-history"></i>History Pitch</a>' +

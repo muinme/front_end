@@ -1,5 +1,5 @@
 // Get the modal
-const HOST = "http://traibonglan.com:8080";
+document.write('<script type="text/javascript" src="/js/host.js" ></script>');
 $(document).ready(function () {
   $.ajax({
     type: "GET",
@@ -161,7 +161,7 @@ function readPost3(
     '                   <div class="header-item-doi header-tim-doi ">' +
     '                      <div class="match-header-texts">' +
     "                         <h2>" +
-    '                            <a href="thongtindoibong.html?football_id=' +
+    '                            <a href="profileteamfootball.html?football_id=' +
     football_id +
     "&user_id=" +
     user_id +
@@ -176,7 +176,7 @@ function readPost3(
     "                            </span>" +
     "                         </h2>" +
     '                         <p class="captain-item noborder" owner-id="8082">' +
-    '                            <a href="thongtincanhankhac.html?user_id=' +
+    '                            <a href="profile.html?user_id=' +
     user_id +
     '"><i class="fa fa-user"' +
     '                                  aria-hidden="true"></i>' +

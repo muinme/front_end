@@ -1,5 +1,5 @@
 // Get the modal
-const HOST = "http://traibonglan.com:8080";
+document.write('<script type="text/javascript" src="/js/host.js" ></script>');
 $(document).ready(function () {
   console.log("login button is pressed");
   $.ajax({

@@ -14,7 +14,6 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <!-- Site CSS -->
 <link rel="stylesheet" href="style.css">
-
 <link href="plugin.css" rel="stylesheet" />
 
 <link href="main.css" rel="stylesheet" />
@@ -66,15 +65,31 @@
                         </ul>
                         <!-- end social icon -->
                         <!-- button section -->
-                        <ul class="login">
+                        <ul class="login" id="NoLogin" style="display: block;">
                            <li class="login-modal">
-                              <a href="#" class="login"><i class="fa fa-user"></i>Login</a>
+                              <a href="login.html" class="login"><i class="fa fa-user"></i>Login</a>
                            </li>
                            <li>
                               <div class="cart-option">
-                                 <a href="#"><i class="fa fa-shopping-cart"></i>Register</a>
+                                 <a href="register.html"><i class="fa fa-shopping-cart"></i>Register</a>
                               </div>
                            </li>
+                        </ul>
+                        <ul class="login" id="UserLogin" style="display: none;">
+                           <li>
+                              <div class="cart-option">
+                                 <button><i class="fa fa-bell"></i></button>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="cart-option">
+                                 <button><i class="fa fa-comment"></i></button>
+                                 
+                              </div>
+                          </li>
+                            <li class="login-modal" id="liUser">
+                             
+                            </li>
                         </ul>
                         <!-- end button section -->
                      </div>
@@ -102,9 +117,9 @@
                                     <ul class="nav navbar-nav">
                                        <li class="active"><a href="index.html"><i class="fa fa-home"></i>Trang Chủ</a>
                                        </li>
-                                       <li><a href="about.html"><i class="fa fa-exclamation"></i>Thông Tin</a></li>
-                                       <li><a href="team.html"><i class="fa fa-futbol-o"></i>Đội Bóng</a></li>
-                                       <li><a href="blog_sanbong.html"><i class="fa fa-th-large"></i>Sân Bóng </a></li>
+                                       <li><a href="information.html"><i class="fa fa-exclamation"></i>Thông Tin</a></li>
+                                       <li><a href="profile.html"><i class="fa fa-futbol-o"></i>Đội Bóng</a></li>
+                                       <li><a href="pitchs.html"><i class="fa fa-th-large"></i>Sân Bóng </a></li>
                                        <li class="dropdown mega-dropdown">
                                           <a href="match" class="dropdown-toggle" data-toggle="dropdown"><i
                                                 class="fa fa-beer"></i>Tìm Đối Nhanh<span class="caret"></span></a>
@@ -155,12 +170,12 @@
                                                 <ul class="menu-inner">
                                                    <li class="dropdown-header">Danh mục</li>
                                                    <li><a href="post.html">Đối Đang Chờ</a></li>
-                                                   <li><a href="createpitch.html">Mời Đối Giao Lưu</a></li>
+                                                   <li><a href="creatematch.html">Mời Đối Giao Lưu</a></li>
                                                 </ul>
                                              </li>
                                           </ul>
                                        </li>
-                                       <li><a href="blog.html"><i class="fa fa-shirtsinbulk"></i>Thống Kê</a></li>
+                                       <li><a href="#"><i class="fa fa-shirtsinbulk"></i>Thống Kê</a></li>
                                        <li><a href="contact.html"><i class="fa fa-book"></i>Liên Hệ</a></li>
                                     </ul>
                                  </div>
@@ -180,7 +195,7 @@
       </div>
       <div class="inner-information-text">
          <div class="container">
-            <h3>Đối Đang Chờ</h3>
+            <h3>Sân Bóng</h3>
             <ul class="breadcrumb">
                <li><a href="index.html">Home</a></li>
                <li class="active">Blog</li>
@@ -190,7 +205,7 @@
    </section>
    <section id="contant" class="contant main-heading team">
       <div class="row">
-         < class="container">
+         <div class="container">
             <div class="col-md-9">
                <div class="blog-sidebar">
                   <div class="search-bar-blog">
@@ -200,237 +215,190 @@
                      </form>
                   </div>
                </div>
-               <div class="feature-post small-blog">
-                  <ul class="list-item-san">
-                     <li class="iem-card match-finding-item" idd="98988">
-                        <div class="col-md-5">
-                           <div class="feature-img">
-                              <img src="images/post2.png" class="img-responsive" alt="#" />
-                           </div>
-                        </div>
-                        <div class="col-md-7">
-                           <div class="feature-cont">
-                              <div class="post-heading">
+               <div class="feature-post" id="list_sanbong">
+                  <div class="feature-img">
+                     <img src="images/img-03_002.jpg" class="img-responsive" alt="#" />
+                  </div>
 
-                                 <div class="row">
-                                    <div class="col-md-12 right-item-san right-item-doi">
-                                       <div class="header-item-doi header-tim-doi ">
-                                          <div class="match-header-texts">
-                                             <h2>
-                                                <a href="/fc-vien-dong.html?matchId=98988" title="FC Viễn Đông">FC Viễn
-                                                   Đông</a>
-                                                <span class="match-taginfo">
-                                                   <i class="fa fa-tag" aria-hidden="true"></i> Có sân nhà
-                                                </span>
-                                             </h2>
-                                             <p class="captain-item noborder" owner-id="8082">
-                                                <a href="/user/profile/8082"><i class="fa fa-user"
-                                                      aria-hidden="true"></i>
-                                                   Vũ Cường</a>
-                                                <span class="captain-item-status hide online"></span>
-                                                <span class="chat-nhanh" ng-click="onQuickChat(8082);"
-                                                   title="Click để chat nhanh với đối."><i class="fa fa-comments"
-                                                      aria-hidden="true"></i>Nói chuyện</span>
-                                             </p>
-                                          </div>
-                                          <div class="btn-doi-top pull-right">
-                                             <button
-                                                class="btn btn-sm btn-primary pull-right btn-batdoi modal-link-angularjs"
-                                                data-modal-tpl="match.recipientMaker" login-required="true"
-                                                data-modal-qs="toTeamId=23325&amp;toUserId=8082&amp;toMatchId=98988&amp;matchId=98988&amp;teamId=23325&amp;toTeamName=FC Viễn Đông">
-                                                <i class="fa fa-send" aria-hidden="true"></i> Bắt đối
-                                             </button>
-                                          </div>
-                                       </div>
-                                       <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"
-                                             aria-hidden="true"></i><strong>Thời gian:</strong>17h30 Chủ Nhật ngày
-                                          25/04/2021</p>
-                                       <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"
-                                             aria-hidden="true"></i><strong>Sân nhà:</strong><a
-                                             href="/san-bong-da-ho-den-lu-1.html" target="_blank">Sân Bóng Đá Hồ Đền Lừ
-                                             1
-                                             (Sân 7 số 1)</a>
-                                       </p>
-                                       <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"
-                                             aria-hidden="true"></i><strong>Địa chỉ:</strong>Ngã 3 Đền Lừ - Tân Mai
-                                          (Quận
-                                          Hoàng Mai Hà Nội)</p>
-                                       <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"
-                                             aria-hidden="true"></i><strong>Trình
-                                             độ:</strong>Trung bình yếu
-                                       </p>
-                                       <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"
-                                             aria-hidden="true"></i><strong>Kèo:</strong>
-                                          3-5-7, sân nước
-                                       </p>
-                                       <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"
-                                             aria-hidden="true"></i><strong>Trạng
-                                             thái:</strong>
-                                          <span class="red">Đang chờ</span>
-                                       </p>
-                                       <p class="quost-doi">
-                                          Đội mình nhân viên vp độ tuổi trung bình trên 30.vui ve ,FairPlay nhận giao
-                                          lưu
-                                          các với các đội quanh khu vực hoàng mai,hai bà trưng.đội mình có sân nhà cố
-                                          định
-                                          vào 18h thứ năm hàng tuần,trên sân bóng hồ đền lừ
-                                       </p>
-                                    </div>
-                                 </div>
+                  <div class="feature-cont">
+                     <div class="post-people">
+                        <div class="left-profile">
+                           <div class="post-info">
+                              <img src="images/profile-img.png" alt="#" />
+                              <span>
+                                 <h4>Chủ Sân ...</h4>
+                                 <h5>on March27, 2021</h5>
+                              </span>
+                           </div>
+                           <span class="share"></span>
+                        </div>
+                     </div>
+                     <div class="post-heading">
+                        <li class="item-card">
+                           <div class="row">
+                              <div class="col-md-7 right-item-san">
+                                 <h2><a href="/san-bong-hai-dang-56-to-huu.html"
+                                       title="Sân bóng Hải Đăng - 56 Tố Hữu">Sân bóng Hải Đăng - 56 Tố Hữu</a></h2>
+                                 <p>
+                                    <i class="fa fa-map-o" aria-hidden="true"></i> 56 Tố Hữu (Quận Nam Từ Liêm, Hà Nội)
+                                 </p>
+                                 <p class="phone-numb"><i class="fa fa-phone-square" aria-hidden="true"></i> Ngô Nam -
+                                    0989131005</p>
                               </div>
                            </div>
+                        </li>
+                        <div class="full">
+                           <a class="btn" href="#">Xem Chi Tiết</a>
                         </div>
-                     </li>
-                  </ul>
-         </div>
-      </div>
-      <div class="col-md-3">
-         <div class="blog-sidebar">
-            <h4 class="heading">Tỉnh/Thành Phố</h4>
-            <div class="category-menu">
-               <ul>
-                  <li><a href="#">Hà Nội</a></li>  
-                  <li><a href="#">Hồ Chí Minh</a></li>
-                  <li><a href="#">Đà Nẵng</a></li>
-                  <li><a href="#">Thái Bình</a></li>
-                  <li><a href="#">Bắc Ninh</a></li>
-                  <li><a href="#">Hà Nam</a></li>
-                  <li><a href="#">Nam Định</a></li>
-                  <li><a href="#">Bắc Giang</a></li>
-               </ul>
-            </div>
-         </div>
-         <div class="blog-sidebar">
-            <h4 class="heading">Sân Nhà/Sân Khách</h4>
-            <div class="category-menu">
-               <ul>
-                  <li><a href="#">Sân Nhà</a></li>
-                  <li><a href="#">Sân Khách</a></li>
-                  <li>
-                     <span><img src="images/profile-img2.png" alt="#"></span>
-                     <span>
-                        <p>Two touch penalties, imaginary cards</p>
-                        <p class="date">22 Feb, 2016</p>
-                     </span>
-                  </li>
-               </ul>
-            </div>
-         </div>
-         <aside id="sidebar" class="left-bar">
-            <div class="feature-matchs">
-               <div class="team-btw-match">
-                  <ul>
-                     <li>
-                        <img src="images/img-01_002.png" alt="">
-                        <span>Portugal</span>
-                     </li>
-                     <li class="vs"><span>vs</span></li>
-                     <li>
-                        <img src="images/img-02.png" alt="">
-                        <span>Germany</span>
-                     </li>
-                  </ul>
-                  <ul>
-                     <li>
-                        <img src="images/img-03_002.png" alt="">
-                        <span>Portugal</span>
-                     </li>
-                     <li class="vs"><span>vs</span></li>
-                     <li>
-                        <img src="images/img-04_003.png" alt="">
-                        <span>Germany</span>
-                     </li>
-                  </ul>
-                  <ul>
-                     <li>
-                        <img src="images/img-05_002.png" alt="">
-                        <span>Portugal</span>
-                     </li>
-                     <li class="vs"><span>vs</span></li>
-                     <li>
-                        <img src="images/img-06.png" alt="">
-                        <span>Germany</span>
-                     </li>
-                  </ul>
-                  <ul>
-                     <li>
-                        <img src="images/img-07_002.png" alt="">
-                        <span>Portugal</span>
-                     </li>
-                     <li class="vs"><span>vs</span></li>
-                     <li>
-                        <img src="images/img-08.png" alt="">
-                        <span>Germany</span>
-                     </li>
-                  </ul>
+                     </div>
+                  </div>
                </div>
             </div>
-         </aside>
-         <aside id="sidebar" class="left-bar">
-            <div class="banner-sidebar">
-               <img class="img-responsive" src="images/match-banner1.jpg" alt="#">
-               <h3>Argentina vs Chile|Goals of the match | COPA </h3>
+            <div class="col-md-3">
+               <div class="blog-sidebar">
+                  <h4 class="heading">Top Categories</h4>
+                  <div class="category-menu">
+                     <ul>
+                        <li><a href="#">Cricket</a></li>
+                        <li><a href="#">Football</a></li>
+                        <li><a href="#">Hockey</a></li>
+                        <li><a href="#">Tennis</a></li>
+                        <li><a href="#">Basketball</a></li>
+                        <li><a href="#">Golf</a></li>
+                        <li><a href="#">Cycling</a></li>
+                        <li><a href="#">Motorsports</a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="blog-sidebar">
+                  <h4 class="heading">Popular News</h4>
+                  <div class="category-menu">
+                     <ul>
+                        <li>
+                           <span><img src="images/profile-img2.png" alt="#"></span>
+                           <span>
+                              <p>Two touch penalties, imaginary cards</p>
+                              <p class="date">22 Feb, 2016</p>
+                           </span>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <aside id="sidebar" class="left-bar">
+                  <div class="feature-matchs">
+                     <div class="team-btw-match">
+                        <ul>
+                           <li>
+                              <img src="images/img-01_002.png" alt="">
+                              <span>Portugal</span>
+                           </li>
+                           <li class="vs"><span>vs</span></li>
+                           <li>
+                              <img src="images/img-02.png" alt="">
+                              <span>Germany</span>
+                           </li>
+                        </ul>
+                        <ul>
+                           <li>
+                              <img src="images/img-03_002.png" alt="">
+                              <span>Portugal</span>
+                           </li>
+                           <li class="vs"><span>vs</span></li>
+                           <li>
+                              <img src="images/img-04_003.png" alt="">
+                              <span>Germany</span>
+                           </li>
+                        </ul>
+                        <ul>
+                           <li>
+                              <img src="images/img-05_002.png" alt="">
+                              <span>Portugal</span>
+                           </li>
+                           <li class="vs"><span>vs</span></li>
+                           <li>
+                              <img src="images/img-06.png" alt="">
+                              <span>Germany</span>
+                           </li>
+                        </ul>
+                        <ul>
+                           <li>
+                              <img src="images/img-07_002.png" alt="">
+                              <span>Portugal</span>
+                           </li>
+                           <li class="vs"><span>vs</span></li>
+                           <li>
+                              <img src="images/img-08.png" alt="">
+                              <span>Germany</span>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </aside>
+               <aside id="sidebar" class="left-bar">
+                  <div class="banner-sidebar">
+                     <img class="img-responsive" src="images/match-banner1.jpg" alt="#">
+                     <h3>Argentina vs Chile|Goals of the match | COPA </h3>
+                  </div>
+               </aside>
+               <aside id="sidebar" class="right-bar">
+                  <div class="banner">
+                     <img class="img-responsive" src="images/adds-3.jpg" alt="#">
+                  </div>
+               </aside>
+               <aside id="sidebar" class="left-bar">
+                  <div class="feature-matchs">
+                     <table class="table table-bordered table-hover">
+                        <thead>
+                           <tr>
+                              <th>#</th>
+                              <th>Team</th>
+                              <th>P</th>
+                              <th>W</th>
+                              <th>L</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>1</td>
+                              <td><img src="images/img-01_004.png" alt="">Liverpool</td>
+                              <td>10</td>
+                              <td>12</td>
+                              <td>20</td>
+                           </tr>
+                           <tr>
+                              <td>2</td>
+                              <td><img src="images/img-02_002.png" alt="">Chelsea</td>
+                              <td>10</td>
+                              <td>12</td>
+                              <td>20</td>
+                           </tr>
+                           <tr>
+                              <td>3</td>
+                              <td><img src="images/img-03_003.png" alt="">Norwich City</td>
+                              <td>20</td>
+                              <td>15</td>
+                              <td>20</td>
+                           </tr>
+                           <tr>
+                              <td>4</td>
+                              <td><img src="images/img-04_002.png" alt="">West Brom</td>
+                              <td>60</td>
+                              <td>10</td>
+                              <td>60</td>
+                           </tr>
+                           <tr>
+                              <td>5</td>
+                              <td><img src="images/img-05.png" alt="">sunderland</td>
+                              <td>30</td>
+                              <td>06</td>
+                              <td>30</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </aside>
             </div>
-         </aside>
-         <aside id="sidebar" class="right-bar">
-            <div class="banner">
-               <img class="img-responsive" src="images/adds-3.jpg" alt="#">
-            </div>
-         </aside>
-         <aside id="sidebar" class="left-bar">
-            <div class="feature-matchs">
-               <table class="table table-bordered table-hover">
-                  <thead>
-                     <tr>
-                        <th>#</th>
-                        <th>Team</th>
-                        <th>P</th>
-                        <th>W</th>
-                        <th>L</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td>1</td>
-                        <td><img src="images/img-01_004.png" alt="">Liverpool</td>
-                        <td>10</td>
-                        <td>12</td>
-                        <td>20</td>
-                     </tr>
-                     <tr>
-                        <td>2</td>
-                        <td><img src="images/img-02_002.png" alt="">Chelsea</td>
-                        <td>10</td>
-                        <td>12</td>
-                        <td>20</td>
-                     </tr>
-                     <tr>
-                        <td>3</td>
-                        <td><img src="images/img-03_003.png" alt="">Norwich City</td>
-                        <td>20</td>
-                        <td>15</td>
-                        <td>20</td>
-                     </tr>
-                     <tr>
-                        <td>4</td>
-                        <td><img src="images/img-04_002.png" alt="">West Brom</td>
-                        <td>60</td>
-                        <td>10</td>
-                        <td>60</td>
-                     </tr>
-                     <tr>
-                        <td>5</td>
-                        <td><img src="images/img-05.png" alt="">sunderland</td>
-                        <td>30</td>
-                        <td>06</td>
-                        <td>30</td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-         </aside>
-      </div>
-      </div>
+         </div>
       </div>
    </section>
    <footer id="footer" class="footer">
@@ -442,8 +410,7 @@
                      <div class="footer-logo">
                         <a href="#"><img src="images/footer-logo.png" alt="#" /></a>
                      </div>
-                     <p>Most of our events have hard and easy route choices as we are always keen to encourage new
-                        riders.</p>
+                     <p>Hãy biến sự đam mê của bạn trở nên dễ dàng. Chúng tôi sẽ giúp bạn làm điều đó!</p>
                      <ul class="social-icons style-4 pull-left">
                         <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -458,8 +425,8 @@
                   <div class="footer-widget">
                      <h3>Menu</h3>
                      <ul class="footer-menu">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="information.html">About Us</a></li>
+                        <li><a href="profile.html">Our Team</a></li>
                         <li><a href="news.html">Latest News</a></li>
                         <li><a href="matche.html">Recent Matchs</a></li>
                         <li><a href="blog.html">Our Blog</a></li>
@@ -502,6 +469,10 @@
    <script src="js/all.js"></script>
    <!-- ALL PLUGINS -->
    <script src="js/custom.js"></script>
+   <script src="js/pitchs.js"></script>
+   <script src="js/logout.js"></script>
+   <script src="js/logined_user.js"></script>
+   
 </body>
 
 </html>

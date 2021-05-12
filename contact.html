@@ -65,15 +65,31 @@
                         </ul>
                         <!-- end social icon -->
                         <!-- button section -->
-                        <ul class="login">
+                        <ul class="login" id="NoLogin" style="display: block;">
                            <li class="login-modal">
-                              <a href="#" class="login"><i class="fa fa-user"></i>Login</a>
+                              <a href="login.html" class="login"><i class="fa fa-user"></i>Login</a>
                            </li>
                            <li>
                               <div class="cart-option">
-                                 <a href="#"><i class="fa fa-shopping-cart"></i>Register</a>
+                                 <a href="register.html"><i class="fa fa-shopping-cart"></i>Register</a>
                               </div>
                            </li>
+                        </ul>
+                        <ul class="login" id="UserLogin" style="display: none;">
+                           <li>
+                              <div class="cart-option">
+                                 <button><i class="fa fa-bell"></i></button>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="cart-option">
+                                 <button><i class="fa fa-comment"></i></button>
+                                 
+                              </div>
+                          </li>
+                            <li class="login-modal" id="liUser">
+                             
+                            </li>
                         </ul>
                         <!-- end button section -->
                      </div>
@@ -101,9 +117,9 @@
                                     <ul class="nav navbar-nav">
                                        <li class="active"><a href="index.html"><i class="fa fa-home"></i>Trang Chủ</a>
                                        </li>
-                                       <li><a href="about.html"><i class="fa fa-exclamation"></i>Thông Tin</a></li>
-                                       <li><a href="team.html"><i class="fa fa-futbol-o"></i>Đội Bóng</a></li>
-                                       <li><a href="blog_sanbong.html"><i class="fa fa-th-large"></i>Sân Bóng </a></li>
+                                       <li><a href="information.html"><i class="fa fa-exclamation"></i>Thông Tin</a></li>
+                                       <li><a href="profile.html"><i class="fa fa-futbol-o"></i>Đội Bóng</a></li>
+                                       <li><a href="pitchs.html"><i class="fa fa-th-large"></i>Sân Bóng </a></li>
                                        <li class="dropdown mega-dropdown">
                                           <a href="match" class="dropdown-toggle" data-toggle="dropdown"><i
                                                 class="fa fa-beer"></i>Tìm Đối Nhanh<span class="caret"></span></a>
@@ -154,12 +170,12 @@
                                                 <ul class="menu-inner">
                                                    <li class="dropdown-header">Danh mục</li>
                                                    <li><a href="post.html">Đối Đang Chờ</a></li>
-                                                   <li><a href="createpitch.html">Mời Đối Giao Lưu</a></li>
+                                                   <li><a href="creatematch.html">Mời Đối Giao Lưu</a></li>
                                                 </ul>
                                              </li>
                                           </ul>
                                        </li>
-                                       <li><a href="blog.html"><i class="fa fa-shirtsinbulk"></i>Thống Kê</a></li>
+                                       <li><a href=""><i class="fa fa-shirtsinbulk"></i>Thống Kê</a></li>
                                        <li><a href="contact.html"><i class="fa fa-book"></i>Liên Hệ</a></li>
                                     </ul>
                                  </div>
@@ -269,8 +285,8 @@
                   <div class="footer-widget">
                      <h3>Menu</h3>
                      <ul class="footer-menu">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="information.html">About Us</a></li>
+                        <li><a href="profile.html">Our Team</a></li>
                         <li><a href="news.html">Latest News</a></li>
                         <li><a href="matche.html">Recent Matchs</a></li>
                         <li><a href="blog.html">Our Blog</a></li>
@@ -313,6 +329,8 @@
    <script src="js/all.js"></script>
    <!-- ALL PLUGINS -->
    <script src="js/custom.js"></script>
+   <script src="js/logined_user.js"></script>
+   <script src="js/logout.js"></script>
 </body>
 
 </html>

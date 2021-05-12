@@ -1,4 +1,4 @@
-const HOST = "http://traibonglan.com:8080";
+document.write('<script type="text/javascript" src="/js/host.js" ></script>');
 $(document).ready(function () {
   var id = GetURLParameter("football_id");
   console.log(id);

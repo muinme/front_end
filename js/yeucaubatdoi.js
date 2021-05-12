@@ -1,3 +1,4 @@
+document.write('<script type="text/javascript" src="/js/host.js" ></script>');
 $(document).ready(function () {
   $.ajax({
     type: "GET",
@@ -11,10 +12,12 @@ $(document).ready(function () {
       withCredentials: true,
     },
     success: function (result) {
-      var obj = result;
-      console.log(obj.user_id);
-      console.log("id request" + obj.id);
-      readUser2(obj.user_id, obj.id, obj.created, obj.wait_match_team_id);
+      for (var key in result) {
+        var obj = result[key];
+        console.log(obj.user_id);
+        console.log("id request" + obj.id);
+        readUser2(obj.user_id, obj.id, obj.created, obj.wait_match_team_id);
+      }
     },
     error: function () {
       console.log("da co loi");
@@ -42,7 +45,7 @@ $(document).ready(function () {
 });
 
 function readUser2(user_id, id, created, wait_match_team_id) {
-  console.log(user_id);
+  console.log("user_id" + user_id);
   console.log(created);
   console.log(wait_match_team_id);
   $.ajax({
@@ -211,27 +214,7 @@ function readYeuCau(
     });
   });
 }
-$(document).ready(function () {
-  $.ajax({
-    type: "GET",
-    url: HOST + "/football/userByUsername",
-    dataType: "JSON",
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      var obj = result;
-      readUser2(obj.fullname, obj.image, obj.id);
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
-});
+
 function readUser(fullname, image, id) {
   console.log("jdjsjidooooooooooooooo");
   document.getElementById("liUser").innerHTML +=
@@ -241,7 +224,7 @@ function readUser(fullname, image, id) {
     fullname +
     "</button>" +
     '                                <div class="dropdown-content">' +
-    '                                    <a href="thongtincanhan.html"><i class="fa fa-user"></i>Profile</a>' +
+    '                                    <a href="myprofile.html"><i class="fa fa-user"></i>Profile</a>' +
     '                                    <a href="myteam.html"><i class="fa fa-futbol-o"></i>My Team FootBall</a>' +
     '                                    <a href="managementpitch.html"><i class="fa fa-th-large"></i>My Pitch</a>' +
     '                                    <a href="historyorderpitch.html"><i class="fa fa-history"></i>History Pitch</a>' +

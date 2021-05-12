@@ -32,8 +32,6 @@
 <!-- end font family -->
 <link rel="stylesheet" href="css/3dslider.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
-<script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <script src="js/3dslider.js"></script>
 </head>
@@ -68,15 +66,21 @@
                                 <!-- end social icon -->
                                 <!-- button section -->
                                 <ul class="login">
-                                    <li class="login-modal">
-                                        <a href="#" class="login"><i class="fa fa-user"></i>Login</a>
+                                    <li>
+                                        <div class="cart-option">
+                                           <button><i class="fa fa-bell"></i></button>
+                                        </div>
                                     </li>
                                     <li>
                                         <div class="cart-option">
-                                            <a href="#"><i class="fa fa-shopping-cart"></i>Register</a>
+                                           <button><i class="fa fa-comment"></i></button>
+                                           
                                         </div>
                                     </li>
-                                </ul>
+                                      <li class="login-modal" id="liUser">
+                                        
+                                      </li>
+                                   </ul>
                                 <!-- end button section -->
                             </div>
                         </div>
@@ -170,8 +174,8 @@
                                                             <li class="col-sm-4">
                                                                 <ul class="menu-inner">
                                                                     <li class="dropdown-header">Danh mục</li>
-                                                                    <li><a href="blog.html">Đối Đang Chờ</a></li>
-                                                                    <li><a href="createpitch.html">Mời Đối Giao Lưu</a>
+                                                                    <li><a href="post.html">Đối Đang Chờ</a></li>
+                                                                    <li><a href="creatematch.html">Mời Đối Giao Lưu</a>
                                                                     </li>
                                                                 </ul>
                                                             </li>
@@ -199,28 +203,204 @@
         </div>
         <div class="inner-information-text">
             <div class="container">
-                <h3>Sân Bóng Của Tôi</h3>
+                <h3>Tài Khoản</h3>
                 <ul class="breadcrumb">
                     <li><a href="index.html">Home</a></li>
                     <li class="active">Blog</li>
                 </ul>
             </div>
         </div>
-    </section>
-    <section id="contant" class="contant main-heading team" style="
-    height: 1000px;
-">
-        <div class="row" style="
-        height: 100%;">
-         
+        <div class="tabs-chi-tiet-doi" id="tTeam">
             <div class="container">
-               
-                    
-                <div id="container" style="width: 100%; height: 300px"></div>
 
-                <div id="container2" style="width: 100%; height: 300px"></div>
+                <div class="title-doi">
 
-                <div id="container3" style="width: 100%; height: 300px"></div>
+                </div>
+                <div class="wrap-ul-doi">
+                    <ul class="list-link-doi tabs">
+                        <li class="active" target-id="#profile"><a href="thongtincanhan.html">Thông tin cá nhân</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contant" class="contant main-heading team">
+        <div class="row">
+            <div class="container">
+                <div class="col-md-9">
+                    <div class="feature-post small-blog">
+                        <div class="feature-cont">
+                            <ul class="list-item-san">
+                                <li class="item-card">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="img-profile" title="Tải lên một hình ảnh đại diện">
+                                                <img id="profile-avatar" class="media-object" width="100%"
+                                                    src="/images/default-user.png" alt="avatar">
+                                            </div>
+                                            <span style="display:none">
+                                                <input id="btnprofileUpload"
+                                                    onchange="return sport.account.readURL(this);" name="profileUpload"
+                                                    type="file">
+                                            </span>
+                                        </div>
+                                        <div class="profile-edit col-md-9 right-item-san"  id="frmEditProfile">
+                                            <form>
+                                              
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="blog-sidebar">
+                        <h4 class="heading">Tỉnh/Thành Phố</h4>
+                        <div class="category-menu">
+                            <ul>
+                                <li><a href="#">Hà Nội</a></li>
+                                <li><a href="#">Hồ Chí Minh</a></li>
+                                <li><a href="#">Đà Nẵng</a></li>
+                                <li><a href="#">Thái Bình</a></li>
+                                <li><a href="#">Bắc Ninh</a></li>
+                                <li><a href="#">Hà Nam</a></li>
+                                <li><a href="#">Nam Định</a></li>
+                                <li><a href="#">Bắc Giang</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="blog-sidebar">
+                        <h4 class="heading">Sân Nhà/Sân Khách</h4>
+                        <div class="category-menu">
+                            <ul>
+                                <li><a href="#">Sân Nhà</a></li>
+                                <li><a href="#">Sân Khách</a></li>
+                                <li>
+                                    <span><img src="images/profile-img2.png" alt="#"></span>
+                                    <span>
+                                        <p>Two touch penalties, imaginary cards</p>
+                                        <p class="date">22 Feb, 2016</p>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <aside id="sidebar" class="left-bar">
+                        <div class="feature-matchs">
+                            <div class="team-btw-match">
+                                <ul>
+                                    <li>
+                                        <img src="images/img-01_002.png" alt="">
+                                        <span>Portugal</span>
+                                    </li>
+                                    <li class="vs"><span>vs</span></li>
+                                    <li>
+                                        <img src="images/img-02.png" alt="">
+                                        <span>Germany</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <img src="images/img-03_002.png" alt="">
+                                        <span>Portugal</span>
+                                    </li>
+                                    <li class="vs"><span>vs</span></li>
+                                    <li>
+                                        <img src="images/img-04_003.png" alt="">
+                                        <span>Germany</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <img src="images/img-05_002.png" alt="">
+                                        <span>Portugal</span>
+                                    </li>
+                                    <li class="vs"><span>vs</span></li>
+                                    <li>
+                                        <img src="images/img-06.png" alt="">
+                                        <span>Germany</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <img src="images/img-07_002.png" alt="">
+                                        <span>Portugal</span>
+                                    </li>
+                                    <li class="vs"><span>vs</span></li>
+                                    <li>
+                                        <img src="images/img-08.png" alt="">
+                                        <span>Germany</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                    <aside id="sidebar" class="left-bar">
+                        <div class="banner-sidebar">
+                            <img class="img-responsive" src="images/match-banner1.jpg" alt="#">
+                            <h3>Argentina vs Chile|Goals of the match | COPA </h3>
+                        </div>
+                    </aside>
+                    <aside id="sidebar" class="right-bar">
+                        <div class="banner">
+                            <img class="img-responsive" src="images/adds-3.jpg" alt="#">
+                        </div>
+                    </aside>
+                    <aside id="sidebar" class="left-bar">
+                        <div class="feature-matchs">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Team</th>
+                                        <th>P</th>
+                                        <th>W</th>
+                                        <th>L</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><img src="images/img-01_004.png" alt="">Liverpool</td>
+                                        <td>10</td>
+                                        <td>12</td>
+                                        <td>20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><img src="images/img-02_002.png" alt="">Chelsea</td>
+                                        <td>10</td>
+                                        <td>12</td>
+                                        <td>20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><img src="images/img-03_003.png" alt="">Norwich City</td>
+                                        <td>20</td>
+                                        <td>15</td>
+                                        <td>20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td><img src="images/img-04_002.png" alt="">West Brom</td>
+                                        <td>60</td>
+                                        <td>10</td>
+                                        <td>60</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><img src="images/img-05.png" alt="">sunderland</td>
+                                        <td>30</td>
+                                        <td>06</td>
+                                        <td>30</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </aside>
+                </div>
             </div>
         </div>
     </section>
@@ -294,114 +474,9 @@
     <script src="js/all.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
-    <script>
-        const HOST = "http://traibonglan.com:8080";
-        $.ajax({
-          type: "GET",
-          url: HOST + "/football/historyMatch/getAllInfo",
-          crossDomain: true,
-          //dataType: "json",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          xhrFields: {
-            withCredentials: true,
-          },
-          success: function (result) {
-            console.log("thanh cong");
-            console.log(result);
-  
-            //   window.location.replace("http://localhost:5500/index_user.html");
-            var data = result;
-            console.log(data);
-            // create the chart
-            var chart = anychart.pie();
-  
-            // set the chart title
-            chart.title("Thống kê lịch sử bắt đối");
-  
-            // add the data
-            chart.data(data);
-  
-            // display the chart in the container
-            chart.container("container");
-            chart.draw();
-          },
-          error: function () {
-            console.log("da co loi");
-          },
-        });
-        $.ajax({
-          type: "GET",
-          url: HOST + "/football/historyRental/getAllInfo",
-          crossDomain: true,
-          //dataType: "json",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          xhrFields: {
-            withCredentials: true,
-          },
-          success: function (result) {
-            console.log("thanh cong");
-            console.log(result);
-  
-            //   window.location.replace("http://localhost:5500/index_user.html");
-            var data = result;
-            console.log(data);
-            // create the chart
-            var chart = anychart.pie();
-  
-            // set the chart title
-            chart.title("Thống kê lịch sử đặt sân");
-  
-            // add the data
-            chart.data(data);
-  
-            // display the chart in the container
-            chart.container("container2");
-            chart.draw();
-          },
-          error: function () {
-            console.log("da co loi");
-          },
-        });
-        $.ajax({
-          type: "GET",
-          url: HOST + "/football/timeSlotPitch/getAllInfo",
-          crossDomain: true,
-          //dataType: "json",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          xhrFields: {
-            withCredentials: true,
-          },
-          success: function (result) {
-            console.log("thanh cong");
-            console.log(result);
-  
-            //   window.location.replace("http://localhost:5500/index_user.html");
-            var data = result;
-            console.log(data);
-            // create the chart
-            var chart = anychart.pie();
-  
-            // set the chart title
-            chart.title("Thống kê khung giờ được thuê sân của các sân bóng");
-  
-            // add the data
-            chart.data(data);
-  
-            // display the chart in the container
-            chart.container("container3");
-            chart.draw();
-          },
-          error: function () {
-            console.log("da co loi");
-          },
-        });
-      </script>
+    <script src="js/profile.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/user.js"></script>
 </body>
 
 </html>

@@ -77,16 +77,8 @@
                                            
                                         </div>
                                     </li>
-                                      <li class="login-modal">
-                                        <button class="dropbtn"><img src="images/profile-img.png" class="avatar img-fluid rounded-circle">Pham Anh Tu</button>
-                                        <div class="dropdown-content">
-                                            <a href="#"><i class="fa fa-user"></i>Profile</a>
-                                            <a href="#"><i class="fa fa-futbol-o"></i>My Team FootBall</a>
-                                            <a href="#"><i class="fa fa-th-large"></i>My Pitch</a>
-                                            <a href="#"><i class="fa fa-history"></i>History Pitch</a>
-                                            <a href="#"><i class="fa fa-history"></i>History Match</a>
-                                            <button id = "logout" style="text-align:left ;border-radius: 0px; width: 190px;"><i class="fa fa-sign-out"></i>Logout →</button>
-                                        </div>
+                                      <li class="login-modal" id="liUser">
+                                        
                                       </li>
                                    </ul>
                                 <!-- end button section -->
@@ -115,11 +107,11 @@
                                                 <ul class="nav navbar-nav">
                                                     <li class="active"><a href="index.html"><i
                                                                 class="fa fa-home"></i>Trang Chủ</a></li>
-                                                    <li><a href="about.html"><i class="fa fa-exclamation"></i>Thông
+                                                    <li><a href="information.html"><i class="fa fa-exclamation"></i>Thông
                                                             Tin</a></li>
-                                                    <li><a href="team.html"><i class="fa fa-futbol-o"></i>Đội Bóng</a>
+                                                    <li><a href="profile.html"><i class="fa fa-futbol-o"></i>Đội Bóng</a>
                                                     </li>
-                                                    <li><a href="blog_sanbong.html"><i class="fa fa-th-large"></i>Sân
+                                                    <li><a href="pitchs.html"><i class="fa fa-th-large"></i>Sân
                                                             Bóng </a></li>
                                                     <li class="dropdown mega-dropdown">
                                                         <a href="match" class="dropdown-toggle"
@@ -183,7 +175,7 @@
                                                                 <ul class="menu-inner">
                                                                     <li class="dropdown-header">Danh mục</li>
                                                                     <li><a href="post.html">Đối Đang Chờ</a></li>
-                                                                    <li><a href="createpitch.html">Mời Đối Giao Lưu</a>
+                                                                    <li><a href="creatematch.html">Mời Đối Giao Lưu</a>
                                                                     </li>
                                                                 </ul>
                                                             </li>
@@ -218,15 +210,22 @@
                 </ul>
             </div>
         </div>
-        <div class="tabs-chi-tiet-doi" id="tTeam">
+        <div class="tabs-chi-tiet-doi">
             <div class="container">
 
                 <div class="title-doi">
 
                 </div>
-                <div class="wrap-ul-doi">
+                <div class="wrap-ul-doi" id="container1" style="display: block;">
                     <ul class="list-link-doi tabs">
-                        <li class="active" target-id="#profile"><a href="thongtincanhan.html">Thông tin cá nhân</a></li>
+                        <li class="active" target-id="#profile"><a href="#">Thông tin cá nhân</a></li>
+                        <li target-id="#changepass"><a onclick="swap()">Thay đổi mật khẩu</a></li>
+                    </ul>
+                </div>
+                <div class="wrap-ul-doi" id="container2" style="display: none;">
+                    <ul class="list-link-doi tabs">
+                        <li target-id="#changepass" target-id="#profile"><a onclick="swap2()">Thông tin cá nhân</a></li>
+                        <li class="active"><a href="changepassword.html">Thay đổi mật khẩu</a></li>
                     </ul>
                 </div>
             </div>
@@ -240,24 +239,86 @@
                         <div class="feature-cont">
                             <ul class="list-item-san">
                                 <li class="item-card">
-                                    <div class="row">
+                                    <div class="row" id="container11" style="display:block">
                                         <div class="col-md-3">
                                             <div class="img-profile" title="Tải lên một hình ảnh đại diện">
                                                 <img id="profile-avatar" class="media-object" width="100%"
                                                     src="/images/default-user.png" alt="avatar">
                                             </div>
+
+
                                             <span style="display:none">
                                                 <input id="btnprofileUpload"
                                                     onchange="return sport.account.readURL(this);" name="profileUpload"
                                                     type="file">
                                             </span>
                                         </div>
-                                        <div class="profile-edit col-md-9 right-item-san"  id="frmEditProfile">
-                                            <form>
-                                              
+                                        <div class="profile-edit col-md-9 right-item-san">
+                                            <form id="frmEditProfile" method="post">
+                                                
                                             </form>
                                         </div>
                                     </div>
+                                    <div class="row" id="container22" style="display:none">
+                                                        <input value="True" data-val="true"
+                                                            data-val-required="The HasPassword field is required."
+                                                            id="HasPassword" name="HasPassword" type="hidden">
+                                                        <div class="row form-group">
+                                                            <label class="control-label col-sm-3 col-xs-6">Mật khẩu hiện
+                                                                tại</label>
+
+                                                            <div class="col-sm-6 col-xs-6">
+                                                                <span class="field-validation-valid"
+                                                                    data-valmsg-for="UserPassword"
+                                                                    data-valmsg-replace="true"></span>
+                                                                <input value="" class="form-control" data-val="true"
+                                                                    data-val-required="Mật khẩu không được để trống"
+                                                                    id="UserPassword" name="UserPassword"
+                                                                    type="password">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row form-group">
+
+                                                            <label class="control-label col-sm-3 col-xs-6">Mật khẩu
+                                                                mới</label>
+
+                                                            <div class="col-sm-6 col-xs-6">
+                                                                <span class="field-validation-valid"
+                                                                    data-valmsg-for="NewUserPassword"
+                                                                    data-valmsg-replace="true"></span>
+                                                                <input class="form-control" data-val="true"
+                                                                    data-val-required="Mật khẩu mới được để trống"
+                                                                    id="NewUserPassword" name="NewUserPassword"
+                                                                    type="password">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row form-group">
+
+                                                            <label class="control-label col-sm-3 col-xs-6">Xác nhận lại
+                                                                mật
+                                                                khẩu mới</label>
+
+                                                            <div class="col-sm-6 col-xs-6">
+                                                                <span class="field-validation-valid"
+                                                                    data-valmsg-for="ConfirmNewUserPassword"
+                                                                    data-valmsg-replace="true"></span>
+                                                                <input class="form-control" data-val="true"
+                                                                    data-val-equalto="Mật khẩu nhập lại không trùng với mật khẩu mới"
+                                                                    data-val-equalto-other="*.NewUserPassword"
+                                                                    data-val-required="Mật khẩu nhập lại không được để trống"
+                                                                    id="ConfirmNewUserPassword"
+                                                                    name="ConfirmNewUserPassword" type="password">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row form-group">
+                                                            <div class="col-sm-6 col-sm-offset-3">
+                                                                <a id="btnChangePass"
+                                                                    class="btn mb20 btn-small btn-primary">Lưu thay
+                                                                    đổi</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <script src="js/swaptrang2.js"></script>
                                 </li>
                             </ul>
                         </div>
@@ -437,8 +498,8 @@
                         <div class="footer-widget">
                             <h3>Menu</h3>
                             <ul class="footer-menu">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="team.html">Our Team</a></li>
+                                <li><a href="information.html">About Us</a></li>
+                                <li><a href="profile.html">Our Team</a></li>
                                 <li><a href="news.html">Latest News</a></li>
                                 <li><a href="matche.html">Recent Matchs</a></li>
                                 <li><a href="blog.html">Our Blog</a></li>
@@ -482,7 +543,11 @@
     <script src="js/all.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
-    <script src="js/thongtincanhankhac.js"></script>
+    <!-- <script src="js/profile.js"></script> -->
+    <script src="js/myprofile.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/user.js"></script>
+    
 </body>
 
 </html>

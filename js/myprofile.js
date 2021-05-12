@@ -1,4 +1,3 @@
-const HOST = "http://traibonglan.com:8080";
 $(document).ready(function () {
   $.ajax({
     type: "GET",
@@ -22,16 +21,6 @@ $(document).ready(function () {
   });
 });
 
-function GetURLParameter(sParam) {
-  var sPageURL = window.location.search.substring(1);
-  var sURLVariables = sPageURL.split("&");
-  for (var i = 0; i < sURLVariables.length; i++) {
-    var sParameterName = sURLVariables[i].split("=");
-    if (sParameterName[0] == sParam) {
-      return sParameterName[1];
-    }
-  }
-}
 function readProfile(fullname, email, phone, created, image) {
   document.getElementById("frmEditProfile").innerHTML +=
     '<div class="row form-group">' +

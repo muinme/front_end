@@ -1,5 +1,5 @@
 // Get the modal
-const HOST = "http://traibonglan.com:8080";
+document.write('<script type="text/javascript" src="/js/host.js" ></script>');
 
 $("#btnChangePass").click(function () {
   var password = $("#NewUserPassword").val();

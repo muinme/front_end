@@ -77,8 +77,16 @@
                                            
                                         </div>
                                     </li>
-                                      <li class="login-modal" id="liUser">
-                                        
+                                      <li class="login-modal">
+                                        <button class="dropbtn"><img src="images/profile-img.png" class="avatar img-fluid rounded-circle">Pham Anh Tu</button>
+                                        <div class="dropdown-content">
+                                            <a href="#"><i class="fa fa-user"></i>Profile</a>
+                                            <a href="#"><i class="fa fa-futbol-o"></i>My Team FootBall</a>
+                                            <a href="#"><i class="fa fa-th-large"></i>My Pitch</a>
+                                            <a href="#"><i class="fa fa-history"></i>History Pitch</a>
+                                            <a href="#"><i class="fa fa-history"></i>History Match</a>
+                                            <button id = "logout" style="text-align:left ;border-radius: 0px; width: 190px;"><i class="fa fa-sign-out"></i>Logout →</button>
+                                        </div>
                                       </li>
                                    </ul>
                                 <!-- end button section -->
@@ -107,11 +115,11 @@
                                                 <ul class="nav navbar-nav">
                                                     <li class="active"><a href="index.html"><i
                                                                 class="fa fa-home"></i>Trang Chủ</a></li>
-                                                    <li><a href="about.html"><i class="fa fa-exclamation"></i>Thông
+                                                    <li><a href="information.html"><i class="fa fa-exclamation"></i>Thông
                                                             Tin</a></li>
-                                                    <li><a href="team.html"><i class="fa fa-futbol-o"></i>Đội Bóng</a>
+                                                    <li><a href="profile.html"><i class="fa fa-futbol-o"></i>Đội Bóng</a>
                                                     </li>
-                                                    <li><a href="blog_sanbong.html"><i class="fa fa-th-large"></i>Sân
+                                                    <li><a href="pitchs.html"><i class="fa fa-th-large"></i>Sân
                                                             Bóng </a></li>
                                                     <li class="dropdown mega-dropdown">
                                                         <a href="match" class="dropdown-toggle"
@@ -175,13 +183,13 @@
                                                                 <ul class="menu-inner">
                                                                     <li class="dropdown-header">Danh mục</li>
                                                                     <li><a href="post.html">Đối Đang Chờ</a></li>
-                                                                    <li><a href="createpitch.html">Mời Đối Giao Lưu</a>
+                                                                    <li><a href="creatematch.html">Mời Đối Giao Lưu</a>
                                                                     </li>
                                                                 </ul>
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li><a href="blog.html"><i class="fa fa-shirtsinbulk"></i>Thống
+                                                    <li><a href="report.html"><i class="fa fa-shirtsinbulk"></i>Thống
                                                             Kê</a></li>
                                                     <li><a href="contact.html"><i class="fa fa-book"></i>Liên Hệ</a>
                                                     </li>
@@ -203,29 +211,40 @@
         </div>
         <div class="inner-information-text">
             <div class="container">
-                <h3>Tài Khoản</h3>
+                <h3>Our Team</h3>
                 <ul class="breadcrumb">
                     <li><a href="index.html">Home</a></li>
-                    <li class="active">Blog</li>
+                    <li class="active">Our Team</li>
                 </ul>
             </div>
         </div>
         <div class="tabs-chi-tiet-doi">
-            <div class="container">
-
-                <div class="title-doi">
-
-                </div>
+            <div class="container" id="tTeam">
+               
                 <div class="wrap-ul-doi" id="container1" style="display: block;">
-                    <ul class="list-link-doi tabs">
-                        <li class="active" target-id="#profile"><a href="#">Thông tin cá nhân</a></li>
-                        <li target-id="#changepass"><a onclick="swap()">Thay đổi mật khẩu</a></li>
+                    <ul class="list-link-doi">
+                        <li class="active"><a href="#">Tìm đối</a></li>
+                        <li><a onclick="swap()">Thành viên</a></li>
+                        <li><a href="/dsss.html?tab=gioithieu">Giới thiệu</a></li>
+                        <li><a href="/dsss.html?tab=teamfund">Quỹ bóng</a></li>
+                        <li>
+                            <a href="/team/management?id=22316">
+                                <i class="fa fa-gear"></i> Cập nhật thông tin
+                            </a>
+                        </li>
                     </ul>
-                </div>
+                </div>         
                 <div class="wrap-ul-doi" id="container2" style="display: none;">
-                    <ul class="list-link-doi tabs">
-                        <li target-id="#changepass" target-id="#profile"><a onclick="swap2()">Thông tin cá nhân</a></li>
-                        <li class="active"><a href="changepassword.html">Thay đổi mật khẩu</a></li>
+                    <ul class="list-link-doi">
+                        <li><a onclick="swap2()">Tìm đối</a></li>
+                        <li class="active"><a href="#">Thành viên</a></li>
+                        <li><a href="/dsss.html?tab=gioithieu">Giới thiệu</a></li>
+                        <li><a href="/dsss.html?tab=teamfund">Quỹ bóng</a></li>
+                        <li>
+                            <a href="/team/management?id=22316">
+                                <i class="fa fa-gear"></i> Cập nhật thông tin
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -233,112 +252,89 @@
     </section>
     <section id="contant" class="contant main-heading team">
         <div class="row">
-            <div class="container">
+            <div class="container" id="container11" style="display:block">
                 <div class="col-md-9">
                     <div class="feature-post small-blog">
                         <div class="feature-cont">
-                            <ul class="list-item-san">
-                                <li class="item-card">
-                                    <div class="row" id="container11" style="display:block">
-                                        <div class="col-md-3">
-                                            <div class="img-profile" title="Tải lên một hình ảnh đại diện">
-                                                <img id="profile-avatar" class="media-object" width="100%"
-                                                    src="/images/default-user.png" alt="avatar">
+                            <li class="item-card match-finding-item" idd="97954">
+                                <div class="row">
+                                    <div class="col-md-12 right-item-san right-item-doi">
+                                        <h2 class="team-match-headlink">
+                                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                                            <a href="/dsss.html?matchId=97954">17h30 Thứ Hai ngày 18/01/2021</a>
+                                        </h2>
+                                        <div class="btn-doi-top pull-right chi-tiet-doi-main btn-doi-inteam">
+                                            <div class="dropdown pull-right dropdown-match-btn-more">
+                                                <span class="dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                </span>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="javascript:void(0);"
+                                                            ng-click="updateMatchStatus(97954, 3)">Hủy trận đấu</a></li>
+                                                    <li><a href="javascript:void(0);"
+                                                            ng-click="updateMatchStatus(97954, 2)">Đã có đối</a></li>
+                                                </ul>
                                             </div>
-
-
-                                            <span style="display:none">
-                                                <input id="btnprofileUpload"
-                                                    onchange="return sport.account.readURL(this);" name="profileUpload"
-                                                    type="file">
-                                            </span>
                                         </div>
-                                        <div class="profile-edit col-md-9 right-item-san">
-                                            <form id="frmEditProfile" method="post">
-                                                
-                                            </form>
+                                        <p>
+                                            <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"
+                                                aria-hidden="true"></i><strong>Sân
+                                                nhà:</strong><a href="/san-anh-minh.html" target="_blank">San Anh
+                                                Minh</a>
+                                        </p>
+                                        <p class="item-stadium-address"><i class="fa fa-map-o"
+                                                aria-hidden="true"></i><strong>Địa chỉ:</strong>123 Pham văn đồng (Quận
+                                            Ba Đình Hà Nội)</p>
+                                            <p class="item-stadium-address"><i class="fa fa-map-o"
+                                                aria-hidden="true"></i><strong>Trình
+                                                độ:</strong>Trung bình khá
+                                        </p>
+                                        <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"
+                                            aria-hidden="true"></i><strong>Kèo:</strong>
+                                            ds
+                                        </p>
+                                        <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"
+                                            aria-hidden="true"></i><strong>Trạng
+                                                thái:</strong>
+                                            <span class="red">Đã quá hạn</span>
+                                        </p>
+                                        <p class="quost-doi">
+                                            đ
+                                        </p>
+                                        <div class="mobile-only match-button-container">
+                                            <div class="dropdown pull-right dropdown-match-btn-more">
+                                                <span class="dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                </span>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="javascript:void(0);"
+                                                            ng-click="updateMatchStatus(97954, 3)">Hủy trận đấu</a></li>
+                                                    <li><a href="javascript:void(0);"
+                                                            ng-click="updateMatchStatus(97954, 2)">Đã có đối</a></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="row" id="container22" style="display:none">
-                                                        <input value="True" data-val="true"
-                                                            data-val-required="The HasPassword field is required."
-                                                            id="HasPassword" name="HasPassword" type="hidden">
-                                                        <div class="row form-group">
-                                                            <label class="control-label col-sm-3 col-xs-6">Mật khẩu hiện
-                                                                tại</label>
+                                </div>
+                            </li>
 
-                                                            <div class="col-sm-6 col-xs-6">
-                                                                <span class="field-validation-valid"
-                                                                    data-valmsg-for="UserPassword"
-                                                                    data-valmsg-replace="true"></span>
-                                                                <input value="" class="form-control" data-val="true"
-                                                                    data-val-required="Mật khẩu không được để trống"
-                                                                    id="UserPassword" name="UserPassword"
-                                                                    type="password">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row form-group">
-
-                                                            <label class="control-label col-sm-3 col-xs-6">Mật khẩu
-                                                                mới</label>
-
-                                                            <div class="col-sm-6 col-xs-6">
-                                                                <span class="field-validation-valid"
-                                                                    data-valmsg-for="NewUserPassword"
-                                                                    data-valmsg-replace="true"></span>
-                                                                <input class="form-control" data-val="true"
-                                                                    data-val-required="Mật khẩu mới được để trống"
-                                                                    id="NewUserPassword" name="NewUserPassword"
-                                                                    type="password">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row form-group">
-
-                                                            <label class="control-label col-sm-3 col-xs-6">Xác nhận lại
-                                                                mật
-                                                                khẩu mới</label>
-
-                                                            <div class="col-sm-6 col-xs-6">
-                                                                <span class="field-validation-valid"
-                                                                    data-valmsg-for="ConfirmNewUserPassword"
-                                                                    data-valmsg-replace="true"></span>
-                                                                <input class="form-control" data-val="true"
-                                                                    data-val-equalto="Mật khẩu nhập lại không trùng với mật khẩu mới"
-                                                                    data-val-equalto-other="*.NewUserPassword"
-                                                                    data-val-required="Mật khẩu nhập lại không được để trống"
-                                                                    id="ConfirmNewUserPassword"
-                                                                    name="ConfirmNewUserPassword" type="password">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row form-group">
-                                                            <div class="col-sm-6 col-sm-offset-3">
-                                                                <a id="btnChangePass"
-                                                                    class="btn mb20 btn-small btn-primary">Lưu thay
-                                                                    đổi</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <script src="js/swaptrang2.js"></script>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="blog-sidebar">
-                        <h4 class="heading">Tỉnh/Thành Phố</h4>
-                        <div class="category-menu">
-                            <ul>
-                                <li><a href="#">Hà Nội</a></li>
-                                <li><a href="#">Hồ Chí Minh</a></li>
-                                <li><a href="#">Đà Nẵng</a></li>
-                                <li><a href="#">Thái Bình</a></li>
-                                <li><a href="#">Bắc Ninh</a></li>
-                                <li><a href="#">Hà Nam</a></li>
-                                <li><a href="#">Nam Định</a></li>
-                                <li><a href="#">Bắc Giang</a></li>
-                            </ul>
+                    <div class="sidebar sidebar-tien-san sidebar-right-extra ng-scope" ng-controller="matchFindingCtrl">
+                        <p class="title-box">
+                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Trận đấu sắp diễn ra
+                        </p>
+                        <div class="list-doi-new">
+                            <p class="cl text-right">
+                                <a class="btn btn-link btn-sm" href="creatematch.html">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                    Tạo trận đấu mới
+                                </a>
+                            </p>
                         </div>
+                        <div class="clearfix"></div>
                     </div>
                     <div class="blog-sidebar">
                         <h4 class="heading">Sân Nhà/Sân Khách</h4>
@@ -356,121 +352,107 @@
                             </ul>
                         </div>
                     </div>
-                    <aside id="sidebar" class="left-bar">
-                        <div class="feature-matchs">
-                            <div class="team-btw-match">
-                                <ul>
-                                    <li>
-                                        <img src="images/img-01_002.png" alt="">
-                                        <span>Portugal</span>
-                                    </li>
-                                    <li class="vs"><span>vs</span></li>
-                                    <li>
-                                        <img src="images/img-02.png" alt="">
-                                        <span>Germany</span>
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li>
-                                        <img src="images/img-03_002.png" alt="">
-                                        <span>Portugal</span>
-                                    </li>
-                                    <li class="vs"><span>vs</span></li>
-                                    <li>
-                                        <img src="images/img-04_003.png" alt="">
-                                        <span>Germany</span>
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li>
-                                        <img src="images/img-05_002.png" alt="">
-                                        <span>Portugal</span>
-                                    </li>
-                                    <li class="vs"><span>vs</span></li>
-                                    <li>
-                                        <img src="images/img-06.png" alt="">
-                                        <span>Germany</span>
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li>
-                                        <img src="images/img-07_002.png" alt="">
-                                        <span>Portugal</span>
-                                    </li>
-                                    <li class="vs"><span>vs</span></li>
-                                    <li>
-                                        <img src="images/img-08.png" alt="">
-                                        <span>Germany</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </aside>
-                    <aside id="sidebar" class="left-bar">
-                        <div class="banner-sidebar">
-                            <img class="img-responsive" src="images/match-banner1.jpg" alt="#">
-                            <h3>Argentina vs Chile|Goals of the match | COPA </h3>
-                        </div>
-                    </aside>
-                    <aside id="sidebar" class="right-bar">
-                        <div class="banner">
-                            <img class="img-responsive" src="images/adds-3.jpg" alt="#">
-                        </div>
-                    </aside>
-                    <aside id="sidebar" class="left-bar">
-                        <div class="feature-matchs">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Team</th>
-                                        <th>P</th>
-                                        <th>W</th>
-                                        <th>L</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><img src="images/img-01_004.png" alt="">Liverpool</td>
-                                        <td>10</td>
-                                        <td>12</td>
-                                        <td>20</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td><img src="images/img-02_002.png" alt="">Chelsea</td>
-                                        <td>10</td>
-                                        <td>12</td>
-                                        <td>20</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td><img src="images/img-03_003.png" alt="">Norwich City</td>
-                                        <td>20</td>
-                                        <td>15</td>
-                                        <td>20</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td><img src="images/img-04_002.png" alt="">West Brom</td>
-                                        <td>60</td>
-                                        <td>10</td>
-                                        <td>60</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td><img src="images/img-05.png" alt="">sunderland</td>
-                                        <td>30</td>
-                                        <td>06</td>
-                                        <td>30</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </aside>
                 </div>
             </div>
+            <div class="container" id="container22" style="display: none">
+                <div class="col-md-3 column">
+                   <div class="card">
+                      <img class="img-responsive" src="images/img-1-4.jpg" alt="John" style="width:100%">
+                      <div class="">
+                         <h4>John Doe</h4>
+                         <p class="title">Designer</p>
+                         <p>
+                         <div class="center"><button class="button">Contact</button></div>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-md-3 column">
+                   <div class="card">
+                      <img class="img-responsive" src="images/img-1-2.jpg" alt="Mike" style="width:100%">
+                      <div class="">
+                         <h4>Mike Ross</h4>
+                         <p class="title">Art Director</p>
+                         <p>
+                         <div class="center"><button class="button">Contact</button></div>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-md-3 column">
+                   <div class="card">
+                      <img class="img-responsive" src="images/img-1-3.jpg" alt="John" style="width:100%">
+                      <div class="">
+                         <h4>John Doe</h4>
+                         <p class="title">Designer</p>
+                         <p>
+                         <div class="center"><button class="button">Contact</button></div>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-md-3 column">
+                   <div class="card">
+                      <img class="img-responsive" src="images/img-1-4.jpg" alt="John" style="width:100%">
+                      <div class="">
+                         <h4>John Doe</h4>
+                         <p class="title">Designer</p>
+                         <p>
+                         <div class="center"><button class="button">Contact</button></div>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-md-3 column">
+                   <div class="card">
+                      <img class="img-responsive" src="images/img-1-2.jpg" alt="Mike" style="width:100%">
+                      <div class="">
+                         <h4>Mike Ross</h4>
+                         <p class="title">Art Director</p>
+                         <p>
+                         <div class="center"><button class="button">Contact</button></div>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-md-3 column">
+                   <div class="card">
+                      <img class="img-responsive" src="images/img-1-3.jpg" alt="John" style="width:100%">
+                      <div class="">
+                         <h4>John Doe</h4>
+                         <p class="title">Designer</p>
+                         <p>
+                         <div class="center"><button class="button">Contact</button></div>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-md-3 column">
+                   <div class="card">
+                      <img class="img-responsive" src="images/img-1-3.jpg" alt="John" style="width:100%">
+                      <div class="">
+                         <h4>John Doe</h4>
+                         <p class="title">Designer</p>
+                         <p>
+                         <div class="center"><button class="button">Contact</button></div>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-md-3 column">
+                   <div class="card">
+                      <img class="img-responsive" src="images/img-1-4.jpg" alt="John" style="width:100%">
+                      <div class="">
+                         <h4>John Doe</h4>
+                         <p class="title">Designer</p>
+                         <p>
+                         <div class="center"><button class="button">Contact</button></div>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <script src="js/swaptrang.js"></script>
         </div>
     </section>
     <footer id="footer" class="footer">
@@ -483,7 +465,8 @@
                                 <a href="#"><img src="images/footer-logo.png" alt="#" /></a>
                             </div>
                             <p>Most of our events have hard and easy route choices as we are always keen to encourage
-                                new riders.</p>
+                                new
+                                riders.</p>
                             <ul class="social-icons style-4 pull-left">
                                 <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -498,8 +481,8 @@
                         <div class="footer-widget">
                             <h3>Menu</h3>
                             <ul class="footer-menu">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="team.html">Our Team</a></li>
+                                <li><a href="information.html">About Us</a></li>
+                                <li><a href="profile.html">Our Team</a></li>
                                 <li><a href="news.html">Latest News</a></li>
                                 <li><a href="matche.html">Recent Matchs</a></li>
                                 <li><a href="blog.html">Our Blog</a></li>
@@ -543,11 +526,7 @@
     <script src="js/all.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
-    <!-- <script src="js/thongtincanhan.js"></script> -->
-    <script src="js/myprofile.js"></script>
-    <script src="js/logout.js"></script>
-    <script src="js/index_userr.js"></script>
-    
+    <script src="js/profileteamfootball.js"></script>
 </body>
 
 </html>
