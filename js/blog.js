@@ -28,7 +28,6 @@ $(document).ready(function () {
           obj.football_id
         );
       }
-      //   window.location.replace("http://localhost:5500/index_user.html");
     },
     error: function () {
       console.log("da co loi");

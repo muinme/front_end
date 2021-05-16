@@ -20,7 +20,7 @@ $("#login_submit").click(function () {
     },
     success: function (result) {
       console.log("thanh cong");
-      window.location.replace("http://traibonglan.com/index.html");
+      window.location.assign("http://traibonglan.com/index.html");
     },
     error: function () {
       console.log("da co loi");

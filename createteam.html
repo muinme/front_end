@@ -222,14 +222,12 @@
                                         <li class="active">
                                             <a href="virtual.html#detail" class="ng-binding">
                                                 <i class="glyphicon glyphicon-info-sign"></i>
-                                                &nbsp;&nbsp;Thêm đội bóng mới
+                                            Thêm đội bóng mới
                                             </a>
                                         </li>
                                     </ul>
                                     <div id="createUpdateStadiumTabContent" class="tab-content">
                                         <div class="tab-pane fade active in" id="detail">
-                                            <form name="frmStadiumInfo"
-                                                class="ng-pristine ng-valid-email ng-invalid ng-invalid-required">
                                                 <div class="col-md-12">
                                                     <div class="form-group row">
                                                         <label class="col-md-3 control-label"><strong>Chú
@@ -259,7 +257,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-md-3 col-form-label">Tên đội bóng</label>
                                                         <div class="col-md-9">
-                                                            <input type="text" ng-model="form.Name" id="name"
+                                                            <input type="text" id="name"
                                                                 name="stadiumName" style="font-weight:bold"
                                                                 placeholder="Nhập tên đội bóng" required=""
                                                                 class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
@@ -268,30 +266,24 @@
                                                     <div class="form-group row">
                                                         <label class="col-md-3 control-label">Tỉnh / Thành phố</label>
                                                         <div class="col-md-4" class="ui-select-match ng-scope">
-                                                            <select>
+                                                            <select id="address"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-not-empty">
                                                                 <option label="Cần Thơ" value="1">Cần Thơ</option>
                                                                 <option label="Đà Nẵng" value="2">Đà Nẵng</option>
-                                                                <option label="Hà Nội" value="3" selected="selected">Hà
-                                                                    Nội</option>
+                                                                <option label="Hà Nội" value="3" selected="selected">Hà Nội</option>
                                                                 <option label="Hải Phòng" value="4">Hải Phòng</option>
-                                                                <option label="Hồ Chí Minh" value="5">Hồ Chí Minh
-                                                                </option>
+                                                                <option label="Hồ Chí Minh" value="5">Hồ Chí Minh</option>
                                                                 <option label="An Giang" value="6">An Giang</option>
-                                                                <option label="Bà Rịa - Vũng Tàu" value="7">Bà Rịa -
-                                                                    Vũng Tàu
-                                                                </option>
+                                                                <option label="Bà Rịa - Vũng Tàu" value="7">Bà Rịa -Vũng Tàu</option>
                                                                 <option label="Bắc Giang" value="8">Bắc Giang</option>
                                                                 <option label="Bắc Kạn" value="9">Bắc Kạn</option>
                                                                 <option label="Bạc Liêu" value="10">Bạc Liêu</option>
                                                                 <option label="Bắc Ninh" value="11">Bắc Ninh</option>
                                                                 <option label="Bến Tre" value="12">Bến Tre</option>
                                                                 <option label="Bình Định" value="13">Bình Định</option>
-                                                                <option label="Bình Dương" value="14">Bình Dương
-                                                                </option>
-                                                                <option label="Bình Phước" value="15">Bình Phước
-                                                                </option>
-                                                                <option label="Bình Thuận" value="16">Bình Thuận
-                                                                </option>
+                                                                <option label="Bình Dương" value="14">Bình Dương</option>
+                                                                <option label="Bình Phước" value="15">Bình Phước</option>
+                                                                <option label="Bình Thuận" value="16">Bình Thuận</option>
                                                                 <option label="Cà Mau" value="17">Cà Mau</option>
                                                                 <option label="Cao Bằng" value="18">Cao Bằng</option>
                                                                 <option label="Đắk Lắk" value="19">Đắk Lắk</option>
@@ -308,8 +300,7 @@
                                                                 <option label="Hoà Bình" value="30">Hoà Bình</option>
                                                                 <option label="Hưng Yên" value="31">Hưng Yên</option>
                                                                 <option label="Khánh Hòa" value="32">Khánh Hòa</option>
-                                                                <option label="Kiên Giang" value="33">Kiên Giang
-                                                                </option>
+                                                                <option label="Kiên Giang" value="33">Kiên Giang</option>
                                                                 <option label="Kon Tum" value="34">Kon Tum</option>
                                                                 <option label="Lai Châu" value="35">Lai Châu</option>
                                                                 <option label="Lâm Đồng" value="36">Lâm Đồng</option>
@@ -319,32 +310,24 @@
                                                                 <option label="Nam Định" value="40">Nam Định</option>
                                                                 <option label="Nghệ An" value="41">Nghệ An</option>
                                                                 <option label="Ninh Bình" value="42">Ninh Bình</option>
-                                                                <option label="Ninh Thuận" value="43">Ninh Thuận
-                                                                </option>
+                                                                <option label="Ninh Thuận" value="43">Ninh Thuận</option>
                                                                 <option label="Phú Thọ" value="44">Phú Thọ</option>
                                                                 <option label="Phú Yên" value="45">Phú Yên</option>
-                                                                <option label="Quảng Bình" value="46">Quảng Bình
-                                                                </option>
+                                                                <option label="Quảng Bình" value="46">Quảng Bình</option>
                                                                 <option label="Quảng Nam" value="47">Quảng Nam</option>
-                                                                <option label="Quảng Ngãi" value="48">Quảng Ngãi
-                                                                </option>
-                                                                <option label="Quảng Ninh" value="49">Quảng Ninh
-                                                                </option>
+                                                                <option label="Quảng Ngãi" value="48">Quảng Ngãi</option>
+                                                                <option label="Quảng Ninh" value="49">Quảng Ninh</option>
                                                                 <option label="Quảng Trị" value="50">Quảng Trị</option>
                                                                 <option label="Sóc Trăng" value="51">Sóc Trăng</option>
                                                                 <option label="Sơn La" value="52">Sơn La</option>
                                                                 <option label="Tây Ninh" value="53">Tây Ninh</option>
                                                                 <option label="Thái Bình" value="54">Thái Bình</option>
-                                                                <option label="Thái Nguyên" value="55">Thái Nguyên
-                                                                </option>
+                                                                <option label="Thái Nguyên" value="55">Thái Nguyên</option>
                                                                 <option label="Thanh Hóa" value="56">Thanh Hóa</option>
-                                                                <option label="Thừa Thiên Huế" value="57">Thừa Thiên Huế
-                                                                </option>
-                                                                <option label="Tiền Giang" value="58">Tiền Giang
-                                                                </option>
+                                                                <option label="Thừa Thiên Huế" value="57">Thừa Thiên Huế</option>
+                                                                <option label="Tiền Giang" value="58">Tiền Giang</option>
                                                                 <option label="Trà Vinh" value="59">Trà Vinh</option>
-                                                                <option label="Tuyên Quang" value="60">Tuyên Quang
-                                                                </option>
+                                                                <option label="Tuyên Quang" value="60">Tuyên Quang</option>
                                                                 <option label="Vĩnh Long" value="61">Vĩnh Long</option>
                                                                 <option label="Vĩnh Phúc" value="62">Vĩnh Phúc</option>
                                                                 <option label="Yên Bái" value="63">Yên Bái</option>
@@ -354,19 +337,21 @@
                                                     <div class="form-group row">
                                                         <label class="col-md-3 control-label">Tuối nhỏ nhất</label>
                                                         <div class="col-md-5">
-                                                            <input class="form-control ng-pristine ng-untouched ng-valid ng-empty">
+                                                            <input id="agemin"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label class="col-md-3 control-label">Tuối lớn nhất</label>
                                                         <div class="col-md-5">
-                                                            <input class="form-control ng-pristine ng-untouched ng-valid ng-empty">
+                                                            <input id="agemax"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label class="col-md-3 control-label">Sân nhà</label>
                                                         <div class="col-md-5">
-                                                            <input
+                                                            <input id="homeyard"
                                                                 class="form-control ng-pristine ng-untouched ng-valid ng-empty">
                                                         </div>
                                                     </div>
@@ -374,57 +359,71 @@
                                                         <label class="col-md-3 control-label">Thời gian hoạt
                                                             động</label>
                                                         <div class="col-md-5">
-                                                            <input id="inpTime" type="time" name="time" />
+                                                            <input id="actiontime" type="time" name="time"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" />
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label class="col-md-3 control-label">Trình độ</label>
                                                         <div class="col-md-5">
-                                                            <input class="form-control ng-pristine ng-untouched ng-valid ng-empty"type="text">
+                                                            <input id="level"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                                                                type="text">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label class="col-md-3 control-label">Giới thiệu</label>
 
                                                         <div class="col-md-9">
-                                                            <textarea 
-                                                                rows="3" cols="5"
+                                                            <textarea rows="3" cols="5" id="introduce"
                                                                 class="form-control input-sm width-100p ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
                                                                 placeholder="Giới thiệu"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label"><strong>Hình ảnh
+                                                                sân</strong></label>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label">Ảnh đại diện</label>
+                                                        <div class="col-md-5">
+                                                            <input id="previewImagePath" type="file"
+                                                                file-model="imageLogo">
+                                                            <input ng-model="form.PicturePath" value="" type="hidden"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                                                                id="inpLogoFilePath" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label">Logo</label>
+                                                        <div class="col-md-5">
+                                                            <input id="previewImagePath" type="file"
+                                                                file-model="imageLogo">
+                                                            <input  value="" type="hidden"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                                                                id="inpLogoFilePath" placeholder="">
                                                         </div>
                                                     </div>
                                                 </div>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <div class="clear-bordered"></div>
                                 </div>
-
                                 <div class="form-group row" style="margin-top:30px">
                                     <div class="col-md-3">
                                     </div>
                                     <div class="col-md-9 text-right">
-                                        <!-- ngIf: showUpdateResults && showSuccessMessage -->
-                                        <!-- ngIf: showUpdateResults && showErrorMessage -->
-
-                                        <a class="btn btn-default" ng-href="/stadium/management" href="myteam.html">Quay
+                                        <a class="btn btn-default" href="myteam.html">Quay
                                             lại</a>
-                                        &nbsp;
-                                        <!-- ngIf: isCreate --><button type="submit" id="btnCreateStadium"
-                                            data-loading-text="<i class=' fa fa-spinner fa-spin '></i> Đang xử lý..."
-                                            class="btn btn-primary btn-primary-extra ng-scope" ng-if="isCreate"
-                                            ng-click="frmStadiumInfo.$valid &amp;&amp; saveChange($event)">
+                                        <button type="submit" id="btnCreateTeam"
+                                            class="btn btn-primary btn-primary-extra ng-scope">
                                             <i class="fa fa-save"></i>
                                             Tạo mới
-                                        </button><!-- end ngIf: isCreate -->
-
-                                        <!-- ngIf: !isCreate -->
-
-                                    </div> <!-- /.col -->
-
-                                </div> <!-- /.form-group -->
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -607,7 +606,7 @@
                                 <li><a href="profile.html">Our Team</a></li>
                                 <li><a href="news.html">Latest News</a></li>
                                 <li><a href="matche.html">Recent Matchs</a></li>
-                                <li><a href="blog.html">Our Blog</a></li>
+                                <li><a href="post.html">Our Blog</a></li>
                                 <li><a href="contact.html">Contact Us</a></li>
                             </ul>
                         </div>
@@ -648,6 +647,7 @@
     <script src="js/all.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
+    <script src="js/createteam.js"></script>
     <script src="js/user.js"></script>
     <script src="js/logout.js"></script>
 </body>

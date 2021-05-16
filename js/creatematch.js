@@ -28,7 +28,6 @@ $("#btnCreateMatch").click(function () {
     },
     success: function (result) {
       console.log("thanh cong");
-      // window.location.replace("http://localhost:5500/login.html");
     },
     error: function () {
       console.log("da co loi");

@@ -45,9 +45,6 @@ function createSanBong(name, image, id) {
         "object= " + JSON.stringify(obj1) + "\nid = " + obj1.fullname
       );
       createSanBong2(name, image, id, obj1.fullname, obj1.phone);
-      //create div san bong
-      //create div san bong
-      //   window.location.replace("http://localhost:5500/index_user.html");
     },
     error: function () {
       console.log("da co loi");

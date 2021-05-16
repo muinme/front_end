@@ -115,11 +115,11 @@
                                                 <ul class="nav navbar-nav">
                                                     <li class="active"><a href="index.html"><i
                                                                 class="fa fa-home"></i>Trang Chủ</a></li>
-                                                    <li><a href="information.html"><i class="fa fa-exclamation"></i>Thông
+                                                    <li><a href="about.html"><i class="fa fa-exclamation"></i>Thông
                                                             Tin</a></li>
-                                                    <li><a href="profile.html"><i class="fa fa-futbol-o"></i>Đội Bóng</a>
+                                                    <li><a href="team.html"><i class="fa fa-futbol-o"></i>Đội Bóng</a>
                                                     </li>
-                                                    <li><a href="pitchs.html"><i class="fa fa-th-large"></i>Sân
+                                                    <li><a href="blog_sanbong.html"><i class="fa fa-th-large"></i>Sân
                                                             Bóng </a></li>
                                                     <li class="dropdown mega-dropdown">
                                                         <a href="match" class="dropdown-toggle"
@@ -183,13 +183,13 @@
                                                                 <ul class="menu-inner">
                                                                     <li class="dropdown-header">Danh mục</li>
                                                                     <li><a href="post.html">Đối Đang Chờ</a></li>
-                                                                    <li><a href="creatematch.html">Mời Đối Giao Lưu</a>
+                                                                    <li><a href="createpitch.html">Mời Đối Giao Lưu</a>
                                                                     </li>
                                                                 </ul>
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li><a href="blog.html"><i class="fa fa-shirtsinbulk"></i>Thống
+                                                    <li><a href="post.html"><i class="fa fa-shirtsinbulk"></i>Thống
                                                             Kê</a></li>
                                                     <li><a href="contact.html"><i class="fa fa-book"></i>Liên Hệ</a>
                                                     </li>
@@ -197,17 +197,6 @@
                                             </div>
                                             <!-- /.nav-collapse -->
                                         </nav>
-                                        <div class="search-bar">
-                                            <div id="imaginary_container">
-                                                <div class="input-group stylish-input-group">
-                                                    <input type="text" class="form-control" placeholder="Search">
-                                                    <span class="input-group-addon">
-                                                        <button type="submit"><i class="fa fa-search"
-                                                                aria-hidden="true"></i></button>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -222,11 +211,43 @@
         </div>
         <div class="inner-information-text">
             <div class="container">
-                <h3>Bắt Đối</h3>
+                <h3>Our Team</h3>
                 <ul class="breadcrumb">
                     <li><a href="index.html">Home</a></li>
-                    <li class="active">Blog</li>
+                    <li class="active">Our Team</li>
                 </ul>
+            </div>
+        </div>
+        <div class="tabs-chi-tiet-doi">
+            <div class="container">
+                <div class="img-doio"><img class="img-responsive" src="/images/tu.jpg" align="thumb"></div>
+                <div class="title-doi">
+                    <h1 style="text-align: inherit;">dsss<span class="gender"></span></h1>
+                    <p class="captain-item" owner-id="7054">
+                        <span style="color: #ffffff;font-size: 15px !important;">
+                            <a href="/user/profile/7054"
+                                style="color: #ffffff;font-size: 18px !important;color: #ffffff;">Phạm Anh Tú</a> (đội
+                            trưởng)
+                            <span class="captain-item-status offline"></span>
+                        </span>
+                        <span class="chat-nhanh chat-nhanh-offline" ng-click="onQuickChat(7054);"
+                            title="Click để chat nhanh với đối."><i class="fa fa-comments" aria-hidden="true"></i> Nói
+                            chuyện</span>
+                    </p>
+                </div>
+                <div class="wrap-ul-doi">
+                    <ul class="list-link-doi">
+                        <li class="active"><a href="/dsss.html">Tìm đối</a></li>
+                        <li><a href="team.html">Thành viên</a></li>
+                        <li><a href="/dsss.html?tab=gioithieu">Giới thiệu</a></li>
+                        <li><a href="/dsss.html?tab=teamfund">Quỹ bóng</a></li>
+                        <li>
+                            <a href="/team/management?id=22316">
+                                <i class="fa fa-gear"></i> Cập nhật thông tin
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -236,171 +257,85 @@
                 <div class="col-md-9">
                     <div class="feature-post small-blog">
                         <div class="feature-cont">
-                            <div class="post-info">
-                                <img src="images/profile-img.png" alt="#" />
-                                <span>
-                                    <h4>by Phạm Anh Tú</h4>
-                                    <h5>on March 27, 2021</h5>
-                                </span>
-                            </div>
-                            <div class="q-container ngloaded" style="display: none;"
-                                ng-class="{'ngloaded': vm.queuesOfTeamItems.length>0}">
-                                <!-- ngRepeat: queue in vm.queuesOfTeamItems -->
-                                <div class="q-items ng-scope" ng-repeat="queue in vm.queuesOfTeamItems" style="">
-                                    <div class="q-info">
-                                        <h4 class="q-info-headline">Trận đấu sân nhà</h4>
-                                        <ul class="list-item-san">
-                                            <li class="item-card match-finding-item">
-                                                <match-request-item match="queue.source"
-                                                    settings="vm.matchDisplaySettings2" class="ng-isolate-scope">
-                                                    <div class="row">
-                                                        <div class="col-md-12 right-item-san right-item-doi">
-                                                            <div class="header-item-doi header-tim-doi @">
-                                                                <!-- ngIf: settings.showTeamLogo -->
-                                                                <div class="match-header-texts">
-                                                                    <h2>
-                                                                        <!-- ngIf: match.hasStadium --><a
-                                                                            href="/dsss.html?matchId=97954" title="dsss"
-                                                                            ng-if="match.hasStadium"
-                                                                            class="ng-binding ng-scope" style="">dsss<i
-                                                                                class="fa fa-caret-right"
-                                                                                aria-hidden="true"></i>San Anh
-                                                                            Minh</a><!-- end ngIf: match.hasStadium -->
-
-                                                                        <!-- ngIf: !match.hasStadium -->
-                                                                        <!-- ngIf: !match.hasStadium -->
-                                                                    </h2>
-
-                                                                    <!-- ngIf: settings.showFullInfo && match.ownerUserName -->
-                                                                </div>
-
-                                                                <!-- ngIf: settings.showBtnDoi -->
-                                                                <div class="btn-doi-top pull-right ng-scope"
-                                                                    ng-if="settings.showBtnDoi" style="">
-                                                                    <match-request-item-buttons data-match="item"
-                                                                        data-settings="settings"
-                                                                        class="ng-isolate-scope">
-                                                                        <div
-                                                                            class="dropdown pull-right dropdown-match-btn-more">
-                                                                            <span class="dropdown-toggle"
-                                                                                data-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i class="fa fa-angle-down"
-                                                                                    aria-hidden="true"></i>
-                                                                            </span>
-                                                                            <ul class="dropdown-menu">
-                                                                                <!--<li><a href="#">Lưu trận đấu</a></li>
-                                <li><a href="#">Chia sẻ</a></li>
-                                <li ng-if="dataMatch.isUserAuthorizedToManageMatch"><a href="#">Sửa thông tin</a></li>-->
-                                                                                <!-- ngIf: dataMatch.isUserAuthorizedToManageMatch -->
-                                                                                <!-- ngIf: dataMatch.isUserAuthorizedToManageMatch -->
-                                                                            </ul>
-                                                                        </div>
-
-                                                                        <!-- ngIf: dataSettings.btnBatdoiIsVisible -->
-
-                                                                        <!-- ngIf: dataMatch.isUserMarkedMatchFindingRecipient -->
-                                                                    </match-request-item-buttons>
-                                                                </div><!-- end ngIf: settings.showBtnDoi -->
-                                                            </div>
-
-                                                            <div>
-                                                            <p class="item-stadium-address ng-binding ng-scope" ng-if="match.hasStadium" style=""><i class="fa fa-shirtsinbulk"
-                                                                    aria-hidden="true"></i><strong>Thời
-                                                                        gian:</strong>17h30 Thứ Hai (18/01)</p>
-
-                                                                <!-- ngIf: match.hasStadium -->
-                                                            <p class="item-stadium-address ng-binding ng-scope" ng-if="match.hasStadium" style=""><i class="fa fa-shirtsinbulk"
-                                                                    aria-hidden="true"></i><strong>Sân
-                                                                        nhà:</strong><a href="/san-anh-minh.html"
-                                                                        target="_blank" class="ng-binding">San Anh Minh</a>
-                                                                    <!-- ngIf: match.stadiumPrice!=null -->
-                                                                </p><!-- end ngIf: match.hasStadium -->
-
-                                                                <!-- ngIf: match.hasStadium -->
-                                                                <p class="item-stadium-address ng-binding ng-scope"
-                                                                    ng-if="match.hasStadium" style=""><i
-                                                                        class="fa fa-shirtsinbulk"
-                                                                        aria-hidden="true"></i><strong>Địa
-                                                                        chỉ:</strong>123 Pham văn đồng (Quận Ba Đình Hà
-                                                                    Nội)</p>
-                                                                <!-- end ngIf: match.hasStadium -->
-                                                                <!-- ngIf: match.clientAreaList && settings.showFullInfo -->
-
-                                                                <!-- ngIf: match.levelList && settings.showFullInfo -->
-
-                                                                <!-- ngIf: match.ageGroupList && settings.showFullInfo -->
-
-                                                                <!-- ngIf: match.contractList && settings.showFullInfo -->
-
-                                                                <!-- ngIf: !settings.hideStatus -->
-                                                            <p class="item-stadium-address ng-binding ng-scope" ng-if="match.hasStadium" style=""><i class="fa fa-shirtsinbulk"
-                                                                    aria-hidden="true"></i><strong>Trạng
-                                                                        thái:</strong> <span class="red ng-binding">Đã
-                                                                        hết hạn</span>
-                                                                </p><!-- end ngIf: !settings.hideStatus -->
-
-                                                                <!-- ngIf: match.message && settings.showFullInfo -->
-
-                                                                <!-- ngIf: match.teamPictures && settings.showFullInfo -->
-
-                                                            </div>
-
-                                                            <!-- ngIf: settings.showBtnDoi -->
-                                                            <div class="btn-doi-bottom mobile-only mobile-only ng-scope"
-                                                                ng-if="settings.showBtnDoi" style="">
-                                                                <match-request-item-buttons data-match="item"
-                                                                    data-settings="settings" class="ng-isolate-scope">
-                                                                    <div
-                                                                        class="dropdown pull-right dropdown-match-btn-more">
-                                                                        <span class="dropdown-toggle"
-                                                                            data-toggle="dropdown">
-                                                                            <i class="fa fa-angle-down"
-                                                                                aria-hidden="true"></i>
-                                                                        </span>
-                                                                        <ul class="dropdown-menu">
-                                                                            <!--<li><a href="#">Lưu trận đấu</a></li>
-                                <li><a href="#">Chia sẻ</a></li>
-                                <li ng-if="dataMatch.isUserAuthorizedToManageMatch"><a href="#">Sửa thông tin</a></li>-->
-                                                                            <!-- ngIf: dataMatch.isUserAuthorizedToManageMatch -->
-                                                                            <!-- ngIf: dataMatch.isUserAuthorizedToManageMatch -->
-                                                                        </ul>
-                                                                    </div>
-
-                                                                    <!-- ngIf: dataSettings.btnBatdoiIsVisible -->
-
-                                                                    <!-- ngIf: dataMatch.isUserMarkedMatchFindingRecipient -->
-                                                                </match-request-item-buttons>
-                                                            </div><!-- end ngIf: settings.showBtnDoi -->
-                                                        </div>
-                                                    </div>
-                                                </match-request-item>
-                                            </li>
-                                        </ul>
-                                        <ul class="list-item-san">
-                                            <!-- ngRepeat: queueItem in queue.queueItems -->
-                                        </ul>
+                            <li class="item-card match-finding-item" idd="97954">
+                                <div class="row">
+                                    <div class="col-md-12 right-item-san right-item-doi">
+                                        <h2 class="team-match-headlink">
+                                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                                            <a href="/dsss.html?matchId=97954">17h30 Thứ Hai ngày 18/01/2021</a>
+                                        </h2>
+                                        <div class="btn-doi-top pull-right chi-tiet-doi-main btn-doi-inteam">
+                                            <div class="dropdown pull-right dropdown-match-btn-more">
+                                                <span class="dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                </span>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="javascript:void(0);"
+                                                            ng-click="updateMatchStatus(97954, 3)">Hủy trận đấu</a></li>
+                                                    <li><a href="javascript:void(0);"
+                                                            ng-click="updateMatchStatus(97954, 2)">Đã có đối</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <p>
+                                            <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"
+                                                aria-hidden="true"></i><strong>Sân
+                                                nhà:</strong><a href="/san-anh-minh.html" target="_blank">San Anh
+                                                Minh</a>
+                                        </p>
+                                        <p class="item-stadium-address"><i class="fa fa-map-o"
+                                                aria-hidden="true"></i><strong>Địa chỉ:</strong>123 Pham văn đồng (Quận
+                                            Ba Đình Hà Nội)</p>
+                                            <p class="item-stadium-address"><i class="fa fa-map-o"
+                                                aria-hidden="true"></i><strong>Trình
+                                                độ:</strong>Trung bình khá
+                                        </p>
+                                        <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"
+                                            aria-hidden="true"></i><strong>Kèo:</strong>
+                                            ds
+                                        </p>
+                                        <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"
+                                            aria-hidden="true"></i><strong>Trạng
+                                                thái:</strong>
+                                            <span class="red">Đã quá hạn</span>
+                                        </p>
+                                        <p class="quost-doi">
+                                            đ
+                                        </p>
+                                        <div class="mobile-only match-button-container">
+                                            <div class="dropdown pull-right dropdown-match-btn-more">
+                                                <span class="dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                </span>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="javascript:void(0);"
+                                                            ng-click="updateMatchStatus(97954, 3)">Hủy trận đấu</a></li>
+                                                    <li><a href="javascript:void(0);"
+                                                            ng-click="updateMatchStatus(97954, 2)">Đã có đối</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div><!-- end ngRepeat: queue in vm.queuesOfTeamItems -->
-                            </div>
+                                </div>
+                            </li>
+
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="blog-sidebar">
-                        <h4 class="heading">Tỉnh/Thành Phố</h4>
-                        <div class="category-menu">
-                            <ul>
-                                <li><a href="#">Hà Nội</a></li>
-                                <li><a href="#">Hồ Chí Minh</a></li>
-                                <li><a href="#">Đà Nẵng</a></li>
-                                <li><a href="#">Thái Bình</a></li>
-                                <li><a href="#">Bắc Ninh</a></li>
-                                <li><a href="#">Hà Nam</a></li>
-                                <li><a href="#">Nam Định</a></li>
-                                <li><a href="#">Bắc Giang</a></li>
-                            </ul>
+                    <div class="sidebar sidebar-tien-san sidebar-right-extra ng-scope" ng-controller="matchFindingCtrl">
+                        <p class="title-box">
+                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Trận đấu sắp diễn ra
+                        </p>
+                        <div class="list-doi-new">
+                            <p class="cl text-right">
+                                <a class="btn btn-link btn-sm" href="creatematch.html">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                    Tạo trận đấu mới
+                                </a>
+                            </p>
                         </div>
+                        <div class="clearfix"></div>
                     </div>
                     <div class="blog-sidebar">
                         <h4 class="heading">Sân Nhà/Sân Khách</h4>
@@ -545,7 +480,8 @@
                                 <a href="#"><img src="images/footer-logo.png" alt="#" /></a>
                             </div>
                             <p>Most of our events have hard and easy route choices as we are always keen to encourage
-                                new riders.</p>
+                                new
+                                riders.</p>
                             <ul class="social-icons style-4 pull-left">
                                 <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -560,11 +496,11 @@
                         <div class="footer-widget">
                             <h3>Menu</h3>
                             <ul class="footer-menu">
-                                <li><a href="information.html">About Us</a></li>
-                                <li><a href="profile.html">Our Team</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="team.html">Our Team</a></li>
                                 <li><a href="news.html">Latest News</a></li>
                                 <li><a href="matche.html">Recent Matchs</a></li>
-                                <li><a href="blog.html">Our Blog</a></li>
+                                <li><a href="post.html">Our Blog</a></li>
                                 <li><a href="contact.html">Contact Us</a></li>
                             </ul>
                         </div>

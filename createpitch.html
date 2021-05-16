@@ -65,19 +65,19 @@
                                 <ul class="login">
                                     <li>
                                         <div class="cart-option">
-                                           <button><i class="fa fa-bell"></i></button>
+                                            <button><i class="fa fa-bell"></i></button>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="cart-option">
-                                           <button><i class="fa fa-comment"></i></button>
-                                           
+                                            <button><i class="fa fa-comment"></i></button>
+
                                         </div>
                                     </li>
-                                      <li class="login-modal" id="liUser">
-                                        
-                                      </li>
-                                   </ul>
+                                    <li class="login-modal" id="liUser">
+
+                                    </li>
+                                </ul>
                                 <!-- end button section -->
                             </div>
                         </div>
@@ -104,9 +104,11 @@
                                                 <ul class="nav navbar-nav">
                                                     <li class="active"><a href="index.html"><i
                                                                 class="fa fa-home"></i>Trang Chủ</a></li>
-                                                    <li><a href="information.html"><i class="fa fa-exclamation"></i>Thông
+                                                    <li><a href="information.html"><i
+                                                                class="fa fa-exclamation"></i>Thông
                                                             Tin</a></li>
-                                                    <li><a href="profile.html"><i class="fa fa-futbol-o"></i>Đội Bóng</a>
+                                                    <li><a href="profile.html"><i class="fa fa-futbol-o"></i>Đội
+                                                            Bóng</a>
                                                     </li>
                                                     <li><a href="pitchs.html"><i class="fa fa-th-large"></i>Sân
                                                             Bóng </a></li>
@@ -213,398 +215,160 @@
             <div class="container">
                 <div class="col-md-9">
                     <div class="feature-post small-blog">
-                            <div class="feature-cont">
-                                <div class="post-info">
-                                    <img src="images/profile-img.png" alt="#" />
-                                    <span>
-                                       <h4>by Phạm Anh Tú</h4>
-                                       <h5>on March 27, 2021</h5>
-                                    </span>
-                                 </div>
-                                <div class="post-heading">
-                                    <h3></h3>
-                                    <p></p>
-                                    <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
-            
-                                       <ul id="myTab" class="nav nav-tabs" role="tablist">
-                                          <li class="active">
-                                             <a href="virtual.html#detail" class="ng-binding">
+                        <div class="feature-cont">
+                            <div class="post-heading">
+                                <div class="bs-example bs-example-tabs">
+                                    <ul id="myTab" class="nav nav-tabs" role="tablist">
+                                        <li class="active">
+                                            <a class="ng-binding">
                                                 <i class="glyphicon glyphicon-info-sign"></i>
-                                                &nbsp;&nbsp;Thêm sân bóng mới
-                                             </a>
-                                          </li>
-            
-                                          <!-- ngIf: form.Id>0 -->
-            
-                                          <!-- ngIf: hasStadiumNumber -->
-                                       </ul>
-                                       <div id="createUpdateStadiumTabContent" class="tab-content">
-                                          <div class="tab-pane fade active in" id="detail">
-            
-            
-                                             <form name="frmStadiumInfo"
-                                                class="ng-pristine ng-valid-email ng-invalid ng-invalid-required">
+                                                Thêm sân bóng mới
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div id="createUpdateStadiumTabContent" class="tab-content">
+                                        <div class="tab-pane fade active in" id="detail">
                                                 <div class="col-md-12">
-            
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label"><strong>Người quản lý</strong></label>
-                                                      <div class="col-md-9">
-            
-                                                         <table class="table table-striped table-responsive">
-                                                            <thead>
-                                                               <tr>
-                                                                  <th>Họ tên</th>
-                                                                  <th>Email</th>
-                                                                  <th>Điện thoại</th>
-                                                                  <th class="text-right"></th>
-                                                               </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                               <!-- ngRepeat: item in managers -->
-                                                            </tbody>
-                                                            <tfoot>
-                                                               <tr>
-                                                                  <td>
-                                                                     <input type="text" ng-model="addManager.name"
-                                                                        class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                                                                        placeholder="Họ tên">
-                                                                  </td>
-                                                                  <td>
-                                                                     <input type="email" ng-model="addManager.email"
-                                                                        class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email"
-                                                                        placeholder="Địa chỉ email">
-                                                                  </td>
-                                                                  <td>
-                                                                     <input type="tel" ng-model="addManager.mobile"
-                                                                        class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                                                                        placeholder="Điện thoại">
-                                                                  </td>
-                                                                  <td align="left">
-                                                                     <button ng-click="inviteManager($event)"
-                                                                        ng-disabled="!addManager.name  || !addManager.email || !addManager.mobile"
-                                                                        data-loading-text="<i class='fa fa-spinner fa-spin '></i> Đang xử lý"
-                                                                        class="btn btn-primary btn-sm" disabled="disabled">
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                        Mời
-                                                                     </button>
-                                                                  </td>
-                                                               </tr>
-                                                            </tfoot>
-                                                         </table>
-            
-                                                      </div>
-                                                   </div>
-                                                   <div class="form-group row">
-                                                      <div class="clear-bordered"></div>
-                                                   </div>
-            
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label"><strong>Thông tin cơ
-                                                            bản</strong></label>
-                                                   </div>
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 col-form-label">Tên sân</label>
-                                                      <div class="col-md-9">
-                                                         <input type="text" ng-model="form.Name" id="name" name="stadiumName"
-                                                            style="font-weight:bold" placeholder="Nhập tên sân" required=""
-                                                            oninvalid="sport.account.validateControl(this);"
-                                                            oninput="sport.account.validateControl(this);"
-                                                            data-msg-require="Bạn phải nhập tên sân"
-                                                            class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
-            
-                                                      </div>
-                                                   </div>
-            
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 col-form-label">Giới thiệu ngắn</label>
-                                                      <div class="col-md-9">
-                                                         <textarea id="summernote-basic-demo"
-                                                            class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                                                            ng-model="form.Summary" rows="5"></textarea>
-                                                      </div>
-            
-                                                   </div>
-            
-                                                   <div class="form-group row" style="display:none">
-                                                      <label class="col-md-3 col-form-label">Loại</label>
-                                                      <div class="col-md-5">
-                                                         <select id="ddlType" ng-model="form.selectedType"
-                                                            class="form-control ng-pristine ng-untouched ng-valid ng-not-empty"
-                                                            ng-options="item.name for item in typeList track by item.id">
-                                                            <option label="Bóng đá" value="1" selected="selected">Bóng đá</option>
-                                                            <option label="Tennis" value="2">Tennis</option>
-                                                            <option label="Bóng chuyền" value="3">Bóng chuyền</option>
-                                                            <option label="Bóng bàn" value="4">Bóng bàn</option>
-                                                            <option label="Cầu Lông" value="5">Cầu Lông</option>
-                                                            <option label="Bơi lội" value="6">Bơi lội</option>
-                                                         </select>
-                                                      </div>
-            
-                                                   </div>
-            
-                                                   <!-- ngIf: form.selectedType.id==1 -->
-                                                   <div class="form-group row ng-scope" ng-if="form.selectedType.id==1">
-                                                      <label class="col-md-3 col-form-label">Mặt sân</label>
-                                                      <div class="col-md-5">
-                                                         <select id="ddlStadiumType" ng-model="form.selectedStadiumType"
-                                                            class="form-control ng-pristine ng-untouched ng-valid ng-not-empty"
-                                                            ng-options="item as item.Text for item in stadiumTypes track by item.Value">
-                                                            <option label="Sân cỏ nhân tạo" value="1" selected="selected">Sân cỏ
-                                                               nhân tạo</option>
-                                                            <option label="Sân cỏ tự nhiên" value="2">Sân cỏ tự nhiên</option>
-                                                            <option label="Sân cát" value="3">Sân cát</option>
-                                                         </select>
-                                                      </div>
-                                                   </div><!-- end ngIf: form.selectedType.id==1 -->
-            
-            
-                                                   <div class="form-group row">
-                                                      <div class="clear-bordered"></div>
-                                                   </div>
-            
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label"><strong>Địa chỉ</strong></label>
-                                                   </div>
-            
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label">Tỉnh / Thành phố</label>
-                                                      <div class="col-md-4">
-                                                         <select>
-                                                            <option label="Cần Thơ" value="1">Cần Thơ</option>
-                                                            <option label="Đà Nẵng" value="2">Đà Nẵng</option>
-                                                            <option label="Hà Nội" value="3" selected="selected">Hà Nội</option>
-                                                            <option label="Hải Phòng" value="4">Hải Phòng</option>
-                                                            <option label="Hồ Chí Minh" value="5">Hồ Chí Minh</option>
-                                                            <option label="An Giang" value="6">An Giang</option>
-                                                            <option label="Bà Rịa - Vũng Tàu" value="7">Bà Rịa - Vũng Tàu
-                                                            </option>
-                                                            <option label="Bắc Giang" value="8">Bắc Giang</option>
-                                                            <option label="Bắc Kạn" value="9">Bắc Kạn</option>
-                                                            <option label="Bạc Liêu" value="10">Bạc Liêu</option>
-                                                            <option label="Bắc Ninh" value="11">Bắc Ninh</option>
-                                                            <option label="Bến Tre" value="12">Bến Tre</option>
-                                                            <option label="Bình Định" value="13">Bình Định</option>
-                                                            <option label="Bình Dương" value="14">Bình Dương</option>
-                                                            <option label="Bình Phước" value="15">Bình Phước</option>
-                                                            <option label="Bình Thuận" value="16">Bình Thuận</option>
-                                                            <option label="Cà Mau" value="17">Cà Mau</option>
-                                                            <option label="Cao Bằng" value="18">Cao Bằng</option>
-                                                            <option label="Đắk Lắk" value="19">Đắk Lắk</option>
-                                                            <option label="Đắk Nông" value="20">Đắk Nông</option>
-                                                            <option label="Điện Biên" value="21">Điện Biên</option>
-                                                            <option label="Đồng Nai" value="22">Đồng Nai</option>
-                                                            <option label="Đồng Tháp" value="23">Đồng Tháp</option>
-                                                            <option label="Gia Lai" value="24">Gia Lai</option>
-                                                            <option label="Hà Giang" value="25">Hà Giang</option>
-                                                            <option label="Hà Nam" value="26">Hà Nam</option>
-                                                            <option label="Hà Tĩnh" value="27">Hà Tĩnh</option>
-                                                            <option label="Hải Dương" value="28">Hải Dương</option>
-                                                            <option label="Hậu Giang" value="29">Hậu Giang</option>
-                                                            <option label="Hoà Bình" value="30">Hoà Bình</option>
-                                                            <option label="Hưng Yên" value="31">Hưng Yên</option>
-                                                            <option label="Khánh Hòa" value="32">Khánh Hòa</option>
-                                                            <option label="Kiên Giang" value="33">Kiên Giang</option>
-                                                            <option label="Kon Tum" value="34">Kon Tum</option>
-                                                            <option label="Lai Châu" value="35">Lai Châu</option>
-                                                            <option label="Lâm Đồng" value="36">Lâm Đồng</option>
-                                                            <option label="Lạng Sơn" value="37">Lạng Sơn</option>
-                                                            <option label="Lào Cai" value="38">Lào Cai</option>
-                                                            <option label="Long An" value="39">Long An</option>
-                                                            <option label="Nam Định" value="40">Nam Định</option>
-                                                            <option label="Nghệ An" value="41">Nghệ An</option>
-                                                            <option label="Ninh Bình" value="42">Ninh Bình</option>
-                                                            <option label="Ninh Thuận" value="43">Ninh Thuận</option>
-                                                            <option label="Phú Thọ" value="44">Phú Thọ</option>
-                                                            <option label="Phú Yên" value="45">Phú Yên</option>
-                                                            <option label="Quảng Bình" value="46">Quảng Bình</option>
-                                                            <option label="Quảng Nam" value="47">Quảng Nam</option>
-                                                            <option label="Quảng Ngãi" value="48">Quảng Ngãi</option>
-                                                            <option label="Quảng Ninh" value="49">Quảng Ninh</option>
-                                                            <option label="Quảng Trị" value="50">Quảng Trị</option>
-                                                            <option label="Sóc Trăng" value="51">Sóc Trăng</option>
-                                                            <option label="Sơn La" value="52">Sơn La</option>
-                                                            <option label="Tây Ninh" value="53">Tây Ninh</option>
-                                                            <option label="Thái Bình" value="54">Thái Bình</option>
-                                                            <option label="Thái Nguyên" value="55">Thái Nguyên</option>
-                                                            <option label="Thanh Hóa" value="56">Thanh Hóa</option>
-                                                            <option label="Thừa Thiên Huế" value="57">Thừa Thiên Huế</option>
-                                                            <option label="Tiền Giang" value="58">Tiền Giang</option>
-                                                            <option label="Trà Vinh" value="59">Trà Vinh</option>
-                                                            <option label="Tuyên Quang" value="60">Tuyên Quang</option>
-                                                            <option label="Vĩnh Long" value="61">Vĩnh Long</option>
-                                                            <option label="Vĩnh Phúc" value="62">Vĩnh Phúc</option>
-                                                            <option label="Yên Bái" value="63">Yên Bái</option>
-                                                         </select>
-                                                      </div>
-            
-                                                   </div>
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label">Quận / huyện</label>
-                                                      <div class="col-md-5">
-                                                         <select>
-                                                            <option value="1">Cầu Giấy</option>
-                                                            <option value="2">Hoàng Mai</option>
-                                                            <option value="3" selected="selected">Đan Phượng</option>
-                                                         </select>
-                                                      </div>
-                                                   </div>
-            
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label">Số nhà / ngõ / tên đường</label>
-                                                      <div class="col-md-5">
-                                                         <input required="" oninvalid="sport.account.validateControl(this);"
-                                                            placeholder="Địa chỉ sân" oninput="sport.account.validateControl(this);"
-                                                            data-msg-require="Ví dụ: Số 88 Lê Văn Lương" ng-model="form.Address"
-                                                            class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
-                                                      </div>
-                                                   </div>
-            
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label">Bản đồ</label>
-                                                      <div class="col-md-5">
-                                                         <label class="control-label">Vị trí trên bản đồ <img
-                                                               class="google-map-icon" height="20" ng-click="initMap()"
-                                                               ng-src="/Assets/img/map.jpg" src="/Assets/img/map.jpg"></label>
-                                                      </div>
-                                                   </div>
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label">Latitude</label>
-                                                      <div class="col-md-5">
-                                                         <input ng-model="form.Latitude" id="latitude"
-                                                            class="form-control ng-pristine ng-untouched ng-valid ng-empty">
-                                                      </div>
-                                                   </div>
-            
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label">Longitude</label>
-                                                      <div class="col-md-5">
-                                                         <input ng-model="form.Longitude" id="longitude"
-                                                            class="form-control ng-pristine ng-untouched ng-valid ng-empty">
-                                                      </div>
-                                                   </div>
-            
-                                                   <div class="form-group row">
-                                                      <div class="clear-bordered"></div>
-                                                   </div>
-            
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label"><strong>Thông tin liên
-                                                            hệ</strong></label>
-                                                   </div>
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label">Điện thoại</label>
-                                                      <div class="col-md-5">
-                                                         <input required="" oninvalid="sport.account.validateControl(this);"
-                                                            oninput="sport.account.validateControl(this);"
-                                                            placeholder="Điện thoại liên hệ đặt sân"
-                                                            data-msg-require="Bạn phải nhập Điện thoại liên hệ đặt sân"
-                                                            ng-model="form.MobileNumbers"
-                                                            class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
-                                                      </div>
-                                                   </div>
-            
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label">Địa chỉ email</label>
-                                                      <div class="col-md-5">
-                                                         <input ng-model="form.EmailAddress"
-                                                            class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                                                            placeholder="Địa chỉ email">
-            
-                                                      </div>
-                                                   </div>
-            
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label">Facebook</label>
-                                                      <div class="col-md-5">
-                                                         <input ng-model="form.Facebook" placeholder="Địa chỉ facebook"
-                                                            class="form-control ng-pristine ng-untouched ng-valid ng-empty">
-                                                      </div>
-                                                   </div>
-            
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label">Website</label>
-                                                      <div class="col-md-5">
-                                                         <input ng-model="form.Website" placeholder="Địa chỉ website"
-                                                            class="form-control ng-pristine ng-untouched ng-valid ng-empty">
-                                                      </div>
-                                                   </div>
-                                                   <div class="form-group row">
-                                                      <div class="clear-bordered"></div>
-                                                   </div>
-            
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label"><strong>Hình ảnh sân</strong></label>
-                                                   </div>
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 control-label">Ảnh đại diện</label>
-                                                      <div class="col-md-5">
-                                                         <!-- ngIf: form.PicturePath -->
-                                                         <input id="previewImagePath" type="file" file-model="imageLogo">
-                                                         <input ng-model="form.PicturePath" value="" type="hidden"
-                                                            class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                                                            id="inpLogoFilePath" placeholder="">
-                                                      </div>
-                                                   </div>
-                                                   <div class="form-group row">
-                                                      <label class="col-md-3 col-form-label">Slideshow</label>
-                                                      <div class="col-md-5">
-                                                         <div id="fileuploader">
-                                                            <div class="ajax-upload-dragdrop"
-                                                               style="vertical-align: top; width: 400px;">
-                                                               <div class="ajax-file-upload"
-                                                                  style="position: relative; overflow: hidden; cursor: default;">
-                                                                  Upload
-                                                                  <form method="POST" action="/ajax/stadiummanagement/uploadprofile" '="" enctype="multipart/form-data" style="margin: 0px; padding: 0px;"><input type="file" id="ajax-upload-id-1618901561231" name="profileUpload[]" accept="*" multiple="" style="position: absolute; cursor: pointer; top: 0px; width: 100%; height: 100%; left: 0px; z-index: 100; opacity: 0;"></form></div><span><b>Drag &amp; Drop Files</b></span></div><div></div></div><div class="ajax-file-upload-container"></div>
-                                   
+                                                    <div class="form-group row">
+                                                        <div class="clear-bordered"></div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label"><strong>Thông tin cơ
+                                                                bản</strong></label>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 col-form-label">Tên sân</label>
+                                                        <div class="col-md-9">
+                                                            <input type="text" ng-model="form.Name" id="name"
+                                                                name="stadiumName" style="font-weight:bold"
+                                                                placeholder="Nhập tên sân" required=""
+                                                                class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 col-form-label">Giới thiệu ngắn</label>
+                                                        <div class="col-md-9">
+                                                            <textarea id="introduce"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                                                                rows="5"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row ng-scope">
+                                                        <label class="col-md-3 col-form-label">Mặt sân</label>
+                                                        <div class="col-md-5">
+                                                            <select id="type"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-not-empty">
+                                                                <option label="Sân cỏ nhân tạo" value="1"
+                                                                    selected="selected">Sân cỏ
+                                                                    nhân tạo</option>
+                                                                <option label="Sân cỏ tự nhiên" value="2">Sân cỏ tự
+                                                                    nhiên</option>
+                                                                <option label="Sân cát" value="3">Sân cát</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label"><strong>Vị trí
+                                                                sân</strong></label>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label">Địa chỉ</label>
+                                                        <div class="col-md-5">
+                                                            <input id="address" required="" placeholder="Địa chỉ sân"
+                                                                class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label">Định vị</label>
+                                                        <div class="col-md-5">
+                                                            <input id="googlemap"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="clear-bordered"></div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label"><strong>Thông tin liên
+                                                                hệ</strong></label>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label">Điện thoại</label>
+                                                        <div class="col-md-5">
+                                                            <input id="phone" required="" placeholder="Điện thoại liên hệ đặt sân"
+                                                                class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label">Địa chỉ email</label>
+                                                        <div class="col-md-5">
+                                                            <input  id="email"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                                                                placeholder="Địa chỉ email">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label">Facebook</label>
+                                                        <div class="col-md-5">
+                                                            <input id="facebook"
+                                                                placeholder="Địa chỉ facebook"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="clear-bordered"></div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label"><strong>Hình ảnh
+                                                                sân</strong></label>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label">Ảnh đại diện</label>
+                                                        <div class="col-md-5">
+                                                            <!-- ngIf: form.PicturePath -->
+                                                            <input id="previewImagePath" type="file"
+                                                                file-model="imageLogo">
+                                                            <input ng-model="form.PicturePath" value="" type="hidden"
+                                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                                                                id="inpLogoFilePath" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 col-form-label">Slideshow</label>
+                                                        <div class="col-md-5">
+                                                            <div id="fileuploader">
+                                                                <div class="ajax-upload-dragdrop"
+                                                                    style="vertical-align: top; width: 400px;">
+                                                                    <div class="ajax-file-upload"
+                                                                        style="position: relative; overflow: hidden; cursor: default;">
+                                                                        Upload
+                                                                        <form method="POST"
+                                                                            action="/ajax/stadiummanagement/uploadprofile" '="" enctype="multipart/form-data" style="margin: 0px; padding: 0px;"><input type="file" id="ajax-upload-id-1618901561231" name="profileUpload[]" accept="*" multiple="" style="position: absolute; cursor: pointer; top: 0px; width: 100%; height: 100%; left: 0px; z-index: 100; opacity: 0;"></form></div><span><b>Drag &amp; Drop Files</b></span></div><div></div></div><div class="ajax-file-upload-container"></div>
                                    <div class="highslide-gallery gallery">
                                    </div>
                                    </div>
                                    </div>
-                                   
-                                   <div class="form-group row">
-                                   <div class="clear-bordered"></div>
-                                   </div>
-                                   
-                                   <div class="form-group row">
-                                   <label class="col-md-3 control-label">Giới thiệu</label>
-                                   
-                                   <div class="col-md-9">
-                                    <textarea required="" ng-model="vm.matchRequest.message" rows="3" cols="5"
-                                    class="form-control input-sm width-100p ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
-                                    placeholder="Giới thiệu"></textarea>
-                                                            </div>
-                                  </div>
                                                       </div>
                                                    </div>
                                                 </div>
                                           </div>
-            
                                           <div class="form-group row">
                                              <div class="clear-bordered"></div>
                                           </div>
-            
                                           <div class="form-group row" style="margin-top:30px">
                                              <div class="col-md-3">
                                              </div>
                                              <div class="col-md-9 text-right">
-                                                <!-- ngIf: showUpdateResults && showSuccessMessage -->
-                                                <!-- ngIf: showUpdateResults && showErrorMessage -->
-            
-                                                <a class="btn btn-default" ng-href="/stadium/management"
-                                                   href="/stadium/management">Quay lại</a>
-                                                &nbsp;
-                                                <!-- ngIf: isCreate --><button type="submit" id="btnCreateStadium"
-                                                   data-loading-text="<i class=' fa fa-spinner fa-spin '></i> Đang xử lý..."
-                                                   class="btn btn-primary btn-primary-extra ng-scope" ng-if="isCreate"
-                                                   ng-click="frmStadiumInfo.$valid &amp;&amp; saveChange($event)">
+                                                <a class="btn btn-default"
+                                                   href="myteam.html">Quay lại</a>
+                                                <button type="submit" id="btnCreatePitch"
+                                                   class="btn btn-primary btn-primary-extra ng-scope">
                                                    <i class="fa fa-save"></i>
                                                    Tạo mới
                                                 </button><!-- end ngIf: isCreate -->
-            
-                                                <!-- ngIf: !isCreate -->
-            
                                              </div> <!-- /.col -->
-            
                                           </div> <!-- /.form-group -->
                                        </div>
                         </div>
@@ -788,7 +552,7 @@
                                 <li><a href="profile.html">Our Team</a></li>
                                 <li><a href="news.html">Latest News</a></li>
                                 <li><a href="matche.html">Recent Matchs</a></li>
-                                <li><a href="blog.html">Our Blog</a></li>
+                                <li><a href="post.html">Our Blog</a></li>
                                 <li><a href="contact.html">Contact Us</a></li>
                             </ul>
                         </div>
@@ -830,6 +594,7 @@
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
     <script src="js/city.js"></script>  
+    <script src="js/createpitch.js"></script>
     <script src="js/logout.js"></script>
     <script src="js/user.js"></script>
 </body>
