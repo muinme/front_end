@@ -149,7 +149,7 @@ function readPost3(
     '<div class="row">' +
     '    <div class="col-md-5">' +
     '       <div class="feature-img">' +
-    '          <img src="images/post2.png" class="img-responsive" alt="#" />' +
+    '          <img src="images/posttimdoi.jpg" class="img-responsive" alt="#" />' +
     "       </div>" +
     "    </div>" +
     '    <div class="col-md-7">' +
