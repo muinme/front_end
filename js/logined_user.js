@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var permission;
+  var permission = null;
   $.ajax({
     type: "GET",
     url: HOST + "/football/permission/Username",
@@ -11,13 +11,15 @@ $(document).ready(function () {
       withCredentials: true,
     },
     success: function (result) {
-      permission = result;
-      console.log(permission);
+      readUserAfterCheckPermission(result);
     },
     error: function () {
       console.log("da co loi");
     },
   });
+});
+
+function readUserAfterCheckPermission(permission) {
   $.ajax({
     type: "GET",
     url: HOST + "/football/userByUsername",
@@ -31,13 +33,11 @@ $(document).ready(function () {
     },
     success: function (result) {
       var obj = result;
-      console.log("???" + permission + "???");
+      console.log("permi" + permission);
       if (permission == "member") {
-        swapNoLoginAndUserLogin();
         readUser(obj.fullname, obj.image, obj.id);
       }
       if (permission == "admin") {
-        swapNoLoginAndUserLogin();
         readAdmin(obj.fullname, obj.image, obj.id);
       }
     },
@@ -45,7 +45,7 @@ $(document).ready(function () {
       console.log("da co loi");
     },
   });
-});
+}
 function readUser(fullname, image) {
   console.log("jdjsjidooooooooooooooo");
   document.getElementById("liUser").innerHTML +=
