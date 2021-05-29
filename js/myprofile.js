@@ -13,7 +13,14 @@ $(document).ready(function () {
     success: function (result) {
       var obj = result;
       console.log("object= " + JSON.stringify(obj) + "\nid = " + obj.fullname);
-      readProfile(obj.fullname, obj.email, obj.phone, obj.created, obj.image);
+      readProfile(
+        obj.fullname,
+        obj.email,
+        obj.phone,
+        obj.created,
+        obj.image,
+        obj.username
+      );
     },
     error: function () {
       console.log("da co loi");
@@ -21,7 +28,7 @@ $(document).ready(function () {
   });
 });
 
-function readProfile(fullname, email, phone, created, image) {
+function readProfile(fullname, email, phone, created, image, username) {
   document.getElementById("frmEditProfile").innerHTML +=
     '<div class="row form-group">' +
     '    <div class="col-sm-3 col-xs-6">' +
@@ -96,8 +103,6 @@ function readProfile(fullname, email, phone, created, image) {
     '        float: none;">Quay lại</a>' +
     "</div>";
   $("#btnProfileSave").click(function () {
-    console.log("ok chuaaaa");
-    var username = "a";
     var formData = {
       fullname: $("#UserFullname").val(),
       email: $("#UserEmail").val(),

@@ -4,7 +4,7 @@ $(document).ready(function () {
   console.log("vll");
   $.ajax({
     type: "GET",
-    url: HOST + "/football/teamFootBall/getAll",
+    url: HOST + "/football/user/getAllUserMember",
     dataType: "JSON",
     crossDomain: true,
     headers: {
@@ -16,8 +16,8 @@ $(document).ready(function () {
     success: function (result) {
       for (var key in result) {
         var obj = result[key];
-        console.log("object= " + JSON.stringify(obj) + "\nid = " + obj.created);
-        readTcOrderMatch(obj.id, obj.name, obj.created);
+        console.log("object= " + JSON.stringify(obj) + "\nid = " + obj.id);
+        readTcMatch(obj.id, obj.fullname);
       }
     },
     error: function () {
@@ -26,10 +26,10 @@ $(document).ready(function () {
   });
 });
 
-function readTcOrderMatch(football_id, name, created) {
+function readTcMatch(user_id, fullname) {
   $.ajax({
     type: "GET",
-    url: HOST + "/football/historyMatch/getTcOrderMatch/" + football_id,
+    url: HOST + "/football/historyMatch/getTcMatch/" + user_id,
     dataType: "JSON",
     crossDomain: true,
     headers: {
@@ -41,7 +41,7 @@ function readTcOrderMatch(football_id, name, created) {
     success: function (result) {
       var obj = result;
       console.log(obj);
-      readTbOrderMatch(football_id, name, created, obj);
+      readTbMatch(user_id, fullname, obj);
     },
     error: function () {
       console.log("da co loi");
@@ -49,10 +49,10 @@ function readTcOrderMatch(football_id, name, created) {
   });
 }
 
-function readTbOrderMatch(football_id, name, created, tcOrderMatch) {
+function readTbMatch(user_id, fullname, tcMatch) {
   $.ajax({
     type: "GET",
-    url: HOST + "/football/historyMatch/getTbOrderMatch/" + football_id,
+    url: HOST + "/football/historyMatch/getTbMatch/" + user_id,
     dataType: "JSON",
     crossDomain: true,
     headers: {
@@ -64,7 +64,7 @@ function readTbOrderMatch(football_id, name, created, tcOrderMatch) {
     success: function (result) {
       var obj = result;
       console.log(obj);
-      readWaitMatch(football_id, name, created, tcOrderMatch, obj);
+      readWaitMatch(user_id, fullname, tcMatch, obj);
     },
     error: function () {
       console.log("da co loi");
@@ -72,10 +72,10 @@ function readTbOrderMatch(football_id, name, created, tcOrderMatch) {
   });
 }
 
-function readWaitMatch(football_id, name, created, tcOrderMatch, tbOrderMatch) {
+function readWaitMatch(user_id, fullname, tcMatch, tbMatch) {
   $.ajax({
     type: "GET",
-    url: HOST + "/football/requestMatch/getSlWaitTeam/" + football_id,
+    url: HOST + "/football/requestMatch/getSlWait/" + user_id,
     dataType: "JSON",
     crossDomain: true,
     headers: {
@@ -87,7 +87,7 @@ function readWaitMatch(football_id, name, created, tcOrderMatch, tbOrderMatch) {
     success: function (result) {
       var obj = result;
       console.log(obj);
-      readWaitPost(football_id, name, created, tcOrderMatch, tbOrderMatch, obj);
+      readTcOrder(user_id, fullname, tcMatch, tbMatch, obj);
     },
     error: function () {
       console.log("da co loi");
@@ -95,17 +95,10 @@ function readWaitMatch(football_id, name, created, tcOrderMatch, tbOrderMatch) {
   });
 }
 
-function readWaitPost(
-  football_id,
-  name,
-  created,
-  tcOrderMatch,
-  tbOrderMatch,
-  waitMatch
-) {
+function readTcOrder(user_id, fullname, tcMatch, tbMatch, waitMatch) {
   $.ajax({
     type: "GET",
-    url: HOST + "/football/postMatchTeam/getSlWaitPost/" + football_id,
+    url: HOST + "/football/historyRental/getTcOrder/" + user_id,
     dataType: "JSON",
     crossDomain: true,
     headers: {
@@ -117,13 +110,36 @@ function readWaitPost(
     success: function (result) {
       var obj = result;
       console.log(obj);
-      readWaitPostDel(
-        football_id,
-        name,
-        created,
-        tcOrderMatch,
-        tbOrderMatch,
+      readTbOrder(user_id, fullname, tcMatch, tbMatch, waitMatch, obj);
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
+}
+
+function readTbOrder(user_id, fullname, tcMatch, tbMatch, waitMatch, tcOrder) {
+  $.ajax({
+    type: "GET",
+    url: HOST + "/football/historyRental/getTcOrder/" + user_id,
+    dataType: "JSON",
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      var obj = result;
+      console.log(obj);
+      readWaitOrder(
+        user_id,
+        fullname,
+        tcMatch,
+        tbMatch,
         waitMatch,
+        tcOrder,
         obj
       );
     },
@@ -133,18 +149,18 @@ function readWaitPost(
   });
 }
 
-function readWaitPostDel(
-  football_id,
-  name,
-  created,
-  tcOrderMatch,
-  tbOrderMatch,
+function readWaitOrder(
+  user_id,
+  fullname,
+  tcMatch,
+  tbMatch,
   waitMatch,
-  postWait
+  tcOrder,
+  tbOrder
 ) {
   $.ajax({
     type: "GET",
-    url: HOST + "/football/postMatchTeam/getSlWaitPostDel/" + football_id,
+    url: HOST + "/football/requestPitch/getSlWait/" + user_id,
     dataType: "JSON",
     crossDomain: true,
     headers: {
@@ -156,14 +172,14 @@ function readWaitPostDel(
     success: function (result) {
       var obj = result;
       console.log(obj);
-      readListMatch(
-        football_id,
-        name,
-        created,
-        tcOrderMatch,
-        tbOrderMatch,
+      readListUser(
+        user_id,
+        fullname,
+        tcMatch,
+        tbMatch,
         waitMatch,
-        postWait,
+        tcOrder,
+        tbOrder,
         obj
       );
     },
@@ -173,53 +189,64 @@ function readWaitPostDel(
   });
 }
 
-function readListMatch(
-  football_id,
-  name,
-  created,
-  tcOrderMatch,
-  tbOrderMatch,
+function readListUser(
+  id,
+  fullname,
+  tcMatch,
+  tbMatch,
   waitMatch,
-  postWait,
-  postWaitDel
+  tcOrder,
+  tbOrder,
+  waitOrder
 ) {
-  var slds = tcOrderMatch + tbOrderMatch + waitMatch;
-  var pw = postWait + postWaitDel;
+  var slbd = tcMatch + tbMatch + waitMatch;
+  var slds = tcOrder + tbOrder + waitOrder;
   document.getElementById("listUser").innerHTML +=
     "<tr>" +
     "    <th>" +
-    football_id +
+    id +
     "</th>" +
     '<th><a href="profile.html?user_id=' +
-    football_id +
+    id +
     '">' +
-    name +
+    fullname +
     "</a></th>" +
     "    <th>" +
-    created +
+    slbd +
+    "</th>" +
+    "    <th>" +
+    tcMatch +
+    "</th>" +
+    "    <th>" +
+    tbMatch +
+    "</th>" +
+    "    <th>" +
+    waitMatch +
     "</th>" +
     "    <th>" +
     slds +
     "</th>" +
     "    <th>" +
-    tcOrderMatch +
+    tcOrder +
     "</th>" +
     "    <th>" +
-    tbOrderMatch +
+    tbOrder +
     "</th>" +
     "    <th>" +
-    waitMatch +
+    waitOrder +
     "</th>" +
-    "</th>" +
-    "    <th>" +
-    pw +
-    "</th>" +
-    "    <th>" +
-    postWait +
-    "</th>" +
-    "    <th>" +
-    postWaitDel +
-    "</th>" +
+    '    <td align="right" style="text-align:right">' +
+    '        <div class="form-group">' +
+    '            <a id ="Active" onclick="myFunction1(' +
+    id +
+    ')" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-calendar-check-o"></i>Active</a>' +
+    "        </div>" +
+    '        <div class="form-group">' +
+    '            <a id ="Deactive" onclick="myFunction2(' +
+    id +
+    ')" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-calendar-times-o"></i>Deactive</a>' +
+    "        </div>" +
+    "    </td>" +
     "</tr>";
 }
 function myFunction1(id) {

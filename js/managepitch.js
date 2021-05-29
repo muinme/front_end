@@ -4,7 +4,7 @@ $(document).ready(function () {
   console.log("vll");
   $.ajax({
     type: "GET",
-    url: HOST + "/football/teamFootBall/getAll",
+    url: HOST + "/football/pitch/getAll",
     dataType: "JSON",
     crossDomain: true,
     headers: {
@@ -17,7 +17,7 @@ $(document).ready(function () {
       for (var key in result) {
         var obj = result[key];
         console.log("object= " + JSON.stringify(obj) + "\nid = " + obj.created);
-        readTcOrderMatch(obj.id, obj.name, obj.created);
+        readTcOrderPitch(obj.id, obj.name, obj.created);
       }
     },
     error: function () {
@@ -26,10 +26,10 @@ $(document).ready(function () {
   });
 });
 
-function readTcOrderMatch(football_id, name, created) {
+function readTcOrderPitch(pitch_id, name, created) {
   $.ajax({
     type: "GET",
-    url: HOST + "/football/historyMatch/getTcOrderMatch/" + football_id,
+    url: HOST + "/football/historyRental/getTcOrderPitch/" + pitch_id,
     dataType: "JSON",
     crossDomain: true,
     headers: {
@@ -41,7 +41,7 @@ function readTcOrderMatch(football_id, name, created) {
     success: function (result) {
       var obj = result;
       console.log(obj);
-      readTbOrderMatch(football_id, name, created, obj);
+      readTbOrderPitch(pitch_id, name, created, obj);
     },
     error: function () {
       console.log("da co loi");
@@ -49,10 +49,10 @@ function readTcOrderMatch(football_id, name, created) {
   });
 }
 
-function readTbOrderMatch(football_id, name, created, tcOrderMatch) {
+function readTbOrderPitch(pitch_id, name, created, tcOrderPitch) {
   $.ajax({
     type: "GET",
-    url: HOST + "/football/historyMatch/getTbOrderMatch/" + football_id,
+    url: HOST + "/football/historyRental/getTbOrderPitch/" + pitch_id,
     dataType: "JSON",
     crossDomain: true,
     headers: {
@@ -64,7 +64,7 @@ function readTbOrderMatch(football_id, name, created, tcOrderMatch) {
     success: function (result) {
       var obj = result;
       console.log(obj);
-      readWaitMatch(football_id, name, created, tcOrderMatch, obj);
+      readWaitPitch(pitch_id, name, created, tcOrderPitch, obj);
     },
     error: function () {
       console.log("da co loi");
@@ -72,10 +72,10 @@ function readTbOrderMatch(football_id, name, created, tcOrderMatch) {
   });
 }
 
-function readWaitMatch(football_id, name, created, tcOrderMatch, tbOrderMatch) {
+function readWaitPitch(pitch_id, name, created, tcOrderPitch, tbOrderPitch) {
   $.ajax({
     type: "GET",
-    url: HOST + "/football/requestMatch/getSlWaitTeam/" + football_id,
+    url: HOST + "/football/requestPitch/getSlWaitPitch/" + pitch_id,
     dataType: "JSON",
     crossDomain: true,
     headers: {
@@ -87,7 +87,7 @@ function readWaitMatch(football_id, name, created, tcOrderMatch, tbOrderMatch) {
     success: function (result) {
       var obj = result;
       console.log(obj);
-      readWaitPost(football_id, name, created, tcOrderMatch, tbOrderMatch, obj);
+      readListPitch(pitch_id, name, created, tcOrderPitch, tbOrderPitch, obj);
     },
     error: function () {
       console.log("da co loi");
@@ -95,103 +95,45 @@ function readWaitMatch(football_id, name, created, tcOrderMatch, tbOrderMatch) {
   });
 }
 
-function readWaitPost(
-  football_id,
+function readTcOrder(pitch_id, name, created, tcOrderPitch, tbOrderPitch, obj) {
+  $.ajax({
+    type: "GET",
+    url: HOST + "/football/historyRental/getTcOrder/" + pitch_id,
+    dataType: "JSON",
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      var obj = result;
+      console.log(obj);
+      readTbOrder(user_id, fullname, tcMatch, tbMatch, waitMatch, obj);
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
+}
+
+function readListPitch(
+  pitch_id,
   name,
   created,
-  tcOrderMatch,
-  tbOrderMatch,
-  waitMatch
+  tcOrderPitch,
+  tbOrderPitch,
+  waitPitch
 ) {
-  $.ajax({
-    type: "GET",
-    url: HOST + "/football/postMatchTeam/getSlWaitPost/" + football_id,
-    dataType: "JSON",
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      var obj = result;
-      console.log(obj);
-      readWaitPostDel(
-        football_id,
-        name,
-        created,
-        tcOrderMatch,
-        tbOrderMatch,
-        waitMatch,
-        obj
-      );
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
-}
-
-function readWaitPostDel(
-  football_id,
-  name,
-  created,
-  tcOrderMatch,
-  tbOrderMatch,
-  waitMatch,
-  postWait
-) {
-  $.ajax({
-    type: "GET",
-    url: HOST + "/football/postMatchTeam/getSlWaitPostDel/" + football_id,
-    dataType: "JSON",
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      var obj = result;
-      console.log(obj);
-      readListMatch(
-        football_id,
-        name,
-        created,
-        tcOrderMatch,
-        tbOrderMatch,
-        waitMatch,
-        postWait,
-        obj
-      );
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
-}
-
-function readListMatch(
-  football_id,
-  name,
-  created,
-  tcOrderMatch,
-  tbOrderMatch,
-  waitMatch,
-  postWait,
-  postWaitDel
-) {
-  var slds = tcOrderMatch + tbOrderMatch + waitMatch;
-  var pw = postWait + postWaitDel;
+  var slds = tcOrderPitch + tbOrderPitch + waitPitch;
   document.getElementById("listUser").innerHTML +=
     "<tr>" +
     "    <th>" +
-    football_id +
+    pitch_id +
     "</th>" +
     '<th><a href="profile.html?user_id=' +
-    football_id +
+    pitch_id +
     '">' +
     name +
     "</a></th>" +
@@ -202,23 +144,13 @@ function readListMatch(
     slds +
     "</th>" +
     "    <th>" +
-    tcOrderMatch +
+    tcOrderPitch +
     "</th>" +
     "    <th>" +
-    tbOrderMatch +
+    tbOrderPitch +
     "</th>" +
     "    <th>" +
-    waitMatch +
-    "</th>" +
-    "</th>" +
-    "    <th>" +
-    pw +
-    "</th>" +
-    "    <th>" +
-    postWait +
-    "</th>" +
-    "    <th>" +
-    postWaitDel +
+    waitPitch +
     "</th>" +
     "</tr>";
 }

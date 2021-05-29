@@ -78,19 +78,8 @@
 
                                         </div>
                                     </li>
-                                    <li class="login-modal">
-                                        <button class="dropbtn"><img src="images/profile-img.png"
-                                                class="avatar img-fluid rounded-circle">Pham Anh Tu</button>
-                                        <div class="dropdown-content">
-                                            <a href="#"><i class="fa fa-user"></i>Profile</a>
-                                            <a href="#"><i class="fa fa-futbol-o"></i>My Team FootBall</a>
-                                            <a href="#"><i class="fa fa-th-large"></i>My Pitch</a>
-                                            <a href="#"><i class="fa fa-history"></i>History Pitch</a>
-                                            <a href="#"><i class="fa fa-history"></i>History Match</a>
-                                            <button id="logout"
-                                                style="text-align:left ;border-radius: 0px; width: 190px;"><i
-                                                    class="fa fa-sign-out"></i>Logout →</button>
-                                        </div>
+                                    <li class="login-modal" id="liUser">
+
                                     </li>
                                 </ul>
                                 <!-- end button section -->
@@ -454,75 +443,73 @@
     </section>
     <footer id="footer" class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="full">
-                        <div class="footer-widget">
-                            <div class="footer-logo">
-                                <a href="#"><img src="images/footer-logo.png" alt="#" /></a>
-                            </div>
-                            <p>Most of our events have hard and easy route choices as we are always keen to encourage
-                                new riders.</p>
-                            <ul class="social-icons style-4 pull-left">
-                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a class="youtube" href="#"><i class="fa fa-youtube-play"></i></a></li>
-                                <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                            </ul>
-                        </div>
+           <div class="row">
+              <div class="col-md-4">
+                 <div class="full">
+                    <div class="footer-widget">
+                       <div class="footer-logo">
+                          <a href="index.html"><img src="images/footer-logo.png" alt="#" /></a>
+                       </div>
+                       <p>Hãy để chúng tôi thỏa mãn niềm đam mê bóng đá của bạn</p>
+                       <ul class="social-icons style-4 pull-left">
+                          <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                          <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                          <li><a class="youtube" href="#"><i class="fa fa-youtube-play"></i></a></li>
+                          <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                       </ul>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="full">
-                        <div class="footer-widget">
-                            <h3>Menu</h3>
-                            <ul class="footer-menu">
-                                <li><a href="information.html">About Us</a></li>
-                                <li><a href="profile.html">Our Team</a></li>
-                                <li><a href="news.html">Latest News</a></li>
-                                <li><a href="matche.html">Recent Matchs</a></li>
-                                <li><a href="post.html">Our Blog</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
-                            </ul>
-                        </div>
+                 </div>
+              </div>
+              <div class="col-md-2">
+                 <div class="full">
+                    <div class="footer-widget">
+                       <h3>Menu</h3>
+                       <ul class="footer-menu">
+                          <li><a href="index.html">Trang chủ</a></li>
+                          <li><a href="information.html">Thông tin</a></li>
+                          <li><a href="teams.html">Đội bóng</a></li>
+                          <li><a href="pitchs.html">Sân bóng</a></li>
+                          <li><a href="post.html">Đối giao hữu</a></li>
+                          <li><a href="contact.html">Liên Hệ</a></li>
+                       </ul>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="full">
-                        <div class="footer-widget">
-                            <h3>Contact us</h3>
-                            <ul class="address-list">
-                                <li><i class="fa fa-map-marker"></i> Lorem Ipsum is simply dummy text of the printing..
-                                </li>
-                                <li><i class="fa fa-phone"></i> 123 456 7890</li>
-                                <li><i style="font-size:20px;top:5px;" class="fa fa-envelope"></i> demo@gmail.com</li>
-                            </ul>
-                        </div>
+                 </div>
+              </div>
+              <div class="col-md-3">
+                 <div class="full">
+                    <div class="footer-widget">
+                       <h3>Liên Hệ Chúng Tôi</h3>
+                       <ul class="address-list">
+                          <li><i class="fa fa-map-marker"></i>Vị trí</li>
+                          <li><i class="fa fa-phone"></i>0333 113 113</li>
+                          <li><i style="font-size:20px;top:5px;" class="fa fa-envelope"></i>admintraibonglan@gmail.com</li>
+                       </ul>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="full">
-                        <div class="contact-footer">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d120615.72236587871!2d73.07890527988283!3d19.140910987164396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1527759905404"
-                                width="600" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-                        </div>
+                 </div>
+              </div>
+              <div class="col-md-3">
+                 <div class="full">
+                    <div>
+                       <iframe
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.9823504552173!2d105.79422281424539!3d21.033392192997585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab47a5387d7f%3A0x4d478988d1732065!2zNTEgTmfDtSAyMDEgQ-G6p3UgR2nhuqV5LCBE4buLY2ggVuG7jW5nLCBD4bqndSBHaeG6pXksIEjDoCBO4buZaSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1622296758906!5m2!1sen!2s"
+                          width="600" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
-                </div>
-            </div>
+                 </div>
+              </div>
+           </div>
         </div>
         <div class="footer-bottom">
-            <div class="container">
-                <p>Copyright © 2018 Distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a></p>
-            </div>
+           <div class="container">
+              <p>Copyright © 2018 Distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a></p>
+           </div>
         </div>
-    </footer>
+     </footer>
     <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
     <!-- ALL JS FILES -->
     <script src="js/all.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
-    <script src="js/city.js"></script>
+    <script src="js/user.js"></script>
     <script src="js/chitietsanbong.js"></script>
 
 </body>

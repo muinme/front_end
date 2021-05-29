@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var permission;
+  var permission = null;
   $.ajax({
     type: "GET",
     url: HOST + "/football/permission/Username",
@@ -11,13 +11,15 @@ $(document).ready(function () {
       withCredentials: true,
     },
     success: function (result) {
-      permission = result;
-      console.log(permission);
+      readUserAfterCheckPermission(result);
     },
     error: function () {
       console.log("da co loi");
     },
   });
+});
+
+function readUserAfterCheckPermission(permission) {
   $.ajax({
     type: "GET",
     url: HOST + "/football/userByUsername",
@@ -31,9 +33,11 @@ $(document).ready(function () {
     },
     success: function (result) {
       var obj = result;
+      console.log("permi" + permission);
       if (permission == "member") {
         readUser(obj.fullname, obj.image, obj.id);
-      } else {
+      }
+      if (permission == "admin") {
         readAdmin(obj.fullname, obj.image, obj.id);
       }
     },
@@ -41,7 +45,7 @@ $(document).ready(function () {
       console.log("da co loi");
     },
   });
-});
+}
 function readUser(fullname, image) {
   console.log("jdjsjidooooooooooooooo");
   document.getElementById("liUser").innerHTML +=
@@ -53,7 +57,7 @@ function readUser(fullname, image) {
     '                                <div class="dropdown-content">' +
     '                                    <a href="myprofile.html"><i class="fa fa-user"></i>Profile</a>' +
     '                                    <a href="myteam.html"><i class="fa fa-futbol-o"></i>My Team FootBall</a>' +
-    '                                    <a href="managementpitch.html"><i class="fa fa-th-large"></i>My Pitch</a>' +
+    '                                    <a href="mypitch.html"><i class="fa fa-th-large"></i>My Pitch</a>' +
     '                                    <a href="historyorderpitch.html"><i class="fa fa-history"></i>History Pitch</a>' +
     '                                    <a href="#"><i class="fa fa-history"></i>History Match</a>' +
     '                                    <button id = "logout" style="text-align:left ;border-radius: 0px; width: 190px;"><i class="fa fa-sign-out"></i>Logout →</button>' +
@@ -90,9 +94,9 @@ function readAdmin(fullname, image) {
     "</button>" +
     '                                <div class="dropdown-content">' +
     '                                    <a href="myprofile.html"><i class="fa fa-user"></i>Profile</a>' +
-    '                                    <a href="reportusers.html"><i class="fa fa-futbol-o"></i>Quản Lý User</a>' +
-    '                                    <a href="reportpitch.html"><i class="fa fa-th-large"></i>Quản Lý Sân Bóng</a>' +
-    '                                    <a href="reportteamfootball.html"><i class="fa fa-history"></i>Quản Lý Đội Bóng</a>' +
+    '                                    <a href="managementuser.html"><i class="fa fa-futbol-o"></i>Quản Lý User</a>' +
+    '                                    <a href="managementpitch.html"><i class="fa fa-th-large"></i>Quản Lý Sân Bóng</a>' +
+    '                                    <a href="managementteam.html"><i class="fa fa-history"></i>Quản Lý Đội Bóng</a>' +
     '                                    <button id = "logout" style="text-align:left ;border-radius: 0px; width: 190px;"><i class="fa fa-sign-out"></i>Logout →</button>' +
     "                                </div>";
   $("#logout").click(function () {

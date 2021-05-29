@@ -67,20 +67,20 @@
                         <!-- button section -->
                         <ul class="login">
                            <li>
-                               <div class="cart-option">
-                                  <button><i class="fa fa-bell"></i></button>
-                               </div>
+                              <div class="cart-option">
+                                 <button><i class="fa fa-bell"></i></button>
+                              </div>
                            </li>
                            <li>
-                               <div class="cart-option">
-                                  <button><i class="fa fa-comment"></i></button>
-                                  
-                               </div>
+                              <div class="cart-option">
+                                 <button><i class="fa fa-comment"></i></button>
+
+                              </div>
                            </li>
-                             <li class="login-modal" id="liUser">
-                               
-                             </li>
-                          </ul>
+                           <li class="login-modal" id="liUser">
+
+                           </li>
+                        </ul>
                         <!-- end button section -->
                      </div>
                   </div>
@@ -170,7 +170,7 @@
                                              </li>
                                           </ul>
                                        </li>
-                                       <li><a href="post.html"><i class="fa fa-shirtsinbulk"></i>Thống
+                                       <li><a href="report.html"><i class="fa fa-shirtsinbulk"></i>Thống
                                              Kê</a></li>
                                        <li><a href="contact.html"><i class="fa fa-book"></i>Liên Hệ</a>
                                        </li>
@@ -192,82 +192,77 @@
       </div>
       <div class="inner-information-text">
          <div class="container">
-            <h3>Our Team</h3>
+            <h3>Quản lý đội bóng</h3>
             <ul class="breadcrumb">
                <li><a href="index.html">Home</a></li>
-               <li class="active">Our Team</li>
+               <li class="active">Blog</li>
             </ul>
          </div>
       </div>
-      <div class="tabs-chi-tiet-doi">
-         <div class="container">
-            <div class="img-doio"><img class="img-responsive" src="/images/tu.jpg" align="thumb"></div>
-            <div class="title-doi">
-               <p class="captain-item" owner-id="7054">
-                  <span style="color: #ffffff;font-size: 15px !important;">
-                     <a href="/user/profile/7054" style="color: #ffffff;font-size: 18px !important;color: #ffffff;">Phạm
-                        Anh Tú</a> (đội trưởng)
-                     <span class="captain-item-status offline"></span>
-                  </span>
-                  <span class="chat-nhanh chat-nhanh-offline" ng-click="onQuickChat(7054);"
-                     title="Click để chat nhanh với đối."><i class="fa fa-comments" aria-hidden="true"></i> Nói
-                     chuyện</span>
-               </p>
-            </div>
-            <div class="wrap-ul-doi">
-               <ul class="list-link-doi">
-                  <li><a href="postmatchmyteam.html">Tìm đối</a></li>
-                  <li><a href="myteam.html">Yêu cầu bắt đối</a></li>
-                  <li><a href="/dsss.html?tab=gioithieu">Giới thiệu</a></li>
-                  <li><a href="/dsss.html?tab=teamfund">Quỹ bóng</a></li>
-                  <li class="active">
-                     <a href="profilemyteam.html">
-                        <i></i> Quản lý đội bóng
-                     </a>
-                  </li>
-               </ul>
-            </div>
-       
-
-         </div>
-         
-      </div>
    </section>
    <section id="contant" class="contant main-heading team">
-      
-            <div class="tab-pane fade active in" id="#/stadium">
-                <div id="listStadium" style="min-height: 250px; position: relative">
-                    <!-- ngIf: overlayLoading -->
-                    <div class="pull-right" style="margin-bottom: 30px">
-                        <div class="dropdown">
-                            <a href="createteam.html"
-                                class="btn btn-primary btn-primary-extra dropdown-toggle"><i
-                                    class="fa fa-plus-square"></i>Tạo đội bóng mới</a>
-                        </div>
-                    </div>
-                    <!-- ngIf: stadiums.length>=1 -->
-                    <!-- ngIf: stadiums.length==0 -->
-                    <table
-                        class="table table-striped table-responsive table-stadium-list ng-scope"
-                        ng-if="stadiums.length==0">
-                        <thead>
-                            <tr style="font-size: 15px">
-                                <th>#</th>
-                                <th>Tên đội bóng</th>
-                                <th>Logo</th>
-                                <th>Ảnh đội bóng</th>
-                                <th align="right" style="text-align:right">Tác vụ</th>
-                            </tr>
-                        </thead>
+      <div class="container">
+         <div class="feature-post small-blog">
+            <div class="feature-cont">
+               <div class="item-card">
+                  <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
+                     <ul id="myTab" class="nav nav-tabs" role="tablist">
+                        <li>
+                           <a href="managementuser.html" style="font-size: 15px">
+                              <i class="fa fa-list" aria-hidden="true"></i>
+                              Danh sách user
+                           </a>
+                        </li>
+                        <li>
+                           <a href="managementpitch.html   " style="font-size: 15px">
+                              <i class="fa fa-list" aria-hidden="true"></i>
+                              Danh sách sân bóng
+                           </a>
+                        </li>
+                        <li class="active">
+                           <a href="managementteam.html" style="font-size: 15px">
+                              <i class="fa fa-list" aria-hidden="true"></i>
+                              Danh sách đội bóng
+                           </a>
+                        </li>
 
-                        <tbody id="listTeam">
-                           
-                        </tbody>
-                    </table>
+                     </ul>
+                     <div id="stadiumListTabContent" class="tab-content">
+                        <div class="tab-pane fade active in" id="#/stadium">
+                           <div id="listStadium" style="min-height: 250px; position: relative">
+
+                              <table class="table table-striped table-responsive table-stadium-list ng-scope"
+                                 ng-if="stadiums.length==0">
+                                 <thead>
+                                    <tr style="font-size: 15px">
+                                       <th>Id</th>
+                                       <th>Tên đội bóng</th>
+                                       <th>Ngày tạo</th>
+                                       <th>SL Yêu Cầu Bắt Đối</th>
+                                       <th>Từ Chối</th>
+                                       <th>Chấp Nhận</th>
+                                       <th>Đang Chờ</th>
+                                       <th>Số bài đăng tìm đối</th>
+                                       <th>Còn hiệu lực</th>
+                                       <th>Gỡ bỏ</th>
+                                    </tr>
+                                 </thead>
+
+                                 <tbody id="listUser">
+
+                                 </tbody>
+                              </table>
+                              <!-- end ngIf: stadiums.length==0 -->
+                           </div>
+                        </div>
+                        <!-- /.tab-pane -->
+                     </div>
+                  </div>
+               </div>
             </div>
-            <!-- /.tab-pane -->
-        </div>
- 
+         </div>
+      </div>
+      </div>
    </section>
    <footer id="footer" class="footer">
       <div class="container">
@@ -276,10 +271,9 @@
                <div class="full">
                   <div class="footer-widget">
                      <div class="footer-logo">
-                        <a href="#"><img src="images/footer-logo.png" alt="#" /></a>
+                        <a href="index.html"><img src="images/footer-logo.png" alt="#" /></a>
                      </div>
-                     <p>Most of our events have hard and easy route choices as we are always keen to encourage new
-                        riders.</p>
+                     <p>Hãy để chúng tôi thỏa mãn niềm đam mê bóng đá của bạn</p>
                      <ul class="social-icons style-4 pull-left">
                         <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -294,12 +288,12 @@
                   <div class="footer-widget">
                      <h3>Menu</h3>
                      <ul class="footer-menu">
-                        <li><a href="information.html">About Us</a></li>
-                        <li><a href="profile.html">Our Team</a></li>
-                        <li><a href="news.html">Latest News</a></li>
-                        <li><a href="matche.html">Recent Matchs</a></li>
-                        <li><a href="post.html">Our Blog</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="information.html">Thông tin</a></li>
+                        <li><a href="teams.html">Đội bóng</a></li>
+                        <li><a href="pitchs.html">Sân bóng</a></li>
+                        <li><a href="post.html">Đối giao hữu</a></li>
+                        <li><a href="contact.html">Liên Hệ</a></li>
                      </ul>
                   </div>
                </div>
@@ -307,20 +301,20 @@
             <div class="col-md-3">
                <div class="full">
                   <div class="footer-widget">
-                     <h3>Contact us</h3>
+                     <h3>Liên Hệ Chúng Tôi</h3>
                      <ul class="address-list">
-                        <li><i class="fa fa-map-marker"></i> Lorem Ipsum is simply dummy text of the printing..</li>
-                        <li><i class="fa fa-phone"></i> 123 456 7890</li>
-                        <li><i style="font-size:20px;top:5px;" class="fa fa-envelope"></i> demo@gmail.com</li>
+                        <li><i class="fa fa-map-marker"></i>Vị trí</li>
+                        <li><i class="fa fa-phone"></i>0333 113 113</li>
+                        <li><i style="font-size:20px;top:5px;" class="fa fa-envelope"></i>admintraibonglan@gmail.com</li>
                      </ul>
                   </div>
                </div>
             </div>
             <div class="col-md-3">
                <div class="full">
-                  <div class="contact-footer">
+                  <div>
                      <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d120615.72236587871!2d73.07890527988283!3d19.140910987164396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1527759905404"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.9823504552173!2d105.79422281424539!3d21.033392192997585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab47a5387d7f%3A0x4d478988d1732065!2zNTEgTmfDtSAyMDEgQ-G6p3UgR2nhuqV5LCBE4buLY2ggVuG7jW5nLCBD4bqndSBHaeG6pXksIEjDoCBO4buZaSwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1622296758906!5m2!1sen!2s"
                         width="600" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
                   </div>
                </div>
