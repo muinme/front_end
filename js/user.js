@@ -59,7 +59,7 @@ function readUser(fullname, image) {
     '                                    <a href="myteam.html"><i class="fa fa-futbol-o"></i>My Team FootBall</a>' +
     '                                    <a href="mypitch.html"><i class="fa fa-th-large"></i>My Pitch</a>' +
     '                                    <a href="historyorderpitch.html"><i class="fa fa-history"></i>History Pitch</a>' +
-    '                                    <a href="#"><i class="fa fa-history"></i>History Match</a>' +
+    '                                    <a href="historymatch.html"><i class="fa fa-history"></i>History Match</a>' +
     '                                    <button id = "logout" style="text-align:left ;border-radius: 0px; width: 190px;"><i class="fa fa-sign-out"></i>Logout →</button>' +
     "                                </div>";
   $("#logout").click(function () {

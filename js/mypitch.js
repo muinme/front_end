@@ -46,7 +46,7 @@ function readPitch(fullname, address, image, id) {
     "" +
     '                                                            <td align="right" style="text-align:right">' +
     '                                                                <div class="form-group">' +
-    '                                                                    <a href="createpitch.html?football_id=' +
+    '                                                                    <a href="createpitch.html?pitch_id=' +
     id +
     '"' +
     '                                                                        class="btn btn-primary btn-primary-extra dropdown-toggle"' +
@@ -54,13 +54,15 @@ function readPitch(fullname, address, image, id) {
     '                                                                            class="glyphicon glyphicon-pencil"></i> Sửa' +
     "                                                                        thông tin</a>" +
     "                                                                    <br>" +
-    '                                                                    <a href="updatepitch.html?football_id=' +
+    '                                                                    <a href="updatepitch.html?pitch_id=' +
     id +
     '"' +
     '                                                                        class="btn btn-danger btn-sm"' +
     '                                                                        style="float:none; padding: 5px 20px;"><i' +
     '                                                                            class="fa fa-calendar"></i>Cập Nhật</a> <a' +
-    '                                                                        class="btn btn-danger btn-sm"' +
+    '                                                                        class="btn btn-danger btn-sm" onclick="myFunction(' +
+    id +
+    ')"' +
     '                                                                        title="Xóa"' +
     '                                                                        style="float:none; padding: 5px 20px;"><i' +
     '                                                                            class="glyphicon glyphicon-remove-circle"></i>' +
@@ -68,4 +70,24 @@ function readPitch(fullname, address, image, id) {
     "                                                                </div>" +
     "                                                            </td>" +
     "                                                        </tr>";
+}
+function myFunction(id) {
+  console.log("sdss" + id);
+  // $.ajax({
+  //   type: "POST",
+  //   url: HOST + "/football/historyRental1/create/" + id,
+  //   crossDomain: true,
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   xhrFields: {
+  //     withCredentials: true,
+  //   },
+  //   success: function (result) {
+  //     console.log("thanh cong");
+  //   },
+  //   error: function () {
+  //     console.log("da co loi");
+  //   },
+  // });
 }

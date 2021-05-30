@@ -1,8 +1,19 @@
 document.write('<script type="text/javascript" src="/js/host.js" ></script>');
 $(document).ready(function () {
+  readSlPitch();
+  getStatusHire(1);
+});
+
+function getStatusHire(number_pitch_id) {
+  var pitch_id = GetURLParameter("pitch_id");
   $.ajax({
     type: "GET",
-    url: HOST + "/football/detailPitch/getStatusHire/1/1/",
+    url:
+      HOST +
+      "/football/detailPitch/getStatusHire/" +
+      pitch_id +
+      "/" +
+      number_pitch_id,
     crossDomain: true,
     headers: {
       "Content-Type": "application/json",
@@ -29,7 +40,7 @@ $(document).ready(function () {
       console.log("da co loi");
     },
   });
-});
+}
 
 function readStatuPitch(
   i,
@@ -69,7 +80,38 @@ function readStatuPitch(
   var cell6;
   var cell7;
 
-  cell0 = '<td align="center">8h-9h30</td>';
+  switch (i) {
+    case 0:
+      cell0 = '<td align="center">8h-9h30</td>';
+      break;
+    case 1:
+      cell0 = '<td align="center">10h-11h30</td>';
+      break;
+    case 2:
+      cell0 = '<td align="center">11h30-13h</td>';
+      break;
+    case 3:
+      cell0 = '<td align="center">13h-14h30</td>';
+      break;
+    case 4:
+      cell0 = '<td align="center">14h30-16h</td>';
+      break;
+    case 5:
+      cell0 = '<td align="center">16h-17h30</td>';
+      break;
+    case 6:
+      cell0 = '<td align="center">17h30-19h</td>';
+      break;
+    case 7:
+      cell0 = '<td align="center">19h-20h30</td>';
+      break;
+    case 8:
+      cell0 = '<td align="center">20h30-22h</td>';
+      break;
+    default:
+      cell0 = '<td align="center">22h-23h30</td>';
+  }
+
   if (status0 == "0") {
     cell1 =
       '<td class="cellStatus">' +
@@ -216,16 +258,14 @@ function readStatuPitch(
       "</tr>"
   );
 }
+function myFucntionLuuStatus(number_pitch_id) {
+  readStatus(number_pitch_id);
+}
 
-$("#LuuStatus").click(function () {
-  readStatus();
-});
-
-function readStatus() {
+function readStatus(number_pitch_id) {
   console.log("click luu");
   var timeslot_id = 1;
   var day_id = 1;
-  var number_pitch_id = 1;
   $("#myTable .trOK").each(function () {
     console.log(timeslot_id);
     var selectedOptionVal = $(this).find(".cellStatus").find("#status").val(); //selected option value
@@ -328,4 +368,77 @@ function updateStatusOfTime(
       console.log("da co loi");
     },
   });
+}
+
+function readSlPitch() {
+  var pitch_id = GetURLParameter("pitch_id");
+  $.ajax({
+    type: "GET",
+    url: HOST + "/football/detail_pitch/getSLPitch/" + pitch_id,
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      console.log("slsan" + result);
+      readListNumberPitch(result);
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
+}
+
+function GetURLParameter(sParam) {
+  var sPageURL = window.location.search.substring(1);
+  var sURLVariables = sPageURL.split("&");
+  for (var i = 0; i < sURLVariables.length; i++) {
+    var sParameterName = sURLVariables[i].split("=");
+    if (sParameterName[0] == sParam) {
+      return sParameterName[1];
+    }
+  }
+}
+
+function readListNumberPitch(m) {
+  for (var i = 1; i <= m; i++) {
+    document.getElementById("listSlPitch").innerHTML +=
+      '<li><a class="btn"onclick="myFunction(' +
+      i +
+      ')">Sân ' +
+      i +
+      "</a></li>";
+  }
+}
+
+function myFunction(number_pitch_id) {
+  console.log("myFunction: " + number_pitch_id);
+  document.getElementById("updatePitch").innerHTML = "";
+  document.getElementById("updatePitch").innerHTML +=
+    '<h1 align = center style="color: #43a047;">Cập nhật chi tiết sân bóng</h1>' +
+    "                               " +
+    '<table id="myTable" border= 2 style="margin: 0 auto;"> ' +
+    '    <tr style="background-color: #43a047; color: rgb(255, 255, 255);">' +
+    '        <th align="center">Status</th>' +
+    "        <th width = 100>Thứ 2</th>" +
+    "        <th width = 100>Thứ 3</th>" +
+    "        <th width = 100>Thứ 4</th>" +
+    "        <th width = 100>Thứ 5</th>" +
+    "        <th width = 100>Thứ 6</th>" +
+    "        <th width = 100>Thứ 7</th>" +
+    "        <th width = 100>Chủ Nhật</th>" +
+    "    </tr>" +
+    "    " +
+    "</table>" +
+    '<div class="form-group">' +
+    '    <a href="#" id="LuuStatus" onclick="myFucntionLuuStatus(' +
+    number_pitch_id +
+    ')" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-spinner fa-spin"></i>Lưu Cập Nhật</a>' +
+    "    <!-- fa fa-save -->" +
+    "</div>";
+
+  getStatusHire(number_pitch_id);
 }

@@ -29,6 +29,7 @@ $(document).ready(function () {
 });
 
 function readProfile(fullname, email, phone, created, image, username) {
+  readAvatar(image);
   document.getElementById("frmEditProfile").innerHTML +=
     '<div class="row form-group">' +
     '    <div class="col-sm-3 col-xs-6">' +
@@ -40,7 +41,9 @@ function readProfile(fullname, email, phone, created, image, username) {
     '            data-val-required="The Id field is required." id="Id"' +
     '            name="Id" type="hidden" value="7054">' +
     '        <input id="UserAvatarPath" name="UserAvatarPath" type="hidden"' +
-    '            value="/images/default-user.png">' +
+    '            value="' +
+    image +
+    '">' +
     '        <input id="UserAvatarName" name="UserAvatarName" type="hidden"' +
     '            value="">' +
     '        <span class="field-validation-valid"' +
@@ -131,4 +134,12 @@ function readProfile(fullname, email, phone, created, image, username) {
       },
     });
   });
+}
+
+function readAvatar(image) {
+  document.getElementById("Avatar").innerHTML +=
+    '<img id="profile-avatar" class="media-object" width="100%"' +
+    'src="' +
+    image +
+    '" alt="avatar">';
 }

@@ -2471,49 +2471,14 @@ button:focus {
   font-size: 12px;
   color: #999;
 }
-.footer {
-  background: url(../img/pt.jpg) repeat top left;
-  padding: 57px 0 42px 0;
-  position: relative;
-}
-.footer:after {
-  content: "";
-  background: url(../img/bg-foo.png) no-repeat top left;
-  width: 340px;
-  height: 242px;
-  position: absolute;
-  right: 15%;
-  top: 0;
-}
-.footer {
-  color: #999;
-  font-size: 12px;
-  width: 100%;
-  float: left;
-}
-.footer a {
-  color: #999;
-  font-size: 12px;
-}
-.footer .intro li h5,
-.mobile-app li h5,
-.footer .info li h5 {
-  font-weight: 400;
-  color: #666;
-  text-transform: uppercase;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+
 .accordion-caret:before {
   color: #999;
   font-size: 12px;
   width: 12px;
   margin-right: 0;
 }
-.footer .info li a:hover {
-  color: #43a047;
-  text-decoration: none;
-}
+
 .intro ul li span i {
   width: 25px;
   padding-right: 10px;
@@ -2575,17 +2540,6 @@ button:focus {
   -webkit-box-shadow: inset 0 8px 14px -9px rgba(50, 50, 50, 0.25);
   -moz-box-shadow: inset 0 8px 14px -9px rgba(50, 50, 50, 0.25);
   box-shadow: inset 0 8px 14px -9px rgba(50, 50, 50, 0.25);
-}
-.footer-logo {
-  position: relative;
-  float: left;
-}
-.footer-logo:before {
-  content: "........";
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  width: 100px;
 }
 .login-social-footer {
   width: 100%;
