@@ -11,6 +11,7 @@ $(document).ready(function () {
       withCredentials: true,
     },
     success: function (result) {
+      console.log("re" + result);
       readUserAfterCheckPermission(result);
     },
     error: function () {
@@ -20,6 +21,7 @@ $(document).ready(function () {
 });
 
 function readUserAfterCheckPermission(permission) {
+  console.log("vcl");
   $.ajax({
     type: "GET",
     url: HOST + "/football/userByUsername",
@@ -35,9 +37,11 @@ function readUserAfterCheckPermission(permission) {
       var obj = result;
       console.log("permi" + permission);
       if (permission == "member") {
+        swapNoLoginAndUserLogin();
         readUser(obj.fullname, obj.image, obj.id);
       }
       if (permission == "admin") {
+        swapNoLoginAndUserLogin();
         readAdmin(obj.fullname, obj.image, obj.id);
       }
     },
