@@ -151,23 +151,40 @@ function readSanTrong2(number_pitch_id, price_id, pitch_detail_id) {
 
 function myFunction(pitch_detail_id) {
   var id = GetURLParameter("pitch_id");
-  console.log("sdss" + id);
-  $.ajax({
-    type: "POST",
-    url: HOST + "/football/requestPitch/create/" + id + "/" + pitch_detail_id,
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn đặt sân bóng này chứ?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Đồng ý",
+      closeOnConfirm: false,
+    },
+    function () {
+      $.ajax({
+        type: "POST",
+        url:
+          HOST + "/football/requestPitch/create/" + id + "/" + pitch_detail_id,
 
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      console.log("thanh cong");
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        xhrFields: {
+          withCredentials: true,
+        },
+        success: function (result) {
+          swal(
+            "Đặt sân bóng thành công!",
+            "Hệ thống đã gửi yêu cầu đặt sân của bạn đến chủ sân!",
+            "success"
+          );
+        },
+        error: function () {
+          swal("Đặt sân bóng thất bại!", "Xin hãy thử lại sau!", "error");
+        },
+      });
+    }
+  );
 }

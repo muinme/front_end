@@ -104,9 +104,10 @@ function readYeuCau(
   nameyard,
   category
 ) {
-  console.log(fullname);
   document.getElementById("tbYeuCau").innerHTML +=
-    '    <tr class="ng-scope" style="text-align: left;">' +
+    '    <tr id="yc' +
+    id +
+    '"class="ng-scope" style="text-align: left;">' +
     '        <td class="ng-binding">1</td>' +
     "        <td>" +
     '           <a><strong class="ng-binding">' +
@@ -147,51 +148,102 @@ function readYeuCau(
     "            </td>" +
     '        <td align="right" style="text-align:right">' +
     '            <div class="form-group">' +
-    '                <a href="#" id ="ChapNhan"class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-calendar-check-o"></i>Chấp Nhận</a>' +
+    '                <a id ="ChapNhan" onclick="myFunction1(' +
+    id +
+    ')" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-calendar-check-o"></i>Chấp Nhận</a>' +
     "            </div>" +
     '            <div class="form-group">' +
-    '                <a href="#" id ="TuChoi" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-calendar-times-o"></i>Từ Chối</a>' +
+    '                  <a id ="TuChoi" onclick="myFunction2(' +
+    id +
+    ')" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-calendar-times-o"></i>Từ Chối</a>' +
     "            </div>" +
     "        </td>" +
     "    </tr>";
-  $("#ChapNhan").click(function () {
-    console.log("vcl");
-    $.ajax({
-      type: "POST",
-      url: HOST + "/football/historyMatch1/create/" + id,
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      xhrFields: {
-        withCredentials: true,
-      },
-      success: function (result) {
-        console.log("thanh cong");
-      },
-      error: function () {
-        console.log("da co loi");
-      },
-    });
-  });
-  $("#TuChoi").click(function () {
-    console.log("vcl");
-    $.ajax({
-      type: "POST",
-      url: HOST + "/football/historyMatch2/create/" + id,
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      xhrFields: {
-        withCredentials: true,
-      },
-      success: function (result) {
-        console.log("thanh cong");
-      },
-      error: function () {
-        console.log("da co loi");
-      },
-    });
-  });
+}
+
+function myFunction1(id) {
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn chấp nhận yêu cầu bắt đối giao hữu này chứ?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Đồng ý",
+      closeOnConfirm: false,
+    },
+    function () {
+      $.ajax({
+        type: "POST",
+        url: HOST + "/football/historyMatch1/create/" + id,
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        xhrFields: {
+          withCredentials: true,
+        },
+        success: function () {
+          deleteRow("tbYeuCau", "yc" + id + "");
+          swal(
+            "Chấp nhận yêu cầu bắt đối thành công!",
+            "Xin hãy thử lại sau!",
+            "success"
+          );
+        },
+        error: function () {
+          swal(
+            "Chấp nhận yêu cầu bắt đối thất bại!",
+            "Xin hãy thử lại sau!",
+            "error"
+          );
+        },
+      });
+    }
+  );
+}
+function myFunction2(id) {
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn từ chối yêu cầu bắt đối giao hữu này chứ?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Đồng ý",
+      closeOnConfirm: false,
+    },
+    function () {
+      $.ajax({
+        type: "POST",
+        url: HOST + "/football/historyMatch2/create/" + id,
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        xhrFields: {
+          withCredentials: true,
+        },
+        success: function () {
+          deleteRow("tbYeuCau", "yc" + id + "");
+          swal(
+            "Từ chối yêu cầu bắt đối thành công!",
+            "Hệ thống đã lưu lại quá trình từ chối của bạn!",
+            "success"
+          );
+        },
+        error: function () {
+          swal(
+            "Từ chối yêu cầu bắt đối thất bại!",
+            "Xin hãy thử lại sau!",
+            "error"
+          );
+        },
+      });
+    }
+  );
+}
+
+function deleteRow(tbodyid, rowid) {
+  document.getElementById(tbodyid).removeChild(document.getElementById(rowid));
 }

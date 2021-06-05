@@ -123,7 +123,9 @@ function readYeuCauFinal(
   number_pitch_id
 ) {
   document.getElementById("tbYeuCau").innerHTML +=
-    '<tr class="ng-scope" style="text-align: left;">' +
+    '<tr id="yc' +
+    id +
+    '" class="ng-scope" style="text-align: left;">' +
     '    <td class="ng-binding"> Sân số ' +
     number_pitch_id +
     "</td>" +
@@ -172,45 +174,88 @@ function readYeuCauFinal(
     "</tr>";
 }
 function myFunction1(id) {
-  console.log("sdss" + id);
-  $.ajax({
-    type: "POST",
-    url: HOST + "/football/historyRental1/create/" + id,
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn chấp nhận yêu cầu đặt sân này chứ?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Đồng ý",
+      closeOnConfirm: false,
     },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      console.log("thanh cong");
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
+    function () {
+      $.ajax({
+        type: "POST",
+        url: HOST + "/football/historyRental1/create/" + id,
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        xhrFields: {
+          withCredentials: true,
+        },
+        success: function () {
+          deleteRow("tbYeuCau", "yc" + id + "");
+          swal(
+            "Chấp nhận yêu cầu đặt sân thành công!",
+            "Hệ thống đã lưu lại quá trình chấp nhận của bạn!",
+            "success"
+          );
+        },
+        error: function () {
+          swal(
+            "Chấp nhận yêu cầu đặt sân thất bại!",
+            "Xin hãy thử lại sau!",
+            "error"
+          );
+        },
+      });
+    }
+  );
 }
-function myFunction2(id) {
-  console.log("sdss" + id);
-  $.ajax({
-    type: "POST",
-    url: HOST + "/football/historyRental2/create/" + id,
 
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
+function myFunction2(id) {
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn từ chối yêu cầu đặt sân này chứ?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Đồng ý",
+      closeOnConfirm: false,
     },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      console.log("thanh cong");
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
+    function () {
+      $.ajax({
+        type: "POST",
+        url: HOST + "/football/historyRental2/create/" + id,
+
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        xhrFields: {
+          withCredentials: true,
+        },
+        success: function (result) {
+          deleteRow("tbYeuCau", "yc" + id + "");
+          swal(
+            "Từ chối yêu cầu đặt sân thành công!",
+            "Hệ thống đã lưu lại quá trình từ chối của bạn!",
+            "success"
+          );
+        },
+        error: function () {
+          swal(
+            "Từ chối yêu cầu đặt sân thất bại!",
+            "Xin hãy thử lại sau!",
+            "error"
+          );
+        },
+      });
+    }
+  );
 }
 
 function readTime(
@@ -342,4 +387,8 @@ function readPitch(
       console.log("da co loi");
     },
   });
+}
+
+function deleteRow(tbodyid, rowid) {
+  document.getElementById(tbodyid).removeChild(document.getElementById(rowid));
 }

@@ -22,36 +22,49 @@ function swap2() {
 }
 
 function updateProfile(newPassword) {
-  console.log(newPassword);
   var formData = {
     password: newPassword,
   };
-  console.log(formData);
-  $.ajax({
-    type: "POST",
-    url: HOST + "/football/user/updatePassWordByUsername",
-    dataType: "JSON",
-    data: JSON.stringify(formData),
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn thay đổi mật khẩu hiện tại chứ?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Lưu",
+      closeOnConfirm: false,
     },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function () {
-      alert("Thay đổi mật khẩu thành công!");
-      console.log("thanh cong");
-    },
-    error: function () {
-      alert("Thay đổi mật khẩu thành công!");
-      console.log("thanh cong");
-    },
-  });
+    function () {
+      $.ajax({
+        type: "POST",
+        url: HOST + "/football/user/updatePassWordByUsername",
+        dataType: "JSON",
+        data: JSON.stringify(formData),
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        xhrFields: {
+          withCredentials: true,
+        },
+        success: function () {
+          swal(
+            "Thay đổi mật khẩu thành công!",
+            "Hệ thống đã lưu lại quá trình thay đổi của bạn!",
+            "success"
+          );
+        },
+        error: function () {
+          swal("Thay đổi mật khẩu thất bại!", "Xin hãy thử lại sau!", "error");
+        },
+      });
+    }
+  );
 }
 function checkConfirmPassword(password, confirmPassword) {
   if (password != confirmPassword) {
-    alert("Mật khẩu mới và Xác nhận lại mật khẩu mới không trùng khớp");
+    swal("Dữ liệu xác nhận lại không trùng khớp");
     return false;
   }
   return true;

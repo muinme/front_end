@@ -111,28 +111,50 @@ function readProfile(fullname, email, phone, created, image, username) {
       email: $("#UserEmail").val(),
       phone: $("#UserMobile").val(),
     };
-    console.log(formData);
-    $.ajax({
-      type: "POST",
-      url: HOST + "/football/user/updateProfileByUsername/" + username,
-      dataType: "JSON",
-      data: JSON.stringify(formData),
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json",
+    swal(
+      {
+        title: "Bạn chắc chắn rằng?",
+        text: "Bạn muốn lưu thông tin cá nhân chứ?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-danger",
+        confirmButtonText: "Lưu",
+        closeOnConfirm: false,
       },
-      xhrFields: {
-        withCredentials: true,
-      },
-      success: function (result) {
-        console.log("thanh cong");
-        alert("Thay đổi thành công!");
-      },
-      error: function () {
-        console.log("da co loi");
-        alert("Thay đổi thất bại!");
-      },
-    });
+      function () {
+        $.ajax({
+          type: "POST",
+          url: HOST + "/football/user/updateProfileByUsername/" + username,
+          dataType: "JSON",
+          data: JSON.stringify(formData),
+          crossDomain: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          xhrFields: {
+            withCredentials: true,
+          },
+          success: function (result) {
+            swal(
+              "Cập nhật thông tin cá thành công!",
+              "Hệ thống đã lưu lại quá trình thay đổi của bạn!",
+              "success"
+            );
+          },
+          error: function () {
+            swal(
+              "Cập nhật thông tin cá thất bại!",
+              "Xin hãy thử lại sau!",
+              "error"
+            );
+          },
+        });
+      }
+    );
+  });
+
+  $("#btnProfileCancel").click(function () {
+    window.location.replace("http://traibonglan.com/index.html");
   });
 }
 

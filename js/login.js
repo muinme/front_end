@@ -2,6 +2,7 @@ document.write('<script type="text/javascript" src="/js/host.js" ></script>');
 
 $("#login_submit").click(function () {
   console.log("login button is pressed");
+
   var formData = {
     username: $("#inpUsername").val(),
     password: $("#inpPassword").val(),
@@ -20,6 +21,7 @@ $("#login_submit").click(function () {
     },
     success: function (result) {
       console.log("thanh cong");
+      swal("Đăng nhập thành công!", "Welcome!", "success");
       window.location.replace("http://traibonglan.com/index.html");
     },
     error: function () {

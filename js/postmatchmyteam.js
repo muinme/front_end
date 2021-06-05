@@ -45,7 +45,8 @@ $(document).ready(function () {
           obj.nameyard,
           obj.category,
           obj.levelwant,
-          obj.note
+          obj.note,
+          obj.status
         );
       }
     },
@@ -64,7 +65,8 @@ function readMyTeam(
   nameyard,
   category,
   levelwant,
-  note
+  note,
+  status
 ) {
   $.ajax({
     type: "GET",
@@ -87,7 +89,8 @@ function readMyTeam(
         nameyard,
         category,
         levelwant,
-        note
+        note,
+        status
       );
     },
     error: function () {
@@ -105,117 +108,175 @@ function readMyPost(
   nameyard,
   category,
   levelwant,
-  note
+  note,
+  status
 ) {
-  document.getElementById("listMatch").innerHTML +=
-    '<li class="item-card match-finding-item">' +
-    '    <div class="row">' +
-    '        <div class="col-md-12 right-item-san right-item-doi">' +
-    '            <h2 class="team-match-headlink">' +
-    '                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>' +
-    "                <a>" +
-    playtime +
-    " ngày " +
-    playdate +
-    "</a>" +
-    "            </h2>" +
-    '            <div class="dropdown">' +
-    '                <button class="dropbtn">Tác vụ</button>' +
-    '<div class="dropdown-content">' +
-    '    <a onclick="myFunction(' +
-    id +
-    ')">Đã có đối</a>' +
-    '    <a onclick="myFunction2(' +
-    id +
-    ')">Hủy trận đấu</a>' +
-    "  </div>" +
-    "              </div>" +
-    '              <link rel="stylesheet" href="css/mypost.css">' +
-    "            <p>" +
-    '                <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"' +
-    '                    aria-hidden="true"></i><strong>Đội' +
-    "                    bóng:</strong><a>" +
-    name +
-    "" +
-    "                    </a>" +
-    "            </p>" +
-    '                <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"' +
-    '                    aria-hidden="true"></i><strong>Sân' +
-    "                    nhà:</strong><a>" +
-    nameyard +
-    "" +
-    "                    </a>" +
-    "            </p>" +
-    '            <p class="item-stadium-address"><i class="fa fa-map-o"' +
-    '                    aria-hidden="true"></i><strong>Địa chỉ:</strong>' +
-    address +
-    "" +
-    "                </p>" +
-    '                <p class="item-stadium-address"><i class="fa fa-map-o"' +
-    '                    aria-hidden="true"></i><strong>Trình' +
-    "                    độ:</strong>" +
-    levelwant +
-    "" +
-    "            </p>" +
-    '            <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"' +
-    '                aria-hidden="true"></i><strong>Kèo:</strong>' +
-    "                " +
-    category +
-    "" +
-    "            </p>" +
-    '            <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"' +
-    '                aria-hidden="true"></i><strong>Trạng' +
-    "                    thái:</strong>" +
-    '                <span class="red">Đã quá hạn</span>' +
-    "            </p>" +
-    '<p class="quost-doi">' +
-    " " +
-    note +
-    " " +
-    "</p>";
-  "        </div>" + "    </div>" + "</li>";
+  if (status == "1") {
+    document.getElementById("listMatch").innerHTML +=
+      '<li class="item-card match-finding-item">' +
+      '    <div class="row">' +
+      '        <div class="col-md-12 right-item-san right-item-doi">' +
+      '            <h2 class="team-match-headlink">' +
+      '                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>' +
+      "                <a>" +
+      playtime +
+      " ngày " +
+      playdate +
+      "</a>" +
+      "            </h2>" +
+      '            <div class="dropdown">' +
+      '                <button class="dropbtn">Tác vụ</button>' +
+      '<div class="dropdown-content">' +
+      '    <a onclick="myFunction(' +
+      id +
+      ')">Đã có đối</a>' +
+      '    <a onclick="myFunction2(' +
+      id +
+      ')">Hủy bài đăng</a>' +
+      "  </div>" +
+      "              </div>" +
+      '              <link rel="stylesheet" href="css/mypost.css">' +
+      "            <p>" +
+      '                <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"' +
+      '                    aria-hidden="true"></i><strong>Đội' +
+      "                    bóng:</strong><a>" +
+      name +
+      "" +
+      "                    </a>" +
+      "            </p>" +
+      '                <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"' +
+      '                    aria-hidden="true"></i><strong>Sân' +
+      "                    nhà:</strong><a>" +
+      nameyard +
+      "" +
+      "                    </a>" +
+      "            </p>" +
+      '            <p class="item-stadium-address"><i class="fa fa-map-o"' +
+      '                    aria-hidden="true"></i><strong>Địa chỉ:</strong>' +
+      address +
+      "" +
+      "                </p>" +
+      '                <p class="item-stadium-address"><i class="fa fa-map-o"' +
+      '                    aria-hidden="true"></i><strong>Trình' +
+      "                    độ:</strong>" +
+      levelwant +
+      "" +
+      "            </p>" +
+      '            <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"' +
+      '                aria-hidden="true"></i><strong>Kèo:</strong>' +
+      "                " +
+      category +
+      "" +
+      "            </p>" +
+      '            <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"' +
+      '                aria-hidden="true"></i><strong>Trạng' +
+      "                    thái:</strong>" +
+      '                <span class="red">Còn hiệu lực</span>' +
+      "            </p>" +
+      '<p class="quost-doi">' +
+      " " +
+      note +
+      " " +
+      "</p>";
+    "        </div>" + "    </div>" + "</li>";
+  } else {
+    document.getElementById("listMatch").innerHTML +=
+      '<li class="item-card match-finding-item">' +
+      '    <div class="row">' +
+      '        <div class="col-md-12 right-item-san right-item-doi">' +
+      '            <h2 class="team-match-headlink">' +
+      '                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>' +
+      "                <a>" +
+      playtime +
+      " ngày " +
+      playdate +
+      "</a>" +
+      "            </h2>" +
+      '              <link rel="stylesheet" href="css/mypost.css">' +
+      "            <p>" +
+      '                <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"' +
+      '                    aria-hidden="true"></i><strong>Đội' +
+      "                    bóng:</strong><a>" +
+      name +
+      "" +
+      "                    </a>" +
+      "            </p>" +
+      '                <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"' +
+      '                    aria-hidden="true"></i><strong>Sân' +
+      "                    nhà:</strong><a>" +
+      nameyard +
+      "" +
+      "                    </a>" +
+      "            </p>" +
+      '            <p class="item-stadium-address"><i class="fa fa-map-o"' +
+      '                    aria-hidden="true"></i><strong>Địa chỉ:</strong>' +
+      address +
+      "" +
+      "                </p>" +
+      '                <p class="item-stadium-address"><i class="fa fa-map-o"' +
+      '                    aria-hidden="true"></i><strong>Trình' +
+      "                    độ:</strong>" +
+      levelwant +
+      "" +
+      "            </p>" +
+      '            <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"' +
+      '                aria-hidden="true"></i><strong>Kèo:</strong>' +
+      "                " +
+      category +
+      "" +
+      "            </p>" +
+      '            <p class="item-stadium-address"><i class="fa fa-shirtsinbulk"' +
+      '                aria-hidden="true"></i><strong>Trạng' +
+      "                    thái:</strong>" +
+      '                <span class="red">Đã được gỡ bỏ</span>' +
+      "            </p>" +
+      '<p class="quost-doi">' +
+      " " +
+      note +
+      " " +
+      "</p>";
+    "        </div>" + "    </div>" + "</li>";
+  }
 }
 function myFunction(id) {
   console.log("sdss" + id);
-  location.reload();
-  // $.ajax({
-  //   type: "POST",
-  //   url: HOST + "/football/historyRental1/create/" + id,
-  //   crossDomain: true,
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   xhrFields: {
-  //     withCredentials: true,
-  //   },
-  //   success: function (result) {
-  //     console.log("thanh cong");
-  //   },
-  //   error: function () {
-  //     console.log("da co loi");
-  //   },
-  // });
+  $.ajax({
+    type: "POST",
+    url: HOST + "/football/postMatchTeam/delete/" + id,
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      console.log("thanh cong");
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
 }
 function myFunction2(id) {
   console.log("sdss" + id);
-  location.reload();
-  // $.ajax({
-  //   type: "POST",
-  //   url: HOST + "/football/historyRental2/create/" + id,
-  //   crossDomain: true,
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   xhrFields: {
-  //     withCredentials: true,
-  //   },
-  //   success: function (result) {
-  //     console.log("thanh cong");
-  //   },
-  //   error: function () {
-  //     console.log("da co loi");
-  //   },
-  // });
+  $.ajax({
+    type: "POST",
+    url: HOST + "/football/postMatchTeam/delete/" + id,
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      console.log("thanh cong");
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
 }
 function readUser(fullname, image) {
   console.log("jdjsjidooooooooooooooo");

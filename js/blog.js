@@ -248,23 +248,39 @@ function readPost3(
     "    </div>";
 }
 function myFunction(id) {
-  console.log("sdss" + id);
-  $.ajax({
-    type: "POST",
-    url: HOST + "/football/requestMatch/create/" + id,
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn bắt đối với đội bóng này chứ?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Đồng ý",
+      closeOnConfirm: false,
+    },
+    function () {
+      $.ajax({
+        type: "POST",
+        url: HOST + "/football/requestMatch/create/" + id,
 
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      console.log("thanh cong");
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        xhrFields: {
+          withCredentials: true,
+        },
+        success: function (result) {
+          swal(
+            "Bắt đối thành công!",
+            "Hệ thống đã gửi yêu cầu bắt đối của bạn đến chủ đội bóng!",
+            "success"
+          );
+        },
+        error: function () {
+          swal("Bắt đối thất bại!", "Xin hãy thử lại sau!", "error");
+        },
+      });
+    }
+  );
 }

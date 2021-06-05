@@ -26,7 +26,9 @@ $(document).ready(function () {
 });
 function readPitch(fullname, address, image, id) {
   document.getElementById("listPitch").innerHTML +=
-    '<tr ng-repeat="stadium in stadiums" class="ng-scope"' +
+    '<tr id="pitch' +
+    id +
+    '" ng-repeat="stadium in stadiums" class="ng-scope"' +
     '                                                            style="text-align: left;">' +
     '                                                            <td class="ng-binding"></td>' +
     "                                                            <td>" +
@@ -71,23 +73,48 @@ function readPitch(fullname, address, image, id) {
     "                                                            </td>" +
     "                                                        </tr>";
 }
+
 function myFunction(id) {
-  console.log("sdss" + id);
-  // $.ajax({
-  //   type: "POST",
-  //   url: HOST + "/football/historyRental1/create/" + id,
-  //   crossDomain: true,
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   xhrFields: {
-  //     withCredentials: true,
-  //   },
-  //   success: function (result) {
-  //     console.log("thanh cong");
-  //   },
-  //   error: function () {
-  //     console.log("da co loi");
-  //   },
-  // });
+  console.log("id" + id);
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn xóa sân bóng này chứ?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Đồng ý",
+      closeOnConfirm: false,
+    },
+    function () {
+      $.ajax({
+        type: "POST",
+        url: HOST + "/football/pitch/delete/" + id,
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        xhrFields: {
+          withCredentials: true,
+        },
+        success: function () {
+          deleteRow("listPitch", "pitch" + id + "");
+          swal(
+            "Xóa sân bóng thành công!",
+            "Hệ thống đã lưu lại quá trình thay đổi của bạn!",
+            "success"
+          );
+        },
+        error: function () {
+          console.log("da co loi");
+          swal("Xóa sân bóng thất bại!", "Xin hãy thử lại sau!", "error");
+        },
+      });
+    }
+  );
+}
+
+function deleteRow(tbodyid, rowid) {
+  console.log("dmmmm");
+  document.getElementById(tbodyid).removeChild(document.getElementById(rowid));
 }

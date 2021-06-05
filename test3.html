@@ -1,53 +1,23 @@
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<table id="mytable">
-  <tr>
-    <td class="ok">
-      <select name="cars" id="status5">
-        <option value="1">Đã Thuê</option>
-        <option value="0" selected="selected">Chưa Thuê</option>
-      </select>
-    </td>
-    <td class="vcl">
-      <select name="cars" id="status6">
-        <option value="1" selected="selected">Đã Thuê</option>
-        <option value="0">Chưa Thuê</option>
-      </select>
-    </td>
-  </tr>
-  <tr>
-    <td class="ok">
-      <select name="cars" id="status5">
-        <option value="1">Đã Thuê</option>
-        <option value="0" selected="selected">Chưa Thuê</option>
-      </select>
-    </td>
-    <td class="vcl">
-      <select name="cars" id="status6">
-        <option value="1" selected="selected">Đã Thuê</option>
-        <option value="0">Chưa Thuê</option>
-      </select>
-    </td>
-  </tr>
-</table>
-<div class="form-group">
-  <a
-    href="#"
-    id="LuuStatus"
-    class="btn btn-primary btn-primary-extra dropdown-toggle"
-    style="float: none; padding: 5px 20px"
-    ><i class="fa fa-spinner fa-spin"></i>Lưu Cập Nhật</a
-  >
-  <!-- fa fa-save -->
-</div>
-<script>
-  $("#LuuStatus").click(function () {
-    $("#mytable tr").each(function () {
-      console.log("vcl");
-      var customerId2 = $(this).find(".ok").find("#status5").val();
-      var customerId = $(this).find(".vcl").find("#status6").val();
-
-      console.log(customerId);
-      console.log(customerId2);
+<head>
+  <link
+    href="http://ksylvest.github.io/jquery-growl/stylesheets/jquery.growl.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+</head>
+<body>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script
+    src="http://ksylvest.github.io/jquery-growl/javascripts/jquery.growl.js"
+    type="text/javascript"
+  ></script>
+  <script type="text/javascript">
+    $(function () {
+      $.growl({
+        title: "Growl",
+        type: "success",
+        message: "errits already released in SU or Submitted for SU!",
+      });
     });
-  });
-</script>
+  </script>
+</body>

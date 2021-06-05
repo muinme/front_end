@@ -1,6 +1,4 @@
 $("#btnCreateTeam").click(function () {
-  console.log("ok chuaaaa");
-
   var formData = {
     name: $("#name").val(),
     address: $("#address").children("option:selected").text(),
@@ -11,24 +9,40 @@ $("#btnCreateTeam").click(function () {
     level: $("#level").val(),
     introduce: $("#introduce").val(),
   };
-  console.log(formData);
-  $.ajax({
-    type: "POST",
-    url: HOST + "/football/teamFootBall/create/",
-    dataType: "JSON",
-    data: JSON.stringify(formData),
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn tạo đội bóng với các thông tin trên chứ?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Lưu",
+      closeOnConfirm: false,
     },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      console.log("thanh cong");
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
+    function () {
+      $.ajax({
+        type: "POST",
+        url: HOST + "/football/teamFootBall/create/",
+        dataType: "JSON",
+        data: JSON.stringify(formData),
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        xhrFields: {
+          withCredentials: true,
+        },
+        success: function () {
+          swal(
+            "Tạo đội bóng thành công!",
+            "Hệ thống đã lưu lại quá trình thay đổi của bạn!",
+            "success"
+          );
+        },
+        error: function () {
+          swal("Tạo đội bóng thất bại!", "Xin hãy thử lại sau!", "error");
+        },
+      });
+    }
+  );
 });

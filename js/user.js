@@ -63,25 +63,39 @@ function readUser(fullname, image) {
     '                                    <button id = "logout" style="text-align:left ;border-radius: 0px; width: 190px;"><i class="fa fa-sign-out"></i>Logout →</button>' +
     "                                </div>";
   $("#logout").click(function () {
-    console.log("logout button is pressed");
-    $.ajax({
-      type: "POST",
-      url: HOST + "/football/logout",
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json",
+    swal(
+      {
+        title: "Bạn chắc chắn rằng?",
+        text: "Bạn sẽ đăng xuất khỏi hệ thống?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-danger",
+        confirmButtonText: "Đăng Xuất",
+        closeOnConfirm: false,
       },
-      xhrFields: {
-        withCredentials: true,
-      },
-      success: function (result) {
-        console.log("thanh cong");
-        window.location.replace("http://traibonglan.com/index.html");
-      },
-      error: function () {
-        console.log("da co loi");
-      },
-    });
+      function () {
+        $.ajax({
+          type: "POST",
+          url: HOST + "/football/logout",
+          crossDomain: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          xhrFields: {
+            withCredentials: true,
+          },
+          success: function (result) {
+            swal("Đã đăng xuất!", "Hẹn gặp lại bạn nhé", "success");
+            console.log("thanh cong");
+            window.location.replace("http://traibonglan.com/index.html");
+          },
+          error: function () {
+            swal("Đăng xuất bị lỗi", "Xin hãy thử lại", "success");
+            console.log("da co loi");
+          },
+        });
+      }
+    );
   });
 }
 function readAdmin(fullname, image) {
@@ -100,24 +114,38 @@ function readAdmin(fullname, image) {
     '                                    <button id = "logout" style="text-align:left ;border-radius: 0px; width: 190px;"><i class="fa fa-sign-out"></i>Logout →</button>' +
     "                                </div>";
   $("#logout").click(function () {
-    console.log("logout button is pressed");
-    $.ajax({
-      type: "POST",
-      url: HOST + "/football/logout",
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json",
+    swal(
+      {
+        title: "Bạn chắc chắn rằng?",
+        text: "Bạn sẽ đăng xuất khỏi hệ thống?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-danger",
+        confirmButtonText: "Đăng Xuất",
+        closeOnConfirm: false,
       },
-      xhrFields: {
-        withCredentials: true,
-      },
-      success: function (result) {
-        console.log("thanh cong");
-        window.location.replace("http://traibonglan.com/index.html");
-      },
-      error: function () {
-        console.log("da co loi");
-      },
-    });
+      function () {
+        $.ajax({
+          type: "POST",
+          url: HOST + "/football/logout",
+          crossDomain: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          xhrFields: {
+            withCredentials: true,
+          },
+          success: function (result) {
+            swal("Đã đăng xuất!", "Hẹn gặp lại bạn nhé", "success");
+            console.log("thanh cong");
+            window.location.replace("http://traibonglan.com/index.html");
+          },
+          error: function () {
+            swal("Đăng xuất bị lỗi", "Xin hãy thử lại", "success");
+            console.log("da co loi");
+          },
+        });
+      }
+    );
   });
 }
