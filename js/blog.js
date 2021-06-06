@@ -1,6 +1,12 @@
 // Get the modal
 document.write('<script type="text/javascript" src="/js/host.js" ></script>');
 $(document).ready(function () {
+  getAllPost();
+  readTTp();
+  readTimeAction();
+});
+
+function getAllPost() {
   $.ajax({
     type: "GET",
     url: HOST + "/football/postMatchTeam/getAll",
@@ -33,8 +39,7 @@ $(document).ready(function () {
       console.log("da co loi");
     },
   });
-});
-
+}
 function readPost(
   id,
   home_guest,
@@ -283,4 +288,235 @@ function myFunction(id) {
       });
     }
   );
+}
+
+function readTTp() {
+  $.ajax({
+    type: "GET",
+    url: "https://api.mysupership.vn/v1/partner/areas/province",
+    dataType: "JSON",
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    success: function (result) {
+      console.log("sss" + result);
+      for (var key in result) {
+        var obj = result[key];
+        for (key2 in obj) {
+          var obj2 = obj[key2];
+          LocTinh(obj2.name, obj2.code);
+        }
+      }
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
+}
+
+function LocTinh(nameTinh, code) {
+  if (!nameTinh) {
+  } else {
+    document.getElementById("selTinh").innerHTML +=
+      '<option value="' + code + '">' + nameTinh + "</option>";
+  }
+}
+
+$("#selTinh").change(function () {
+  document.getElementById("selQH").innerHTML = "";
+  var value = $(this).val();
+  readQH(value);
+});
+
+function readQH(value) {
+  //   var tinh = $("#selTinh").children("option:selected").text();
+  console.log("change function " + value);
+  $.ajax({
+    type: "GET",
+    url:
+      "https://api.mysupership.vn/v1/partner/areas/district?province=" + value,
+    dataType: "JSON",
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    success: function (result) {
+      for (var key in result) {
+        var obj = result[key];
+        for (key2 in obj) {
+          var obj2 = obj[key2];
+          LocQH(obj2.name, obj2.code);
+        }
+      }
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
+}
+
+function LocQH(nameQH, code) {
+  if (!nameQH) {
+  } else {
+    document.getElementById("selQH").innerHTML +=
+      '<option value="' + code + '">' + nameQH + "</option>";
+  }
+}
+
+$("#selQH").change(function () {
+  document.getElementById("selPX").innerHTML = "";
+  var value = $(this).val();
+  readPX(value);
+});
+
+function readPX(value) {
+  $.ajax({
+    type: "GET",
+    url:
+      "https://api.mysupership.vn/v1/partner/areas/commune?district=" + value,
+    dataType: "JSON",
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    success: function (result) {
+      console.log("sss" + result);
+      //console.log("thanh cong " + resultss);
+      for (var key in result) {
+        var obj = result[key];
+        for (key2 in obj) {
+          var obj2 = obj[key2];
+          LocPX(obj2.name, obj2.code);
+        }
+      }
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
+}
+
+function LocPX(namePX, code) {
+  if (!namePX) {
+  } else {
+    document.getElementById("selPX").innerHTML +=
+      '<option value="' + code + '">' + namePX + "</option>";
+  }
+}
+
+function readTimeAction() {
+  $.ajax({
+    type: "GET",
+    url: HOST + "/football/postMatchTeam/actionTime",
+    dataType: "JSON",
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    success: function (result) {
+      for (var i = 0; i < result.length; i++) {
+        LocActionTime(result[i]);
+      }
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
+}
+
+function LocActionTime(actionTime) {
+  if (!actionTime) {
+  } else {
+    document.getElementById("selHour").innerHTML +=
+      '<option value="">' + actionTime + "</option>";
+  }
+}
+function searchPost1() {
+  document.getElementById("listPost").innerHTML = "";
+  var tinh = $("#selTinh").children("option:selected").text();
+  var qh = $("#selQH").children("option:selected").text();
+  if (!qh) {
+    console.log("dmmm");
+  } else {
+    $.ajax({
+      type: "GET",
+      url: HOST + "/football/postMatchTeam/" + tinh + "/" + qh,
+      dataType: "JSON",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      success: function (result) {
+        for (var key in result) {
+          var obj = result[key];
+          console.log(obj);
+          readPost(
+            obj.id,
+            obj.home_guest,
+            obj.playtime,
+            obj.playdate,
+            obj.nameyard,
+            obj.address,
+            obj.levelwant,
+            obj.category,
+            obj.note,
+            obj.football_id
+          );
+        }
+      },
+      error: function () {
+        console.log("da co loi");
+      },
+    });
+  }
+}
+
+function AllPost() {
+  document.getElementById("listPost").innerHTML = "";
+  getAllTeam();
+}
+
+function searchPost2() {
+  document.getElementById("listPost").innerHTML = "";
+  var actionTime = $("#selHour").children("option:selected").text();
+  var level = $("#selTd").children("option:selected").text();
+  if (!level || !actionTime) {
+  } else {
+    $.ajax({
+      type: "GET",
+      url:
+        HOST +
+        "/football/postMatchTeam/getByActionTimeAndLevel/" +
+        actionTime +
+        "/" +
+        level,
+      dataType: "JSON",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      success: function (result) {
+        for (var key in result) {
+          var obj = result[key];
+          console.log(obj);
+          readPost(
+            obj.id,
+            obj.home_guest,
+            obj.playtime,
+            obj.playdate,
+            obj.nameyard,
+            obj.address,
+            obj.levelwant,
+            obj.category,
+            obj.note,
+            obj.football_id
+          );
+        }
+      },
+      error: function () {
+        console.log("da co loi");
+      },
+    });
+  }
 }

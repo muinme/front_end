@@ -122,6 +122,7 @@ function readProfile(fullname, email, phone, created, image, username) {
         closeOnConfirm: false,
       },
       function () {
+        UploadFile();
         $.ajax({
           type: "POST",
           url: HOST + "/football/user/updateProfileByUsername/" + username,
@@ -164,4 +165,32 @@ function readAvatar(image) {
     'src="' +
     image +
     '" alt="avatar">';
+}
+
+function UploadFile() {
+  var form = $("#uploadForm")[0];
+  var data = new FormData(form);
+  //console.log(data);
+  $.ajax({
+    type: "POST",
+    enctype: "multipart/form-data",
+    dataType: "JSON",
+    url: HOST + "/admin/sync/options/importfile",
+    data: data,
+    processData: false,
+    contentType: false,
+    cache: false,
+    crossDomain: true,
+    xhrFields: {
+      withCredentials: true,
+    },
+    timeout: 30000,
+    success: function () {
+      $("#uploadForm")[0].reset();
+    },
+    error: function () {
+      //$('#statusUpload').html(jqXHRm.responseJSON.statusName);
+      console.log("error");
+    },
+  });
 }

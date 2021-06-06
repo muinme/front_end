@@ -12,7 +12,6 @@ $(document).ready(function () {
     },
     success: function (result) {
       var obj = result;
-      // console.log("object= " + JSON.stringify(obj) + "\nid = " + obj.name);
       readThongTinSanBong(
         obj.name,
         obj.address,
@@ -44,7 +43,6 @@ function readThongTinSanBong(
   introduce,
   googlemap,
   phone,
-  phone,
   email,
   facebook
 ) {
@@ -53,14 +51,42 @@ function readThongTinSanBong(
     '    <h1 class="title-sans">' +
     name +
     "</h1>" +
-    "</div>";
-  document.getElementById("nameSan").innerHTML +=
+    "</div>" +
     '<i class="fa fa-map-o" aria-hidden="true"></i>' +
     address +
     "" +
     '<a href="' +
     googlemap +
     '"><i class="fa fa-crosshairs" aria-hidden="true">Google map</i></a>';
+
+  document.getElementById("Lhds").innerHTML =
+    '<div class="title-img">Liên hệ đặt sân</div>' +
+    '                                                    <div class="des-san contact-info">' +
+    '                                                        <div class="phone-numb">' +
+    '                                                            <i class="fa fa-phone-square" aria-hidden="true"></i> <a' +
+    '                                                                href="/user/profile/6792" class="text-highlight"' +
+    '                                                                target="_blank">' +
+    phone +
+    "" +
+    "                                                                </a>" +
+    "                                                        </div>" +
+    '                                                       <div class="des-facebook">' +
+    '                                                           <a href="mailto:sanminhduc@gmail.com"><i' +
+    '                                                                    class="fa fa-envelope" aria-hidden="true"></i>' +
+    "                                                                " +
+    email +
+    "</a>" +
+    "                                                        </div>" +
+    '                                                        <div class="des-facebook">' +
+    '                                                           <a href="' +
+    facebook +
+    '"><i' +
+    '                                                                    class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>' +
+    "                                                                " +
+    facebook +
+    "</a>" +
+    "                                                        </div>" +
+    "                                                    </div>";
 }
 
 function readSanTrong(number_pitch_id, price, pitch_detail_id) {
@@ -100,8 +126,6 @@ $("#btnTimKiem").click(function () {
   var gio = $("#gio7ng").val();
   var myobj = document.getElementById("listSan");
   myobj.innerHTML = "";
-  console.log(thu + "=thuvagio=" + gio + "id " + id);
-  console.log("vclll");
   $.ajax({
     type: "GET",
     url: HOST + "/football/detail_pitch/" + id + "/" + gio + "/" + thu + "",

@@ -55,23 +55,21 @@
     </script>
   </head>
   <body>
-    <form>
-      <input type="text" id="name" placeholder="Name" />
-      <input type="text" id="email" placeholder="Email Address" />
-      <input type="button" class="add-row" value="Add Row" />
-    </form>
-    <table id="myTable">
-      <tr>
-        <th>Select</th>
-        <th>Name</th>
-        <th>Email</th>
-      </tr>
-      <tr>
-        <td><input type="checkbox" name="record" /></td>
-        <td>Peter Parker</td>
-        <td>peterparker@mail.com</td>
-      </tr>
-    </table>
-    <button type="button" class="delete-row">Delete Row</button>
+    <form id="uploadForm" name="uploadForm" class="col-md-6">
+      <div class="col-md-6" style="margin-left: 10px;">
+         
+      </div>
+      <div class="col-md-6" style="margin-left: 10px; ">
+          <div class="form-group" style="margin-top: 20px;">
+              <label>File input</label>
+              <input type="file" class="form-control-file col-md-6"
+                  id="fileDatas" name="fileDatas"
+                  style="padding-left: 0px; margin-top: 20px;"
+                  accept=".xlsx, .xls, .csv">
+              <span class="error" style="color:red;display: none;"
+                  id="fileDatas-require"></span>
+          </div>
+      </div>
+  </form>
   </body>
 </html>
