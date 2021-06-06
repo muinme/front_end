@@ -175,20 +175,16 @@ function readListTeam(
 function readTTp() {
   $.ajax({
     type: "GET",
-    url: "https://api.mysupership.vn/v1/partner/areas/province",
+    url: HOST + "/football/province",
     dataType: "JSON",
     crossDomain: true,
     headers: {
       "Content-Type": "application/json",
     },
     success: function (result) {
-      console.log("sss" + result);
       for (var key in result) {
         var obj = result[key];
-        for (key2 in obj) {
-          var obj2 = obj[key2];
-          LocTinh(obj2.name, obj2.code);
-        }
+        LocTinh(obj.name, obj.code);
       }
     },
     error: function () {
@@ -216,8 +212,7 @@ function readQH(value) {
   console.log("change function " + value);
   $.ajax({
     type: "GET",
-    url:
-      "https://api.mysupership.vn/v1/partner/areas/district?province=" + value,
+    url: HOST + "/football/district/" + value,
     dataType: "JSON",
     crossDomain: true,
     headers: {
@@ -226,10 +221,8 @@ function readQH(value) {
     success: function (result) {
       for (var key in result) {
         var obj = result[key];
-        for (key2 in obj) {
-          var obj2 = obj[key2];
-          LocQH(obj2.name, obj2.code);
-        }
+        console.log(obj);
+        LocQH(obj.name, obj.code);
       }
     },
     error: function () {
@@ -249,7 +242,7 @@ function LocQH(nameQH, code) {
 $("#selQH").change(function () {
   document.getElementById("selPX").innerHTML = "";
   var value = $(this).val();
-  readPX(value);
+  // readPX(value);
 });
 
 function readPX(value) {
