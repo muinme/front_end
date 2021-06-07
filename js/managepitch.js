@@ -76,7 +76,6 @@ function readWaitPitch(pitch_id, name, created, tcOrderPitch, tbOrderPitch) {
   $.ajax({
     type: "GET",
     url: HOST + "/football/requestPitch/getSlWaitPitch/" + pitch_id,
-    dataType: "JSON",
     crossDomain: true,
     headers: {
       "Content-Type": "application/json",
@@ -87,7 +86,14 @@ function readWaitPitch(pitch_id, name, created, tcOrderPitch, tbOrderPitch) {
     success: function (result) {
       var obj = result;
       console.log(obj);
-      readListPitch(pitch_id, name, created, tcOrderPitch, tbOrderPitch, obj);
+      readsumRevenuePitch(
+        pitch_id,
+        name,
+        created,
+        tcOrderPitch,
+        tbOrderPitch,
+        obj
+      );
     },
     error: function () {
       console.log("da co loi");
@@ -95,11 +101,17 @@ function readWaitPitch(pitch_id, name, created, tcOrderPitch, tbOrderPitch) {
   });
 }
 
-function readTcOrder(pitch_id, name, created, tcOrderPitch, tbOrderPitch, obj) {
+function readsumRevenuePitch(
+  pitch_id,
+  name,
+  created,
+  tcOrderPitch,
+  tbOrderPitch,
+  waitPitch
+) {
   $.ajax({
     type: "GET",
-    url: HOST + "/football/historyRental/getTcOrder/" + pitch_id,
-    dataType: "JSON",
+    url: HOST + "/football/sumRevenuePitch/" + pitch_id,
     crossDomain: true,
     headers: {
       "Content-Type": "application/json",
@@ -108,9 +120,67 @@ function readTcOrder(pitch_id, name, created, tcOrderPitch, tbOrderPitch, obj) {
       withCredentials: true,
     },
     success: function (result) {
-      var obj = result;
-      console.log(obj);
-      readTbOrder(user_id, fullname, tcMatch, tbMatch, waitMatch, obj);
+      var obj;
+      if (!result) {
+        obj = 0;
+      } else {
+        obj = result;
+      }
+
+      readsumRevenueAll(
+        pitch_id,
+        name,
+        created,
+        tcOrderPitch,
+        tbOrderPitch,
+        waitPitch,
+        obj
+      );
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
+}
+function readsumRevenueAll(
+  pitch_id,
+  name,
+  created,
+  tcOrderPitch,
+  tbOrderPitch,
+  waitPitch,
+  sumRevenuePitch
+) {
+  $.ajax({
+    type: "GET",
+    url: HOST + "/football/sumRevenueAll/" + pitch_id,
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      var obj;
+      if (!result) {
+        obj = 0;
+      } else {
+        obj = result;
+      }
+
+      console.log("dmm" + obj + " " + pitch_id);
+      console.log("dmm2" + obj);
+      readListPitch(
+        pitch_id,
+        name,
+        created,
+        tcOrderPitch,
+        tbOrderPitch,
+        waitPitch,
+        sumRevenuePitch,
+        obj
+      );
     },
     error: function () {
       console.log("da co loi");
@@ -124,7 +194,9 @@ function readListPitch(
   created,
   tcOrderPitch,
   tbOrderPitch,
-  waitPitch
+  waitPitch,
+  sumRevenuePitch,
+  sumRevenueAll
 ) {
   var slds = tcOrderPitch + tbOrderPitch + waitPitch;
   document.getElementById("listUser").innerHTML +=
@@ -152,50 +224,15 @@ function readListPitch(
     "    <th>" +
     waitPitch +
     "</th>" +
+    "    <th>" +
+    sumRevenuePitch +
+    "</th>" +
+    "    <th>" +
+    sumRevenueAll +
+    "</th>" +
     "</tr>";
 }
-function myFunction1(id) {
-  console.log("sdss" + id);
-  $.ajax({
-    type: "POST",
-    url: HOST + "/football/user/updateStatusById1/" + id,
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      console.log("thanh cong");
-      alert("Tài khoản chuyển sang trạng thái hoạt động");
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
-}
-function myFunction2(id) {
-  console.log("sdss2" + id);
-  $.ajax({
-    type: "POST",
-    url: HOST + "/football/user/updateStatusById2/" + id,
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      console.log("thanh cong");
-      alert("Tài khoản chuyển sang trạng thái vô hiệu hóa");
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
-}
+
 function readUser22(fullname, image) {
   console.log("jdjsjidooooooooooooooo");
   document.getElementById("liUser").innerHTML +=
@@ -223,7 +260,7 @@ function readUser22(fullname, image) {
       },
       success: function (result) {
         console.log("thanh cong");
-        window.location.replace("http://localhost:5502/index.html");
+        window.location.replace("http://traibonglan.com/index.html");
       },
       error: function () {
         console.log("da co loi");

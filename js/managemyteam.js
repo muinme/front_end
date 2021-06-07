@@ -48,7 +48,7 @@ function readTeam(fullname, logo, image, id) {
     "" +
     '                                                            <td align="right" style="text-align:right">' +
     '                                                                <div class="form-group">' +
-    '                                                                    <a href="createpitch.html?football_id=' +
+    '                                                                    <a href="changeinformationteam.html?football_id=' +
     id +
     '"' +
     '                                                                        class="btn btn-primary btn-primary-extra dropdown-toggle"' +

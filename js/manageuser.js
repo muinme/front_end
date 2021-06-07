@@ -250,46 +250,71 @@ function readListUser(
     "</tr>";
 }
 function myFunction1(id) {
-  console.log("sdss" + id);
-  $.ajax({
-    type: "POST",
-    url: HOST + "/football/user/updateStatusById1/" + id,
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn chuyển trạng thái hoạt động của tài khoản này chứ?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Đồng ý",
+      closeOnConfirm: false,
     },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      console.log("thanh cong");
-      alert("Tài khoản chuyển sang trạng thái hoạt động");
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
+    function () {
+      $.ajax({
+        type: "POST",
+        url: HOST + "/football/user/updateStatusById1/" + id,
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        xhrFields: {
+          withCredentials: true,
+        },
+        success: function (result) {
+          console.log("thanh cong");
+          swal("Tài khoản chuyển sang trạng thái hoạt động");
+        },
+        error: function () {
+          console.log("da co loi");
+        },
+      });
+    }
+  );
 }
+
 function myFunction2(id) {
-  console.log("sdss2" + id);
-  $.ajax({
-    type: "POST",
-    url: HOST + "/football/user/updateStatusById2/" + id,
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn vô hiệu hóa hoạt động của tài khoản này chứ?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Đồng ý",
+      closeOnConfirm: false,
     },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      console.log("thanh cong");
-      alert("Tài khoản chuyển sang trạng thái vô hiệu hóa");
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
+    function () {
+      $.ajax({
+        type: "POST",
+        url: HOST + "/football/user/updateStatusById2/" + id,
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        xhrFields: {
+          withCredentials: true,
+        },
+        success: function (result) {
+          console.log("thanh cong");
+          swal("Tài khoản chuyển sang trạng thái vô hiệu hóa");
+        },
+        error: function () {
+          console.log("da co loi");
+        },
+      });
+    }
+  );
 }
 function readUser22(fullname, image) {
   console.log("jdjsjidooooooooooooooo");

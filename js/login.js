@@ -26,6 +26,7 @@ $("#login_submit").click(function () {
     },
     error: function () {
       console.log("da co loi");
+      swal("Tài Khoản Đã Bị Vô Hiệu Hóa", "Xin lỗi!", "error");
     },
   });
 });

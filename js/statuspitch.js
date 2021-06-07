@@ -5,6 +5,7 @@ $(document).ready(function () {
 
 function getMoneyPitch(number_pitch_id) {
   var pitch_id = GetURLParameter("pitch_id");
+  console.log("click luu pitch id" + pitch_id);
   $.ajax({
     type: "GET",
     url:
@@ -701,6 +702,7 @@ function readSlPitch() {
         readListNumberPitch(result);
         getStatusHire(1);
         getMoneyPitch(1);
+        getRevenue(1);
       }
     },
     error: function () {
@@ -735,6 +737,8 @@ function myFunction(number_pitch_id) {
   console.log("myFunction: " + number_pitch_id);
   document.getElementById("updatePitch").innerHTML = "";
   document.getElementById("updateMoney").innerHTML = "";
+  document.getElementById("revenue").innerHTML = "";
+  document.getElementById("sumRevenue").innerHTML = "";
   document.getElementById("updatePitch").innerHTML +=
     '<h1 align = center style="color: #43a047;">Cập nhật trạng thái sân bóng</h1>' +
     "                               " +
@@ -781,8 +785,26 @@ function myFunction(number_pitch_id) {
     "    <!-- fa fa-save -->" +
     "</div>";
 
+  document.getElementById("revenue").innerHTML +=
+    '<h1 align = center style="color: #43a047;">Lịch sử doanh thu sân bóng</h1>' +
+    "                               " +
+    '<table id="myTable3" border= 2 style="margin: 0 auto;"> ' +
+    '    <tr style="background-color: #43a047; color: rgb(255, 255, 255);">' +
+    '        <th width = 100 align="center">Tuần</th>' +
+    "        <th width = 300>Tổng số tiền</th>" +
+    "        <th width = 300>Ngày tính</th>" +
+    "    </tr>" +
+    "    " +
+    "</table>";
+
+  document.getElementById("sumRevenue").innerHTML =
+    '<a id="TinhRevenue" onclick="myFucntionRevenue(' +
+    number_pitch_id +
+    ')" class="btn btn-primary btn-primary-extra dropdown-toggle" style="float:none; padding: 5px 20px;"><i class="fa fa-dollar"></i>Tính doanh thu tuần hiện tại</a>';
+
   getStatusHire(number_pitch_id);
   getMoneyPitch(number_pitch_id);
+  getRevenue(number_pitch_id);
 }
 
 function createMiniPitch() {
@@ -824,3 +846,72 @@ function createMiniPitch() {
   );
 }
 
+function getRevenue(number_pitch_id) {
+  var pitch_id = GetURLParameter("pitch_id");
+  $.ajax({
+    type: "GET",
+    url: HOST + "/football/revenue/" + pitch_id + "/" + number_pitch_id,
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      var i = 1;
+      for (var key in result) {
+        var obj = result[key];
+        readRevenue(i, obj.money_revenue, obj.created);
+        i++;
+      }
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
+}
+
+function readRevenue(i, money_revenue, created) {
+  cell0 = "<td>" + i + "</td>";
+  cell1 = "<td>" + money_revenue + "</td>";
+  cell2 = "<td>" + created + "</td>";
+
+  $("#myTable3 tr:last").after("<tr>" + cell0 + cell1 + cell2 + "</tr>");
+}
+
+function myFucntionRevenue(number_pitch_id) {
+  var pitch_id = GetURLParameter("pitch_id");
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn tính doanh thu sân bóng tuần này?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Đồng ý",
+      closeOnConfirm: false,
+    },
+    function () {
+      $.ajax({
+        type: "POST",
+        url: HOST + "/football/sumRevenue/" + pitch_id + "/" + number_pitch_id,
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        xhrFields: {
+          withCredentials: true,
+        },
+        success: function () {
+          swal("Done!", "Tính doanh thu sân bóng thành công!", "success");
+          myFunction(number_pitch_id);
+        },
+        error: function () {
+          swal("Done!", "Tính doanh thu sân bóng thất bại!", "error");
+          console.log("da co loi");
+        },
+      });
+    }
+  );
+}
