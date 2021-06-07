@@ -33,7 +33,7 @@ $("#register_submit").click(function () {
         },
         success: function (result) {
           console.log("thanh cong");
-          window.location.replace("http://traibonglan.com/login.html");
+          window.location.replace("http://traibonglan.comm/login.html");
         },
         error: function () {
           console.log("da co loi");

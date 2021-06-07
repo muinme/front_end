@@ -466,8 +466,9 @@ function searchPost1() {
 }
 
 function AllPost() {
+  console.log("cayyyyyyyyyyyy");
   document.getElementById("listPost").innerHTML = "";
-  getAllTeam();
+  getAllPost();
 }
 
 function searchPost2() {

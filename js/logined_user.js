@@ -91,7 +91,7 @@ function readUser(fullname, image) {
           success: function (result) {
             swal("Đã đăng xuất!", "Hẹn gặp lại bạn nhé", "success");
             console.log("thanh cong");
-            window.location.replace("http://traibonglan.com/index.html");
+            window.location.replace("http://traibonglan.comm/index.html");
           },
           error: function () {
             swal("Đăng xuất bị lỗi", "Xin hãy thử lại", "success");
@@ -142,7 +142,7 @@ function readAdmin(fullname, image) {
           success: function (result) {
             swal("Đã đăng xuất!", "Hẹn gặp lại bạn nhé", "success");
             console.log("thanh cong");
-            window.location.replace("http://traibonglan.com/index.html");
+            window.location.replace("http://traibonglan.comm/index.html");
           },
           error: function () {
             swal("Đăng xuất bị lỗi", "Xin hãy thử lại", "success");

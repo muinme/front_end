@@ -168,8 +168,6 @@ $("#selTinh").change(function () {
 });
 
 function readQH(value) {
-  //   var tinh = $("#selTinh").children("option:selected").text();
-  console.log("change function " + value);
   $.ajax({
     type: "GET",
     url: HOST + "/football/district/" + value,
@@ -238,11 +236,13 @@ function LocPX(namePX, code) {
 }
 
 function AllPitch() {
+  console.log("dmmmm");
   document.getElementById("list_sanbong").innerHTML = "";
   getAllPitch();
 }
 
-function SearchPitch() {
+function searchPitch1() {
+  console.log("cayyyyyyyyyyyyy");
   document.getElementById("list_sanbong").innerHTML = "";
   var tinh = $("#selTinh").children("option:selected").text();
   var qh = $("#selQH").children("option:selected").text();
