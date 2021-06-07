@@ -22,7 +22,7 @@ $("#login_submit").click(function () {
     success: function (result) {
       console.log("thanh cong");
       swal("Đăng nhập thành công!", "Welcome!", "success");
-      window.location.replace("http://traibonglan.comm/index.html");
+      window.location.replace("http://traibonglan.com/index.html");
     },
     error: function () {
       console.log("da co loi");

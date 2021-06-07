@@ -155,7 +155,7 @@ function readProfile(fullname, email, phone, created, image, username) {
   });
 
   $("#btnProfileCancel").click(function () {
-    window.location.replace("http://traibonglan.comm/index.html");
+    window.location.replace("http://traibonglan.com/index.html");
   });
 }
 
