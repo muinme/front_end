@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  LoadPage();
+});
+
+function LoadPage() {
   var football_id = GetURLParameter("football_id");
   $.ajax({
     type: "GET",
@@ -29,8 +33,7 @@ $(document).ready(function () {
       console.log("da co loi");
     },
   });
-});
-
+}
 function GetURLParameter(sParam) {
   var sPageURL = window.location.search.substring(1);
   var sURLVariables = sPageURL.split("&");
@@ -54,7 +57,7 @@ function readTeam(
   introduce,
   address
 ) {
-  document.getElementById("UpdateTeam").innerHTML +=
+  document.getElementById("UpdateTeam").innerHTML =
     ' <div class="tab-pane fade active in" id="detail">' +
     '                                                <div class="col-md-12">' +
     '                                                    <div class="form-group row">' +
@@ -169,7 +172,7 @@ function readTeam(
     image +
     '" alt="avatar"></div>' +
     "                                                        </div>" +
-    '                                                        <form id="uploadForm1" name="uploadForm">' +
+    '                                                        <form id="uploadForm1" name="uploadForm1">' +
     '                                                            <div style="margin-left: 10px; ">' +
     '                                                                <div class="form-group" style="margin-top: 20px;">' +
     "                                                                    <label>Thay đổi ảnh đại diện</label>" +
@@ -191,7 +194,7 @@ function readTeam(
     logo +
     '" alt="avatar"></div>' +
     "                                                        </div>" +
-    '                                                        <form id="uploadForm2" name="uploadForm">' +
+    '                                                        <form id="uploadForm2" name="uploadForm2">' +
     '                                                            <div style="margin-left: 10px; ">' +
     '                                                                <div class="form-group" style="margin-top: 20px;">' +
     "                                                                    <label>Thay đổi ảnh logo</label>" +
@@ -234,7 +237,6 @@ $("#btnSaveTeam").click(function () {
     },
     function () {
       UploadFileImage(football_id);
-      UploadFileLogo(football_id);
       $.ajax({
         type: "POST",
         url: HOST + "/football/teamFootBall/updateProfile/" + football_id,
@@ -253,6 +255,7 @@ $("#btnSaveTeam").click(function () {
             "Hệ thống đã lưu lại quá trình thay đổi của bạn!",
             "success"
           );
+          LoadPage();
         },
         error: function () {
           swal("Cập nhật đội bóng thất bại!", "Xin hãy thử lại sau!", "error");
@@ -281,7 +284,7 @@ function UploadFileImage(id) {
     },
     timeout: 30000,
     success: function () {
-      $("#uploadForm")[0].reset();
+      $("#uploadForm1")[0].reset();
     },
     error: function () {
       //$('#statusUpload').html(jqXHRm.responseJSON.statusName);
@@ -309,11 +312,33 @@ function UploadFileLogo(id) {
     },
     timeout: 30000,
     success: function () {
-      $("#uploadForm")[0].reset();
+      $("#uploadForm2")[0].reset();
+      swal(
+        "Cập nhật logo đội bóng thành công!",
+        "Hệ thống đã lưu lại quá trình thay đổi của bạn!",
+        "success"
+      );
     },
     error: function () {
-      //$('#statusUpload').html(jqXHRm.responseJSON.statusName);
-      console.log("error");
+      swal("Cập nhật logo đội bóng thất bại!", "Xin hãy thử lại sau!", "error");
     },
   });
 }
+
+$("#btnSaveLogo").click(function () {
+  var football_id = GetURLParameter("football_id");
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn lưu lại logo đội bóng chứ?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Đồng ý",
+      closeOnConfirm: false,
+    },
+    function () {
+      UploadFileLogo(football_id);
+    }
+  );
+});

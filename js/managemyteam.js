@@ -43,7 +43,9 @@ function readTeam(fullname, logo, image, id) {
     '">' +
     "                                                            </td>" +
     "                                                            <td>" +
-    '                                                                <img height="120" src="images/san1.jpg">' +
+    '                                                                <img height="120" src="' +
+    image +
+    '">' +
     "                                                            </td>" +
     "" +
     '                                                            <td align="right" style="text-align:right">' +

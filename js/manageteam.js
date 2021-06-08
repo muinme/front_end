@@ -222,48 +222,7 @@ function readListMatch(
     "</th>" +
     "</tr>";
 }
-function myFunction1(id) {
-  console.log("sdss" + id);
-  $.ajax({
-    type: "POST",
-    url: HOST + "/football/user/updateStatusById1/" + id,
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      console.log("thanh cong");
-      alert("Tài khoản chuyển sang trạng thái hoạt động");
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
-}
-function myFunction2(id) {
-  console.log("sdss2" + id);
-  $.ajax({
-    type: "POST",
-    url: HOST + "/football/user/updateStatusById2/" + id,
-    crossDomain: true,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    xhrFields: {
-      withCredentials: true,
-    },
-    success: function (result) {
-      console.log("thanh cong");
-      alert("Tài khoản chuyển sang trạng thái vô hiệu hóa");
-    },
-    error: function () {
-      console.log("da co loi");
-    },
-  });
-}
+
 function readUser22(fullname, image) {
   console.log("jdjsjidooooooooooooooo");
   document.getElementById("liUser").innerHTML +=

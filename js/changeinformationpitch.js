@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  LoadPage();
+});
+
+function LoadPage() {
   var pitch_id = GetURLParameter("pitch_id");
   $.ajax({
     type: "GET",
@@ -27,7 +31,7 @@ $(document).ready(function () {
       console.log("da co loi");
     },
   });
-});
+}
 
 function GetURLParameter(sParam) {
   var sPageURL = window.location.search.substring(1);
@@ -203,7 +207,7 @@ $("#btnSavePitch").click(function () {
   swal(
     {
       title: "Bạn chắc chắn rằng?",
-      text: "Bạn muốn tạo sân bóng với các thông tin trên chứ?",
+      text: "Bạn muốn cập nhật sân bóng với các thông tin trên chứ?",
       type: "warning",
       showCancelButton: true,
       confirmButtonClass: "btn-danger",
@@ -241,3 +245,53 @@ $("#btnSavePitch").click(function () {
     }
   );
 });
+
+$("#btnSaveImage").click(function () {
+  var pitch_id = GetURLParameter("pitch_id");
+  swal(
+    {
+      title: "Bạn chắc chắn rằng?",
+      text: "Bạn muốn lưu lại logo đội bóng chứ?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Đồng ý",
+      closeOnConfirm: false,
+    },
+    function () {
+      UploadFileImage(pitch_id);
+    }
+  );
+});
+
+function UploadFileImage(id) {
+  var form = $("#uploadForm")[0];
+  var data = new FormData(form);
+  //console.log(data);
+  $.ajax({
+    type: "POST",
+    enctype: "multipart/form-data",
+    dataType: "JSON",
+    url: HOST + "/admin/sync/options/importfileImagePitch/" + id,
+    data: data,
+    processData: false,
+    contentType: false,
+    cache: false,
+    crossDomain: true,
+    xhrFields: {
+      withCredentials: true,
+    },
+    timeout: 30000,
+    success: function () {
+      $("#uploadForm2")[0].reset();
+      swal(
+        "Cập nhật logo đội bóng thành công!",
+        "Hệ thống đã lưu lại quá trình thay đổi của bạn!",
+        "success"
+      );
+    },
+    error: function () {
+      swal("Cập nhật logo đội bóng thất bại!", "Xin hãy thử lại sau!", "error");
+    },
+  });
+}

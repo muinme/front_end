@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  readLoadPage();
+});
+
+function readLoadPage() {
   $.ajax({
     type: "GET",
     url: HOST + "/football/userByUsername",
@@ -26,8 +30,7 @@ $(document).ready(function () {
       console.log("da co loi");
     },
   });
-});
-
+}
 function readProfile(fullname, email, phone, created, image, username) {
   readAvatar(image);
   document.getElementById("frmEditProfile").innerHTML +=
