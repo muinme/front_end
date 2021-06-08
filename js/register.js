@@ -21,38 +21,39 @@ $("#register_submit").click(function () {
       formData.phone
     ) == true
   ) {
-    checkUsername();
-    if (checkPassword(formData.password, confirmPassword) != false) {
-      swal(
-        {
-          title: "Bạn chắc chắn rằng?",
-          text: "Bạn muốn tạo tài khoản với thông tin này chứ?",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonClass: "btn-danger",
-          confirmButtonText: "Đồng ý",
-          closeOnConfirm: false,
-        },
-        function () {
-          $.ajax({
-            type: "POST",
-            url: HOST + "/football/register",
-            dataType: "JSON",
-            data: JSON.stringify(formData),
-            crossDomain: true,
-            headers: {
-              "Content-Type": "application/json",
-            },
-            success: function (result) {
-              swal("Tạo tài khoản thành công", "Done!", "success");
-              window.location.replace("http://traibonglan.com/login.html");
-            },
-            error: function () {
-              swal("Tạo tài khoản thành bại", "Sorry!", "error");
-            },
-          });
-        }
-      );
+    if (checkUsername() != false) {
+      if (checkPassword(formData.password, confirmPassword) != false) {
+        swal(
+          {
+            title: "Bạn chắc chắn rằng?",
+            text: "Bạn muốn tạo tài khoản với thông tin này chứ?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Đồng ý",
+            closeOnConfirm: false,
+          },
+          function () {
+            $.ajax({
+              type: "POST",
+              url: HOST + "/football/register",
+              dataType: "JSON",
+              data: JSON.stringify(formData),
+              crossDomain: true,
+              headers: {
+                "Content-Type": "application/json",
+              },
+              success: function (result) {
+                swal("Tạo tài khoản thành công", "Done!", "success");
+                window.location.replace("http://traibonglan.com/login.html");
+              },
+              error: function () {
+                swal("Tạo tài khoản thành bại", "Sorry!", "error");
+              },
+            });
+          }
+        );
+      }
     }
   }
 });
@@ -102,10 +103,14 @@ function checkUsername() {
     success: function (result) {
       if (!result) {
         swal("Tên đăng nhập hợp lệ");
+        return true;
       } else {
         swal("Tên đăng nhập đã tồn tại");
+        return false;
       }
     },
-    error: function () {},
+    error: function () {
+      return false;
+    },
   });
 }
