@@ -102,7 +102,6 @@ function checkUsername() {
     },
     success: function (result) {
       if (!result) {
-        swal("Tên đăng nhập hợp lệ");
         return true;
       } else {
         swal("Tên đăng nhập đã tồn tại");
