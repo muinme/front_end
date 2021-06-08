@@ -144,6 +144,7 @@ function readProfile(fullname, email, phone, created, image, username) {
               "Hệ thống đã lưu lại quá trình thay đổi của bạn!",
               "success"
             );
+            readLoadPage();
           },
           error: function () {
             swal(
