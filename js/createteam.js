@@ -1,7 +1,7 @@
 $("#btnCreateTeam").click(function () {
   var formData = {
     name: $("#name").val(),
-    address: $("#address").children("option:selected").text(),
+    address: $("#address").val(),
     agemin: $("#agemin").val(),
     agemax: $("#agemax").val(),
     homeyard: $("#homeyard").val(),
