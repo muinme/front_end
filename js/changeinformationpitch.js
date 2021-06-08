@@ -54,7 +54,7 @@ function readPitch(
   email,
   facebook
 ) {
-  document.getElementById("UpdatePitch").innerHTML +=
+  document.getElementById("UpdatePitch").innerHTML =
     '<div class="tab-pane fade active in" id="detail">' +
     '    <div class="col-md-12">' +
     '        <div class="form-group row">' +

@@ -33,7 +33,7 @@ function readLoadPage() {
 }
 function readProfile(fullname, email, phone, created, image, username) {
   readAvatar(image);
-  document.getElementById("frmEditProfile").innerHTML +=
+  document.getElementById("frmEditProfile").innerHTML =
     '<div class="row form-group">' +
     '    <div class="col-sm-3 col-xs-6">' +
     '        <label class="control-label" style="font-size: 18px;">Họ Và Tên</label>' +
