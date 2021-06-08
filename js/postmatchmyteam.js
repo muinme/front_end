@@ -15,7 +15,6 @@ $(document).ready(function () {
     success: function (result) {
       for (var key in result) {
         var obj = result[key];
-        console.log("object= " + JSON.stringify(obj) + "\nid = " + obj.id);
         readMyTeam(
           obj.id,
           obj.football_id,
@@ -220,7 +219,6 @@ function readMyPost(
   }
 }
 function myFunction(id) {
-  console.log("sdss" + id);
   $.ajax({
     type: "POST",
     url: HOST + "/football/postMatchTeam/delete/" + id,
@@ -253,6 +251,44 @@ function myFunction2(id) {
     },
     success: function (result) {
       console.log("thanh cong");
+    },
+    error: function () {
+      console.log("da co loi");
+    },
+  });
+}
+
+function creatematch() {
+  console.log("vcllllll");
+  $.ajax({
+    type: "GET",
+    url: HOST + "/football/teamFootBall/sl/Username",
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      if (result == 0) {
+        swal(
+          {
+            title: "Bạn chưa có đội bóng?",
+            text: "Bạn muốn tạo đội bóng chứ?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Đồng ý",
+            closeOnConfirm: false,
+          },
+          function () {
+            window.location.replace("http://traibonglan.com/createteam.html");
+          }
+        );
+      } else {
+        window.location.replace("http://traibonglan.com/creatematch.html");
+      }
     },
     error: function () {
       console.log("da co loi");

@@ -1,3 +1,8 @@
+$(document).ready(function () {
+  console.log("cayyyyyyyyyyyyyyyyyyyy");
+ 
+});
+
 $("#btnCreateMatch").click(function () {
   console.log("ok chuaaaa");
   var team = $("#inpTeam").val();
