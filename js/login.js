@@ -57,7 +57,6 @@ function myfunction() {
 }
 
 function resetAccount(username) {
-  console.log(username);
   swal(
     {
       title: "Bạn chắc chắn rằng?",

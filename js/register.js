@@ -21,33 +21,45 @@ $("#register_submit").click(function () {
       formData.phone
     ) == true
   ) {
+    checkUsername();
     if (checkPassword(formData.password, confirmPassword) != false) {
-      $.ajax({
-        type: "POST",
-        url: HOST + "/football/register",
-        dataType: "JSON",
-        data: JSON.stringify(formData),
-        crossDomain: true,
-        headers: {
-          "Content-Type": "application/json",
+      swal(
+        {
+          title: "Bạn chắc chắn rằng?",
+          text: "Bạn muốn tạo tài khoản với thông tin này chứ?",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonClass: "btn-danger",
+          confirmButtonText: "Đồng ý",
+          closeOnConfirm: false,
         },
-        success: function (result) {
-          console.log("thanh cong");
-          window.location.replace("http://traibonglan.com/login.html");
-        },
-        error: function () {
-          console.log("da co loi");
-        },
-      });
+        function () {
+          $.ajax({
+            type: "POST",
+            url: HOST + "/football/register",
+            dataType: "JSON",
+            data: JSON.stringify(formData),
+            crossDomain: true,
+            headers: {
+              "Content-Type": "application/json",
+            },
+            success: function (result) {
+              swal("Tạo tài khoản thành công", "Done!", "success");
+              window.location.replace("http://traibonglan.com/login.html");
+            },
+            error: function () {
+              swal("Tạo tài khoản thành bại", "Sorry!", "error");
+            },
+          });
+        }
+      );
     }
   }
 });
 
 function checkPassword(password, confirmPassword) {
-  console.log("checkPassword");
-
   if (password != confirmPassword) {
-    alert("Mật khẩu và xác nhận mật khẩu không trùng khớp");
+    swal("Mật khẩu và xác nhận mật khẩu không trùng khớp");
     return false;
   }
   return true;
@@ -69,9 +81,31 @@ function checkFill(
     email == "" ||
     phone == ""
   ) {
-    console.log("trong");
-    alert("Vui lòng điền đầy đủ thông tin");
+    swal("Vui lòng điền đầy đủ thông tin");
     return false;
   }
   return true;
+}
+
+function checkUsername() {
+  var username = $("#inpUsername").val();
+  $.ajax({
+    type: "GET",
+    url: HOST + "/football/user/" + username,
+    crossDomain: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    xhrFields: {
+      withCredentials: true,
+    },
+    success: function (result) {
+      if (!result) {
+        swal("Tên đăng nhập hợp lệ");
+      } else {
+        swal("Tên đăng nhập đã tồn tại");
+      }
+    },
+    error: function () {},
+  });
 }
