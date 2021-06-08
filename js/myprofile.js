@@ -164,7 +164,7 @@ function readProfile(fullname, email, phone, created, image, username) {
 }
 
 function readAvatar(image) {
-  document.getElementById("Avatar").innerHTML +=
+  document.getElementById("Avatar").innerHTML =
     '<img id="profile-avatar" class="media-object" width="100%"' +
     'src="' +
     image +
