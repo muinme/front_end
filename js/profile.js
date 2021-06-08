@@ -13,7 +13,13 @@ $(document).ready(function () {
     success: function (result) {
       var obj = result;
       console.log("object= " + JSON.stringify(obj) + "\nid = " + obj.fullname);
-      createThongTinCaNhan(obj.fullname, obj.email, obj.phone, obj.created);
+      createThongTinCaNhan(
+        obj.fullname,
+        obj.email,
+        obj.phone,
+        obj.created,
+        obj.image
+      );
     },
     error: function () {
       console.log("da co loi");
@@ -32,7 +38,8 @@ function GetURLParameter(sParam) {
   }
 }
 
-function createThongTinCaNhan(fullname, email, phone, created) {
+function createThongTinCaNhan(fullname, email, phone, created, image) {
+  createAvatar(image);
   document.getElementById("frmEditProfile").innerHTML +=
     "<form>" +
     '    <div class="row">' +
@@ -96,4 +103,14 @@ function createThongTinCaNhan(fullname, email, phone, created) {
     "        </div>" +
     "    </div>" +
     "</form>";
+}
+
+function createAvatar(image) {
+  document.getElementById("Avartar").innerHTML =
+    '<div class="img-profile" title="Tải lên một hình ảnh đại diện">' +
+    '    <img id="profile-avatar" class="media-object" width="100%"' +
+    '        src="' +
+    image +
+    '" alt="avatar">' +
+    "</div>";
 }

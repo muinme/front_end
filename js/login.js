@@ -19,7 +19,7 @@ $("#login_submit").click(function () {
     },
     success: function (result) {
       swal("Đăng nhập thành công!", "Welcome!", "success");
-      window.location.replace("http://traibonglan.com/index.html");
+      window.location.replace("http://localhost:5501/index.html");
     },
     error: function () {
       swal("Mật khẩu không đúng", "Xin lỗi!", "error");

@@ -283,11 +283,11 @@ function creatematch() {
             closeOnConfirm: false,
           },
           function () {
-            window.location.replace("http://traibonglan.com/createteam.html");
+            window.location.replace("http://localhost:5501/createteam.html");
           }
         );
       } else {
-        window.location.replace("http://traibonglan.com/creatematch.html");
+        window.location.replace("http://localhost:5501/creatematch.html");
       }
     },
     error: function () {

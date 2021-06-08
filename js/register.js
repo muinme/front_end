@@ -45,7 +45,7 @@ $("#register_submit").click(function () {
               },
               success: function (result) {
                 swal("Tạo tài khoản thành công", "Done!", "success");
-                window.location.replace("http://traibonglan.com/login.html");
+                window.location.replace("http://localhost:5501/login.html");
               },
               error: function () {
                 swal("Tạo tài khoản thành bại", "Sorry!", "error");

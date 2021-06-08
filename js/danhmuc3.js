@@ -14,7 +14,7 @@ $(document).ready(function () {
     },
     success: function (result) {
       var obj = result;
-      readDanhMuc(obj.fullname, obj.image);
+      readDanhMuc(obj.fullname, obj.image, obj.id);
     },
     error: function () {
       console.log("da co loi");
@@ -22,7 +22,7 @@ $(document).ready(function () {
   });
 });
 
-function readDanhMuc(fullname, image) {
+function readDanhMuc(fullname, image, id) {
   document.getElementById("DanhMuc").innerHTML =
     '<div class="img-doio"><img class="img-responsive" src="' +
     image +
@@ -31,7 +31,9 @@ function readDanhMuc(fullname, image) {
     '               <h1 style="text-align: left;"><span class="gender"></span></h1>' +
     '               <p class="captain-item" owner-id="7054">' +
     '                  <span style="color: #ffffff;font-size: 15px !important;">' +
-    '                     <a href="/user/profile/7054" style="color: #ffffff;font-size: 18px !important;color: #ffffff;">' +
+    '                     <a href="profile.html?user_id=' +
+    id +
+    '" style="color: #ffffff;font-size: 18px !important;color: #ffffff;">' +
     fullname +
     "" +
     "                        </a> (đội trưởng)" +
