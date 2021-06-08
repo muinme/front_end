@@ -233,7 +233,7 @@ $("#btnSavePitch").click(function () {
             "Hệ thống đã lưu lại quá trình thay đổi của bạn!",
             "success"
           );
-          LoadPage();
+          location.reload();
         },
         error: function () {
           swal(
