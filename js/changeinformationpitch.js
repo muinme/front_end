@@ -233,6 +233,7 @@ $("#btnSavePitch").click(function () {
             "Hệ thống đã lưu lại quá trình thay đổi của bạn!",
             "success"
           );
+          LoadPage();
         },
         error: function () {
           swal(
@@ -283,7 +284,7 @@ function UploadFileImage(id) {
     },
     timeout: 30000,
     success: function () {
-      $("#uploadForm2")[0].reset();
+      $("#uploadForm")[0].reset();
       swal(
         "Cập nhật logo đội bóng thành công!",
         "Hệ thống đã lưu lại quá trình thay đổi của bạn!",
