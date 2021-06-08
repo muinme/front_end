@@ -144,7 +144,7 @@ function readProfile(fullname, email, phone, created, image, username) {
               "Hệ thống đã lưu lại quá trình thay đổi của bạn!",
               "success"
             );
-            readLoadPage();
+            location.reload();
           },
           error: function () {
             swal(
@@ -159,7 +159,7 @@ function readProfile(fullname, email, phone, created, image, username) {
   });
 
   $("#btnProfileCancel").click(function () {
-    window.location.replace("http://traibonglan.com/index.html");
+    window.location.replace("http://localhost:5501/index.html");
   });
 }
 
