@@ -159,7 +159,7 @@ function readProfile(fullname, email, phone, created, image, username) {
   });
 
   $("#btnProfileCancel").click(function () {
-    window.location.replace("http://localhost:5501/index.html");
+    window.location.replace("http://traibonglan.com/index.html");
   });
 }
 

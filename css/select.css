@@ -1,0 +1,7 @@
+select {
+  font-family: "FontAwesome", "Second Font name";
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}

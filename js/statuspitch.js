@@ -151,49 +151,49 @@ function readMoneyPitch(
   }
   cell1 =
     '<td class="cellStatus">' +
-    '<input class="form-control" id="money" type="text" value="' +
+    '<input class="form-control" id="money" style="font-weight: 700;" type="text" value="' +
     status0 +
     '">' +
     "</td>";
 
   cell2 =
     '<td class="cellStatus">' +
-    '<input class="form-control" id="money1" type="text" value="' +
+    '<input class="form-control" id="money1" style="font-weight: 700;" type="text" value="' +
     status1 +
     '">' +
     "</td>";
 
   cell3 =
     '<td class="cellStatus">' +
-    '<input class="form-control" id="money2" type="text" value="' +
+    '<input class="form-control" id="money2" style="font-weight: 700;" type="text" value="' +
     status2 +
     '">' +
     "</td>";
 
   cell4 =
     '<td class="cellStatus">' +
-    '<input class="form-control" id="money3" type="text" value="' +
+    '<input class="form-control" id="money3" style="font-weight: 700;" type="text" value="' +
     status3 +
     '">' +
     "</td>";
 
   cell5 =
     '<td class="cellStatus">' +
-    '<input class="form-control" id="money4" type="text" value="' +
+    '<input class="form-control" id="money4" style="font-weight: 700;" type="text" value="' +
     status4 +
     '">' +
     "</td>";
 
   cell6 =
     '<td class="cellStatus">' +
-    '<input class="form-control" id="money5" type="text" value="' +
+    '<input class="form-control" id="money5" style="font-weight: 700;" type="text" value="' +
     status5 +
     '">' +
     "</td>";
 
   cell7 =
     '<td class="cellStatus">' +
-    '<input class="form-control" id="money6" type="text" value="' +
+    '<input class="form-control" id="money6" style="font-weight: 700;" type="text" value="' +
     status6 +
     '">' +
     "</td>";
@@ -285,133 +285,133 @@ function readStatuPitch(
   if (status0 == "0") {
     cell1 =
       '<td class="cellStatus">' +
-      '  <select name="cars" id="status" style="background-color: #40e2d7">' +
-      '    <option value="1">Đã Thuê</option>' +
-      '    <option value="0" selected="selected">Chưa Thuê</option>' +
+      '  <select name="cars" id="status" style="background-color: #40e2d7;width: -webkit-fill-available;">' +
+      '    <option value="1">&#xf046;</i>' +
+      '    <option value="0" selected="selected"></option>' +
       "  </select>" +
       "</td>";
   } else {
     cell1 =
       '<td class="cellStatus">' +
       '    <select name="cars" id="status" style="' +
-      "    background-color: #40e2d7;" +
+      "    background-color: #40e2d7;width: -webkit-fill-available;" +
       '">' +
-      '        <option value="1" selected="selected">Đã Thuê</option>' +
-      '        <option value="0">Chưa Thuê</option>' +
+      '        <option value="1" selected="selected">&#xf046;</option>' +
+      '        <option value="0"></option>' +
       "      </select>" +
       "</td>";
   }
   if (status1 == "0") {
     cell2 =
       '<td class="cellStatus">' +
-      '  <select name="cars" id="status1" style="background-color: #40e2d7">' +
-      '    <option value="1">Đã Thuê</option>' +
-      '    <option value="0" selected="selected">Chưa Thuê</option>' +
+      '  <select name="cars" id="status1" style="background-color: #40e2d7;width: -webkit-fill-available;">' +
+      '    <option value="1">&#xf046;</option>' +
+      '    <option value="0" selected="selected"></option>' +
       "  </select>" +
       "</td>";
   } else {
     cell2 =
       '<td class="cellStatus">' +
       '    <select name="cars" id="status1" style="' +
-      "    background-color: #40e2d7;" +
+      "    background-color: #40e2d7;width: -webkit-fill-available;" +
       '">' +
-      '        <option value="1" selected="selected">Đã Thuê</option>' +
-      '        <option value="0">Chưa Thuê</option>' +
+      '        <option value="1" selected="selected">&#xf046;</option>' +
+      '        <option value="0"></option>' +
       "      </select>" +
       "</td>";
   }
   if (status2 == "0") {
     cell3 =
       '<td class="cellStatus">' +
-      '  <select name="cars" id="status2" style="background-color: #40e2d7">' +
-      '    <option value="1">Đã Thuê</option>' +
-      '    <option value="0" selected="selected">Chưa Thuê</option>' +
+      '  <select name="cars" id="status2" style="background-color: #40e2d7;width: -webkit-fill-available;">' +
+      '    <option value="1">&#xf046;</option>' +
+      '    <option value="0" selected="selected"></option>' +
       "  </select>" +
       "</td>";
   } else {
     cell3 =
       '<td class="cellStatus">' +
       '    <select name="cars" id="status2" style="' +
-      "    background-color: #40e2d7;" +
+      "    background-color: #40e2d7;width: -webkit-fill-available;" +
       '">' +
-      '        <option value="1" selected="selected">Đã Thuê</option>' +
-      '        <option value="0">Chưa Thuê</option>' +
+      '        <option value="1" selected="selected">&#xf046;</option>' +
+      '        <option value="0"></option>' +
       "      </select>" +
       "</td>";
   }
   if (status3 == "0") {
     cell4 =
       '<td class="cellStatus">' +
-      '  <select name="cars" id="status3" style="background-color: #40e2d7">' +
-      '    <option value="1">Đã Thuê</option>' +
-      '    <option value="0" selected="selected">Chưa Thuê</option>' +
+      '  <select name="cars" id="status3" style="background-color: #40e2d7;width: -webkit-fill-available;">' +
+      '    <option value="1">&#xf046;</option>' +
+      '    <option value="0" selected="selected"></option>' +
       "  </select>" +
       "</td>";
   } else {
     cell4 =
       '<td class="cellStatus">' +
       '    <select name="cars" id="status3" style="' +
-      "    background-color: #40e2d7;" +
+      "    background-color: #40e2d7;width: -webkit-fill-available;" +
       '">' +
-      '        <option value="1" selected="selected">Đã Thuê</option>' +
-      '        <option value="0">Chưa Thuê</option>' +
+      '        <option value="1" selected="selected">&#xf046;</option>' +
+      '        <option value="0"></option>' +
       "      </select>" +
       "</td>";
   }
   if (status4 == "0") {
     cell5 =
       '<td class="cellStatus">' +
-      '  <select name="cars" id="status4" style="background-color: #40e2d7">' +
-      '    <option value="1">Đã Thuê</option>' +
-      '    <option value="0" selected="selected">Chưa Thuê</option>' +
+      '  <select name="cars" id="status4" style="background-color: #40e2d7;width: -webkit-fill-available;">' +
+      '    <option value="1">&#xf046;</option>' +
+      '    <option value="0" selected="selected"></option>' +
       "  </select>" +
       "</td>";
   } else {
     cell5 =
       '<td class="cellStatus">' +
       '    <select name="cars" id="status4" style="' +
-      "    background-color: #40e2d7;" +
+      "    background-color: #40e2d7;width: -webkit-fill-available;" +
       '">' +
-      '        <option value="1" selected="selected">Đã Thuê</option>' +
-      '        <option value="0">Chưa Thuê</option>' +
+      '        <option value="1" selected="selected">&#xf046;</option>' +
+      '        <option value="0"></option>' +
       "      </select>" +
       "</td>";
   }
   if (status5 == "0") {
     cell6 =
       '<td class="cellStatus">' +
-      '  <select name="cars" id="status5" style="background-color: #40e2d7">' +
-      '    <option value="1">Đã Thuê</option>' +
-      '    <option value="0" selected="selected">Chưa Thuê</option>' +
+      '  <select name="cars" id="status5" style="background-color: #40e2d7;width: -webkit-fill-available;">' +
+      '    <option value="1">&#xf046;</option>' +
+      '    <option value="0" selected="selected"></option>' +
       "  </select>" +
       "</td>";
   } else {
     cell6 =
       '<td class="cellStatus">' +
       '    <select name="cars" id="status5" style="' +
-      "    background-color: #40e2d7;" +
+      "    background-color: #40e2d7;width: -webkit-fill-available;" +
       '">' +
-      '        <option value="1" selected="selected">Đã Thuê</option>' +
-      '        <option value="0">Chưa Thuê</option>' +
+      '        <option value="1" selected="selected">&#xf046;</option>' +
+      '        <option value="0"></option>' +
       "      </select>" +
       "</td>";
   }
   if (status6 == "0") {
     cell7 =
       '<td class="cellStatus">' +
-      '  <select name="cars" id="status6" style="background-color: #40e2d7">' +
-      '    <option value="1">Đã Thuê</option>' +
-      '    <option value="0" selected="selected">Chưa Thuê</option>' +
+      '  <select name="cars" id="status6" style="background-color: #40e2d7;width: -webkit-fill-available;">' +
+      '    <option value="1">&#xf046;</option>' +
+      '    <option value="0" selected="selected"></option>' +
       "  </select>" +
       "</td>";
   } else {
     cell7 =
       '<td class="cellStatus">' +
       '    <select name="cars" id="status6" style="' +
-      "    background-color: #40e2d7;" +
+      "    background-color: #40e2d7;width: -webkit-fill-available;" +
       '">' +
-      '        <option value="1" selected="selected">Đã Thuê</option>' +
-      '        <option value="0">Chưa Thuê</option>' +
+      '        <option value="1" selected="selected">&#xf046;</option>' +
+      '        <option value="0"></option>' +
       "      </select>" +
       "</td>";
   }
